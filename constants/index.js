@@ -215,7 +215,7 @@ const projects = [
       { name: "Stripe Payments", color: "green-text-gradient" },
       { name: "Role-Based Access", color: "pink-text-gradient" },
     ],
-    image: "/assets/projects/clay.png",
+    image: "/assets/projects/clayhaven.png",
     source_code_link: "https://github.com/Mohamedmahdy404/ClayHaven#",
     deployed_link: "http://clayhaven.runasp.net/",
   },
