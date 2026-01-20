@@ -79,7 +79,7 @@ const technologies = {
   ],
   libraries: [
     { name: "JWT (JSON Web Tokens)", icon: "/assets/tech/jwt.svg", link: "https://jwt.io/" },
-    { name: "SignalR", icon: "/assets/tech/signalr.svg", link: "https://dotnet.microsoft.com/apps/aspnet/signalr" },
+    { name: "SignalR", icon: "/assets/tech/SignalRCreate.svg", link: "https://dotnet.microsoft.com/apps/aspnet/signalr" },
     { name: "RxJS", icon: "/assets/tech/rxjs.svg", link: "https://rxjs.dev/" },
   ],
   tools: [
