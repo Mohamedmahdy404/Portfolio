@@ -115,26 +115,40 @@ const technologies = {
 
 const experiences = [
   {
-    title: ".NET Backend Developer",
-    company_name: "Newulm Medical",
-    icon: "/assets/company/Newulm.ico",
+    title: "Software Engineer",
+    company_name: "Arab International Bank (AIB)",
+    icon: "/assets/company/Arab_International_Bank.png",
     iconBg: "#E6DEDD",
-    date: "Dec 2025 - Present",
+    date: "Mar 2026 - Present",
     points: [
-      "Contribute to a healthcare booking platform connecting users with licensed providers.",
-      "Develop and maintain Azure-based microservices with reliable API contracts and event-driven communication.",
-      "Work with SQL and NoSQL persistence and implement idempotent delivery patterns in distributed workflows.",
+      "Contribute to application development and integration workflows that support business and operational data processes across internal banking systems.",
+      "Designed and implemented ETL pipelines with SSIS to extract, transform, and load enterprise database data into structured outputs.",
+      "Wrote complex, optimized, and secure SQL queries for efficient data retrieval and processing in a banking environment.",
     ],
   },
   {
-    title: "Full-Stack .NET Instructor",
-    company_name: "Information Technology Institute (ITI)",
+    title: ".NET Backend Developer (Part-Time)",
+    company_name: "Newulm Medical",
+    icon: "/assets/company/Newulm.ico",
+    iconBg: "#E6DEDD",
+    date: "Dec 2025 - Apr 2026",
+    points: [
+      "Built backend services for Ulm Care, a healthcare booking platform supporting surgery reservations, lab tests, and home-visit scheduling.",
+      "Contributed to Paxi Go, a ride-hailing and delivery platform, implementing real-time request dispatching and live tracking features.",
+      "Designed and maintained microservices-based backend systems using Domain-Driven Design principles to define service boundaries and responsibilities.",
+      "Implemented CI/CD pipelines with GitHub Actions and used Microsoft Azure for automated deployment and reliable release workflows.",
+      "Worked with SQL and NoSQL databases and integrated third-party APIs across healthcare and mobility services.",
+    ],
+  },
+  {
+    title: "Full-Stack .NET Instructor (Part-Time)",
+    company_name: "Information Technology Institute (ITI) - MCIT",
     icon: "/assets/company/Iti-Icon.ico",
     iconBg: "#E6DEDD",
     date: "Jul 2025 - Present",
     points: [
-      "Teaching C#, .NET fundamentals, databases and frontend technologies (HTML, CSS, JS, Angular).",
-      "Designed hands-on sessions and guided students through practical projects using Visual Studio and SQL Server.",
+      "Taught core modules of the Full-Stack .NET diploma, covering C#, Entity Framework, ASP.NET MVC, Web API, databases, TypeScript, and Angular.",
+      "Designed practical sessions and guided students through hands-on projects focused on OOP, clean code, and maintainable application design.",
     ],
   },
   {
@@ -142,21 +156,12 @@ const experiences = [
     company_name: "New Vision Systems Canada",
     icon: "/assets/company/erasebg-transformed.png",
     iconBg: "#E6DEDD",
-    date: "Mar 2025 - Present",
+    date: "Mar 2025 - Mar 2026",
     points: [
-      "Designed and implemented full-stack .NET solutions using ASP.NET Core and Entity Framework.",
-      "Built responsive frontends with Angular, HTML5 and CSS3.",
-    ],
-  },
-  {
-    title: "Full-stack .Net Web Development (Internship)",
-    company_name: "Information Technology Institute (ITI)",
-    icon: "/assets/company/Iti-Icon.ico",
-    iconBg: "#E6DEDD",
-    date: "Nov 2024 - Mar 2025",
-    points: [
-      "Intensive 4-month full-stack .NET web development program (ICC / ITP).",
-      "Worked on ASP.NET, Web API, and frontend integration topics during the intensive code camp.",
+      "Contributed to web applications for RFID-enabled inventory management and access control system integration.",
+      "Built and enhanced full-stack solutions using ASP.NET Core, ABP Framework, Entity Framework Core, SignalR, and SQL Server.",
+      "Developed responsive front-end interfaces using Angular, ABP Angular libraries, and PrimeNG.",
+      "Integrated Apache Kafka for event-driven data streaming between RFID backend services and web-facing applications.",
     ],
   },
 ];
@@ -189,6 +194,34 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "Paxi Go",
+    description:
+      "Ride-hailing and delivery platform with real-time request dispatching and live tracking features, built as part of Newulm's mobility services ecosystem.",
+    tags: [
+      { name: "ASP.NET Core", color: "blue-text-gradient" },
+      { name: "Microservices", color: "green-text-gradient" },
+      { name: "Real-Time Tracking", color: "pink-text-gradient" },
+      { name: "Azure", color: "blue-text-gradient" },
+    ],
+    image: "/assets/projects/paxi-go.png",
+    source_code_link: "#",
+    deployed_link: "https://play.google.com/store/apps/details?id=com.newulm.paxi&hl=eng",
+  },
+  {
+    name: "Ulm Care",
+    description:
+      "Healthcare booking platform supporting surgery reservations, lab tests, and home-visit scheduling with scalable backend services.",
+    tags: [
+      { name: "ASP.NET Core", color: "blue-text-gradient" },
+      { name: "Healthcare", color: "green-text-gradient" },
+      { name: "Microservices", color: "pink-text-gradient" },
+      { name: "Azure", color: "blue-text-gradient" },
+    ],
+    image: "/assets/projects/ulm-care.png",
+    source_code_link: "#",
+    deployed_link: "https://play.google.com/store/apps/details?id=com.newulm.ulmcare&hl=eng",
+  },
   {
     name: "Store Management System",
     description:
