@@ -31,12 +31,12 @@ function ProjectCard({
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.1 }}
-      className="w-full"
+      className="w-full md:w-[370px]"
     >
       <Tilt
         tiltMaxAngleX={10}
         tiltMaxAngleY={10}
-        className="dark:bg-bgSecondaryDark bg-bgSecondaryLight p-3 md:p-5 rounded-xl md:rounded-2xl w-full sm:w-[370px] h-fit min-h-[390px] xs:min-h-[410px] md:min-h-[590px] shadow-sm shadow-primary"
+        className="dark:bg-bgSecondaryDark bg-bgSecondaryLight p-3 md:p-5 rounded-xl md:rounded-2xl w-full h-fit min-h-[390px] xs:min-h-[410px] md:min-h-[590px] shadow-sm shadow-primary"
       >
         <div className="relative w-full h-[105px] xs:h-[120px] md:h-[230px]">
           <div className="w-full h-full rounded-xl md:rounded-2xl relative overflow-hidden">
