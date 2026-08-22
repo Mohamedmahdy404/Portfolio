@@ -195,6 +195,20 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Moussa Shipping",
+    description:
+      "Corporate website for Moussa Ship Supply in Port Said, Egypt, presenting its 24-hour ship provisioning, technical, and general supply services with direct department contact channels.",
+    tags: [
+      { name: "Ship Supply", color: "blue-text-gradient" },
+      { name: "Provisions", color: "green-text-gradient" },
+      { name: "Technical Supply", color: "pink-text-gradient" },
+      { name: "Responsive Website", color: "blue-text-gradient" },
+    ],
+    image: "/assets/projects/moussa-shipping.png",
+    source_code_link: "#",
+    deployed_link: "https://moussa-shipping.com/",
+  },
+  {
     name: "Paxi Go",
     description:
       "Ride-hailing and delivery platform with real-time request dispatching and live tracking features, built as part of Newulm's mobility services ecosystem.",
