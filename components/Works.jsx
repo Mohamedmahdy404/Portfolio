@@ -51,23 +51,29 @@ function ProjectCard({
 
           <div className="absolute inset-0 flex justify-between m-2 md:m-3 card-img_hover">
             {hasDemo && (
-              <div
-                onClick={() => window.open(deployed_link, "_blank")}
+              <a
+                href={deployed_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer"
                 title="Live Demo"
+                aria-label={`Open ${name} live website`}
               >
                 <RocketLogo className="w-1/2 h-1/2 mr-[2px]" />
-              </div>
+              </a>
             )}
 
             {hasSourceCode && (
-              <div
-                onClick={() => window.open(source_code_link, "_blank")}
+              <a
+                href={source_code_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer"
                 title="Source Code"
+                aria-label={`Open ${name} GitHub repository`}
               >
                 <GithubLogo className="w-2/3 h-2/3" />
-              </div>
+              </a>
             )}
           </div>
         </div>
