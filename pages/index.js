@@ -65,9 +65,9 @@ function App({ loading }) {
         rel="noopener noreferrer"
         aria-label="Send me a message on WhatsApp"
         title="Message me on WhatsApp"
-        className="fixed z-40 md:w-12 md:h-12 h-11 w-11 p-1 bottom-8 md:right-10 right-8 bg-white rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
+        className="fixed z-40 md:w-12 md:h-12 h-11 w-11 bottom-8 md:right-10 right-8 flex items-center justify-center rounded-full drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)] hover:scale-110 transition-transform duration-300"
       >
-        <WhatsappIcon />
+        <WhatsappIcon className="w-full h-full" />
       </a>
     </main>
   );
