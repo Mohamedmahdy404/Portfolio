@@ -88,7 +88,7 @@ function Experience() {
   }
 
   return (
-    <motion.section className="w-full p-8 mt-20">
+    <motion.section className="w-full p-8 mt-6 sm:mt-20">
       <motion.div variants={textVariant()}>
         <p className={`sectionSubText text-center`}>{t.experience.eyebrow}</p>
         <h2 className={`sectionHeadText text-center`}>{t.experience.title}</h2>

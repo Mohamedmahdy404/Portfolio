@@ -10,7 +10,7 @@ function Services() {
   const serviceIcons = services.slice(0, 4).map((service) => service.icon);
 
   return (
-    <section className="services-section relative overflow-hidden px-3 py-16 sm:px-8 sm:py-24 md:py-32">
+    <section className="services-section relative overflow-hidden px-3 pt-16 pb-8 sm:px-8 sm:py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <motion.div
           variants={textVariant()}
