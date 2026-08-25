@@ -8,6 +8,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import truncateText from "@/utils/truncate";
 import GithubLogo from "./../public/assets/icons/github.svg";
 import RocketLogo from "./../public/assets/icons/rocket.svg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function ProjectCard({
   index,
@@ -17,6 +18,7 @@ function ProjectCard({
   image,
   source_code_link,
   deployed_link,
+  labels,
 }) {
   const CHAR_LIMIT = 280;
 
@@ -42,7 +44,7 @@ function ProjectCard({
           <div className="w-full h-full rounded-xl md:rounded-2xl relative overflow-hidden">
             <Image
               src={image}
-              alt={`${name} project image`}
+              alt={`${name} — ${labels.imageLabel}`}
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 20vw"
               className="object-cover"
@@ -56,8 +58,8 @@ function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer"
-                title="Live Demo"
-                aria-label={`Open ${name} live website`}
+                title={labels.liveDemo}
+                aria-label={`${labels.openLive} ${name}`}
               >
                 <RocketLogo className="w-1/2 h-1/2 mr-[2px]" />
               </a>
@@ -69,8 +71,8 @@ function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer"
-                title="Source Code"
-                aria-label={`Open ${name} GitHub repository`}
+                title={labels.sourceCode}
+                aria-label={`${labels.openSource} ${name}`}
               >
                 <GithubLogo className="w-2/3 h-2/3" />
               </a>
@@ -103,6 +105,8 @@ function ProjectCard({
 }
 
 function Works() {
+  const { t } = useLanguage();
+
   return (
     <section className="xl:my-36 md:mx-36 p-4 md:p-8" id="projects">
       <motion.div
@@ -111,8 +115,8 @@ function Works() {
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
       >
-        <p className="sectionSubText">My work</p>
-        <h2 className="sectionHeadText">Projects.</h2>
+        <p className="sectionSubText">{t.projects.eyebrow}</p>
+        <h2 className="sectionHeadText">{t.projects.title}</h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -123,10 +127,7 @@ function Works() {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
         >
-          These projects showcase my practical skills and experience, including
-          public and private work. They demonstrate my ability to build complete
-          solutions, manage data and media, and deliver scalable, real-world
-          applications.
+          {t.projects.intro}
         </motion.p>
       </div>
 
@@ -136,6 +137,9 @@ function Works() {
             key={`project-${index}`}
             index={index}
             {...project}
+            name={t.projects.items[index]?.name || project.name}
+            description={t.projects.items[index]?.description || project.description}
+            labels={t.projects}
           />
         ))}
       </div>

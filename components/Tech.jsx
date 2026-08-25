@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 import { fadeIn, textVariant } from "@/utils/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const tech = [
   technologies.languages,
@@ -15,16 +16,10 @@ const tech = [
   technologies.environments,
 ];
 
-const techVariants = [
-  "Languages",
-  "Frameworks",
-  "Libraries",
-  "Databases",
-  "Tools",
-  "Environments",
-];
-
 function Tech() {
+  const { t, isArabic } = useLanguage();
+  const techVariants = t.skills.categories;
+
   const languages = tech.map((technology, index) => (
     <div className="w-full h-fit flex gap-2 md:flex-row flex-col" key={index}>
       <h3 className="md:hidden">{techVariants[index]}</h3>
@@ -75,8 +70,8 @@ function Tech() {
         viewport={{ once: true, amount: 0.25 }}
         className="text-center mx-auto"
       >
-        <p className={"sectionSubText"}>What I have learnt so far</p>
-        <h2 className={"sectionHeadText"}>Skills.</h2>
+        <p className={"sectionSubText"}>{t.skills.eyebrow}</p>
+        <h2 className={"sectionHeadText"}>{t.skills.title}</h2>
       </motion.div>
 
       <motion.div
@@ -96,7 +91,7 @@ function Tech() {
           {techNames}
         </motion.div>
         <div className="w-[2px] h-[400px] dark:bg-ctnSecondaryDark bg-ctnSecondaryLight rounded-lg md:flex hidden mx-8" />
-        <div className="md:w-[80%] w-full pl-2 h-full flex flex-col gap-8">
+        <div className={`md:w-[80%] w-full h-full flex flex-col gap-8 ${isArabic ? "pr-2" : "pl-2"}`}>
           {languages}
         </div>
       </motion.div>

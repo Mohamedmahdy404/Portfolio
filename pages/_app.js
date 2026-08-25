@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import "@/styles/globals.css";
 
 import { PreLoader } from "@/components/Loader";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 export default function App({ Component, pageProps }) {
 	const [loading, setLoading] = useState(true);
@@ -78,9 +79,11 @@ export default function App({ Component, pageProps }) {
 			</Head>
 
 			<ThemeProvider attribute="class" defaultTheme="dark">
-				<Component {...pageProps} loading={loading} />
-                <Analytics />
-				{loading && <PreLoader />}
+				<LanguageProvider>
+					<Component {...pageProps} loading={loading} />
+					<Analytics />
+					{loading && <PreLoader />}
+				</LanguageProvider>
 			</ThemeProvider>
 		</>
 	);

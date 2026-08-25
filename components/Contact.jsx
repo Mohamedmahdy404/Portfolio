@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { slideIn } from "../utils/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function Contact() {
   const formRef = useRef();
+  const { t, isArabic } = useLanguage();
 
   const [form, setForm] = useState({
     name: "",
@@ -39,7 +41,7 @@ function Contact() {
       .then(
         () => {
           setLoading(false);
-          alert("Thank you for your message. I will get back to you soon.");
+          alert(t.contact.success);
 
           setForm({
             name: "",
@@ -50,22 +52,22 @@ function Contact() {
         (error) => {
           setLoading(false);
           console.log(error);
-          alert("Something went wrong. Please try again later.");
+          alert(t.contact.error);
         }
       );
   };
 
   return (
     <motion.div
-      variants={slideIn("left", "tween", 0.2, 1)}
+      variants={slideIn(isArabic ? "right" : "left", "tween", 0.2, 1)}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="xl:my-36 md:w-2/5 w-full bg-bgSecondaryDark xl:ml-36 lg:ml-16 md:ml-10 p-8 rounded-2xl shadow-md shadow-primary"
+      className={`xl:my-36 md:w-2/5 w-full bg-bgSecondaryDark p-8 rounded-2xl shadow-md shadow-primary ${isArabic ? "xl:mr-36 lg:mr-16 md:mr-10 text-right" : "xl:ml-36 lg:ml-16 md:ml-10"}`}
       id="contact"
     >
-      <p className={"sectionSubText text-ctnSecondaryDark"}>Get in touch</p>
-      <h3 className={"sectionHeadText text-ctnPrimaryDark"}>Contact.</h3>
+      <p className={"sectionSubText text-ctnSecondaryDark"}>{t.contact.eyebrow}</p>
+      <h3 className={"sectionHeadText text-ctnPrimaryDark"}>{t.contact.title}</h3>
 
       <form
         ref={formRef}
@@ -74,7 +76,7 @@ function Contact() {
       >
         <label className="flex flex-col">
           <span className="text-ctnPrimaryDark font-medium mb-4">
-            Your Name
+            {t.contact.name}
           </span>
           <input
             type="text"
@@ -82,13 +84,13 @@ function Contact() {
             value={form.name}
             onChange={handleChange}
             required
-            placeholder="What is your good name?"
+            placeholder={t.contact.namePlaceholder}
             className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
         <label className="flex flex-col">
           <span className="text-ctnPrimaryDark  font-medium mb-4">
-            Your email
+            {t.contact.email}
           </span>
           <input
             type="email"
@@ -96,13 +98,13 @@ function Contact() {
             value={form.email}
             onChange={handleChange}
             required
-            placeholder="What is your email address?"
+            placeholder={t.contact.emailPlaceholder}
             className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
         <label className="flex flex-col">
           <span className="text-ctnPrimaryDark  font-medium mb-4">
-            Your Message
+            {t.contact.message}
           </span>
           <textarea
             rows={4}
@@ -110,7 +112,7 @@ function Contact() {
             value={form.message}
             onChange={handleChange}
             required
-            placeholder="What do you want to say?"
+            placeholder={t.contact.messagePlaceholder}
             className="bg-bgPrimaryDark py-4 px-6 placeholder:text-ctnSecondaryDark rounded-lg outline-none border-none font-medium text-ctnPrimaryDark  placeholder:text-sm md:placeholder:text-lg h-fit placeholder:break-words break-words"
           />
         </label>
@@ -119,7 +121,7 @@ function Contact() {
           type="submit"
           className="bg-primary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-tertiary hover:shadow-primary hover:bg-tertiary transition-all duration-800 ease-in"
         >
-          {loading ? "Sending..." : "Send"}
+          {loading ? t.contact.sending : t.contact.send}
         </button>
       </form>
     </motion.div>

@@ -8,11 +8,13 @@ import ThemeButton from "./ThemeButton";
 import Menu from "./../public/assets/icons/menu.svg";
 import Close from "./../public/assets/icons/close.svg";
 import { slideIn } from "@/utils/motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function Navbar() {
 	const [active, setActive] = useState("");
 	const [toggle, setToggle] = useState(false);
 	const [avatarToggle, setAvatarToggle] = useState(false);
+	const { t, isArabic, toggleLanguage } = useLanguage();
 
 	useEffect(() => {
 		if (avatarToggle) {
@@ -29,17 +31,19 @@ function Navbar() {
 					<div className="relative w-[80%] h-[80%] rounded-md">
 						<Image
 							src="/assets/avatar.png"
-							alt="avatar"
+							alt={t.nav.avatarAlt}
 							fill={true}
 							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
 							className="w-9 h-9 object-cover rounded-md"
 						/>
-						<div
-							className="w-[28px] h-[28px] object-contain text-ctnPrimaryLight dark:text-ctnPrimaryDark flex justify-center items-center cursor-pointer absolute top-[-30px] right-[-30px]"
+						<button
+							type="button"
+							aria-label={t.nav.closePhoto}
+							className={`w-[28px] h-[28px] object-contain text-ctnPrimaryLight dark:text-ctnPrimaryDark flex justify-center items-center cursor-pointer absolute top-[-30px] ${isArabic ? "left-[-30px]" : "right-[-30px]"}`}
 							onClick={() => setAvatarToggle(!avatarToggle)}
 						>
 							<Close className="w-5 h-5" />
-						</div>
+						</button>
 					</div>
 				</div>
 			</aside>
@@ -60,36 +64,52 @@ function Navbar() {
 						>
 							<Image
 								src="/assets/avatar.png"
-								alt="avatar"
+								alt={t.nav.avatarAlt}
 								fill={true}
 								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
 								className="w-9 h-9 object-cover
                         rounded-full"
 								onClick={() => setAvatarToggle(!avatarToggle)}
 							/>
+							<button
+								type="button"
+								className="absolute inset-0 rounded-full"
+								aria-label={t.nav.openPhoto}
+								onClick={() => setAvatarToggle(!avatarToggle)}
+							/>
 						</div>
 						<Link href="/">
 							<p className="dark:text-ctnPrimaryDark text-ctnPrimaryLight text-[18px] font-bold cursor-pointer flex ">
-								Mohamed Yasser Mahdy &nbsp;
-								<span className="lg:block hidden"> | Engineer</span>
+								{t.nav.name} &nbsp;
+								<span className="lg:block hidden"> | {t.nav.role}</span>
 							</p>
 						</Link>
 					</div>
 
 					<ul className="list-none hidden md:flex flex-row gap-10 items-center">
-						{navLinks.map((nav) => (
+						{navLinks.map((nav, index) => (
 							<li
 								key={nav.id}
 								className={`dark:text-ctnPrimaryDark text-ctnPrimaryLight border-secondary transition-all duration-200 ease-in text-[18px] font-medium cursor-pointer ${
-									active === nav.title
+									active === nav.id
 										? "text-quaternary dark:text-quaternary border-b-2 border-quaternary"
 										: "hover:text-tertiary hover:dark:text-tertiary hover:border-y-2"
 								}`}
-								onClick={() => setActive(nav.title)}
+								onClick={() => setActive(nav.id)}
 							>
-								<a href={`#${nav.id}`}>{nav.title}</a>
+								<a href={`#${nav.id}`}>{t.nav.links[index]}</a>
 							</li>
 						))}
+						<li>
+							<button
+								type="button"
+								onClick={toggleLanguage}
+								aria-label={t.nav.languageLabel}
+								className="min-w-[44px] h-9 px-3 rounded-full border border-primary/70 text-sm font-bold text-primary hover:bg-primary hover:text-white transition-colors"
+							>
+								{t.nav.languageShort}
+							</button>
+						</li>
 						<li
 							className={`text-white hover:text-white text-[18px] font-medium cursor-pointer`}
 						>
@@ -98,7 +118,9 @@ function Navbar() {
 					</ul>
 
 					<div className="md:hidden flex flex-1 justify-end items-center">
-						<div
+						<button
+							type="button"
+							aria-label={toggle ? t.nav.closeMenu : t.nav.openMenu}
 							className="w-[28px] h-[28px] object-contain text-ctnPrimaryLight dark:text-ctnPrimaryDark flex justify-center items-center cursor-pointer"
 							onClick={() => setToggle(!toggle)}
 						>
@@ -107,33 +129,43 @@ function Navbar() {
 							) : (
 								<Menu className="w-5 h-5" />
 							)}
-						</div>
+						</button>
 
 						<motion.div
-							variants={slideIn("right", "tween", 0, 0.3)}
+							variants={slideIn(isArabic ? "left" : "right", "tween", 0, 0.3)}
 							initial="hidden"
 							whileInView="show"
 							className={`${
 								!toggle ? "hidden" : "flex"
-							} p-6 bg-bgSecondaryLight dark:bg-bgSecondaryDark absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+								} p-6 bg-bgSecondaryLight dark:bg-bgSecondaryDark absolute top-20 ${isArabic ? "left-0" : "right-0"} mx-4 my-2 min-w-[170px] z-10 rounded-xl`}
 						>
 							<ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
-								{navLinks.map((nav) => (
+								{navLinks.map((nav, index) => (
 									<li
 										key={nav.id}
 										className={`font-poppins font-medium cursor-pointer text-[16px] ${
-											active === nav.title
+											active === nav.id
 												? "text-secondary"
 												: "dark:text-ctnPrimaryDark text-ctnPrimaryLight"
 										}`}
 										onClick={() => {
 											setToggle(!toggle);
-											setActive(nav.title);
+										setActive(nav.id);
 										}}
 									>
-										<a href={`#${nav.id}`}>{nav.title}</a>
-									</li>
-								))}
+									<a href={`#${nav.id}`}>{t.nav.links[index]}</a>
+								</li>
+							))}
+							<li>
+								<button
+									type="button"
+									onClick={toggleLanguage}
+									aria-label={t.nav.languageLabel}
+									className="min-w-[44px] h-9 px-3 rounded-full border border-primary/70 text-sm font-bold text-primary"
+								>
+									{t.nav.languageShort}
+								</button>
+							</li>
 								<li
 									className={`text-white hover:text-white text-[18px] font-medium cursor-pointer`}
 								>

@@ -96,6 +96,50 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html[dir="rtl"] body,
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+.services-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(128, 77, 238, 0.12), transparent 26%),
+    radial-gradient(circle at 92% 70%, rgba(0, 206, 168, 0.08), transparent 25%);
+}
+
+.service-orbit::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 8%;
+  right: 23%;
+  border-radius: 999px;
+  background: #804dee;
+  box-shadow: 0 0 18px rgba(128, 77, 238, 0.9);
+}
+
+html[dir="rtl"] .service-orbit::before {
+  right: auto;
+  left: 23%;
+}
+
 svg {
   width: 100%;
   height: 100%;

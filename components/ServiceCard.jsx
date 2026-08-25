@@ -1,32 +1,39 @@
-import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 
-function ServiceCard({ index, title, icon }) {
+function ServiceCard({ index, title, description, icon }) {
   return (
-    <Tilt className="w-full md:w-[250px]" tiltMaxAngleX="10" tiltMaxAngleY="10">
-      <motion.div
-        variants={fadeIn("", "spring", index * 0.5, 0.75)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className="w-full green-pink-gradient p-[1px] rounded-[14px] md:rounded-[20px] shadow-card"
-      >
-        <div
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
-          className="dark:bg-bgSecondaryDark bg-bgSecondaryLight rounded-[14px] md:rounded-[20px] py-4 px-2 min-h-[118px] xs:min-h-[132px] md:py-5 md:px-12 md:min-h-[280px] flex justify-evenly items-center flex-col"
-        >
-          <div className="w-8 h-8 xs:w-10 xs:h-10 md:w-16 md:h-16 object-contain relative">{icon}</div>
-          <h3 className="dark:text-ctnPrimaryDark text-ctnPrimaryLight text-[11px] xs:text-[12px] sm:text-[14px] md:text-[20px] leading-tight font-bold text-center w-full md:w-[80%] break-words">
-            {title}
-          </h3>
+    <motion.article
+      variants={fadeIn("up", "spring", index * 0.12, 0.7)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      className="group mx-auto flex w-full max-w-[190px] flex-col items-center text-center sm:max-w-[330px]"
+    >
+      <div className="service-orbit relative flex aspect-square w-full items-center justify-center rounded-full border border-primary/25 bg-bgSecondaryLight/40 p-4 shadow-[0_18px_70px_rgba(128,77,238,0.08)] backdrop-blur-sm transition-transform duration-500 group-hover:-translate-y-2 dark:bg-bgSecondaryDark/35">
+        <div className="absolute inset-3 rounded-full border border-primary/20 transition-all duration-500 group-hover:inset-2 group-hover:border-primary/50" />
+
+        <span className="absolute top-[20%] font-mono text-[9px] tracking-[0.25em] text-primary/80 sm:top-[23%] sm:text-sm sm:tracking-[0.3em]">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-bgPrimaryLight p-3 text-primary shadow-[0_0_35px_rgba(128,77,238,0.16)] dark:bg-bgPrimaryDark sm:h-24 sm:w-24 sm:p-6">
+          {icon}
         </div>
-      </motion.div>
-    </Tilt>
+
+        <h3 className="absolute bottom-[17%] max-w-[82%] text-[12px] font-bold leading-snug text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:bottom-[20%] sm:max-w-[72%] sm:text-xl">
+          {title}
+        </h3>
+
+        <span className="absolute -bottom-2 flex h-6 w-6 items-center justify-center rounded-full border border-primary/50 bg-bgPrimaryLight text-sm text-primary transition-colors group-hover:bg-primary group-hover:text-white dark:bg-bgPrimaryDark sm:-bottom-4 sm:h-9 sm:w-9 sm:text-xl">
+          ↗
+        </span>
+      </div>
+
+      <p className="mt-5 max-w-[180px] text-[10px] leading-5 text-ctnSecondaryLight dark:text-ctnSecondaryDark sm:mt-9 sm:max-w-[300px] sm:text-sm sm:leading-7">
+        {description}
+      </p>
+    </motion.article>
   );
 }
 

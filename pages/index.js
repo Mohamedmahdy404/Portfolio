@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 import {
   About,
@@ -15,8 +16,10 @@ import EarthContainer from "@/components/EarthContainer";
 import PlayerContainer from "@/components/PlayerContainer";
 import WhatsappIcon from "./../public/assets/icons/whatsapp.svg";
 import Services from "@/components/Services";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function App({ loading }) {
+  const { t } = useLanguage();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
@@ -39,7 +42,16 @@ function App({ loading }) {
   }, []);
 
   return (
-    <main className="relative z-0 w-full h-full">
+    <>
+      <Head>
+        <title>{t.meta.title}</title>
+        <meta name="description" content={t.meta.description} key="desc" />
+        <meta property="og:title" content={t.meta.title} />
+        <meta property="og:description" content={t.meta.description} />
+        <meta property="twitter:title" content={t.meta.title} />
+        <meta property="twitter:description" content={t.meta.description} />
+      </Head>
+      <main className="relative z-0 w-full h-full">
       <div className=" bg-cover bg-no-repeat bg-center">
         <Navbar />
         <HeroBackground />
@@ -63,13 +75,14 @@ function App({ loading }) {
         href="https://wa.me/201069033838"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Send me a message on WhatsApp"
-        title="Message me on WhatsApp"
+        aria-label={t.whatsapp}
+        title={t.whatsapp}
         className="fixed z-40 md:w-12 md:h-12 h-11 w-11 bottom-8 md:right-10 right-8 flex items-center justify-center rounded-full drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)] hover:scale-110 transition-transform duration-300"
       >
         <WhatsappIcon className="w-full h-full" />
       </a>
-    </main>
+      </main>
+    </>
   );
 }
 

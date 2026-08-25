@@ -121,9 +121,8 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Mar 2026 - Present",
     points: [
-      "Contribute to application development and integration workflows that support business and operational data processes across internal banking systems.",
-      "Designed and implemented ETL pipelines with SSIS to extract, transform, and load enterprise database data into structured outputs.",
-      "Wrote complex, optimized, and secure SQL queries for efficient data retrieval and processing in a banking environment.",
+      "Build application integrations and data workflows for internal banking systems.",
+      "Develop SSIS ETL pipelines and secure, optimized SQL queries for enterprise data.",
     ],
   },
   {
@@ -133,11 +132,8 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Dec 2025 - Apr 2026",
     points: [
-      "Built backend services for Ulm Care, a healthcare booking platform supporting surgery reservations, lab tests, and home-visit scheduling.",
-      "Contributed to Paxi Go, a ride-hailing and delivery platform, implementing real-time request dispatching and live tracking features.",
-      "Designed and maintained microservices-based backend systems using Domain-Driven Design principles to define service boundaries and responsibilities.",
-      "Implemented CI/CD pipelines with GitHub Actions and used Microsoft Azure for automated deployment and reliable release workflows.",
-      "Worked with SQL and NoSQL databases and integrated third-party APIs across healthcare and mobility services.",
+      "Built microservice backends for Ulm Care and Paxi Go, including booking, dispatch, and live tracking.",
+      "Delivered third-party integrations and automated Azure deployments with GitHub Actions.",
     ],
   },
   {
@@ -147,8 +143,8 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Jul 2025 - Present",
     points: [
-      "Taught core modules of the Full-Stack .NET diploma, covering C#, Entity Framework, ASP.NET MVC, Web API, databases, TypeScript, and Angular.",
-      "Designed practical sessions and guided students through hands-on projects focused on OOP, clean code, and maintainable application design.",
+      "Teach C#, Entity Framework, ASP.NET MVC, Web API, databases, TypeScript, and Angular.",
+      "Lead practical sessions and mentor students on clean, maintainable project development.",
     ],
   },
   {
@@ -158,10 +154,8 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Mar 2025 - Mar 2026",
     points: [
-      "Contributed to web applications for RFID-enabled inventory management and access control system integration.",
-      "Built and enhanced full-stack solutions using ASP.NET Core, ABP Framework, Entity Framework Core, SignalR, and SQL Server.",
-      "Developed responsive front-end interfaces using Angular, ABP Angular libraries, and PrimeNG.",
-      "Integrated Apache Kafka for event-driven data streaming between RFID backend services and web-facing applications.",
+      "Built RFID inventory and access-control applications with ASP.NET Core, Angular, SignalR, and SQL Server.",
+      "Integrated Kafka event streams and delivered responsive interfaces with Angular and PrimeNG.",
     ],
   },
 ];

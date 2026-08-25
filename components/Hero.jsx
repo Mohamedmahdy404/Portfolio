@@ -3,15 +3,17 @@ import { TypeAnimation } from "react-type-animation";
 
 import { ComputersCanvas } from "./canvas";
 import { fadeIn, textVariant } from "@/utils/motion";
-import { heroTexts } from "@/constants";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 function Hero({ loading, isMobile }) {
+  const { t, isArabic } = useLanguage();
+
   return (
     <section
       className={`relative w-full h-[100svh] md:max-h-[800px] max-h-[600px] mx-auto flex flex-col`}
     >
       <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto paddingX flex flex-row items-start gap-5`}
+        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto paddingX flex items-start gap-5 ${isArabic ? "flex-row-reverse text-right" : "flex-row"}`}
       >
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-primary" />
@@ -25,12 +27,13 @@ function Hero({ loading, isMobile }) {
           viewport={{ once: true, amount: 0.25 }}
         >
           <h1 className={`heroHeadText`}>
-            Hi, I&apos;m{" "}
-            <span className="dark:text-five text-primary">Mohamed Mahdy</span>
+            {t.hero.greeting}{" "}
+            <span className="dark:text-five text-primary">{t.hero.name}</span>
           </h1>
           <p className={`heroSubText mt-2 tracking-wide`}>
             <TypeAnimation
-              sequence={heroTexts}
+              key={isArabic ? "hero-ar" : "hero-en"}
+              sequence={t.hero.roles}
               // preRenderFirstString={true}
               wrapper="span"
               cursor={true}
@@ -50,7 +53,7 @@ function Hero({ loading, isMobile }) {
       </motion.div>
 
       <div className="absolute xs:bottom-10 bottom-32 left-1/2 justify-center items-center z-20 hidden md:flex">
-        <a href="#about">
+        <a href="#about" aria-label={t.hero.scrollLabel}>
           <div className="w-[35px] h-[64px] rounded-3xl border-2 border-[#aaa6c3] flex justify-center items-start p-2">
             <motion.div
               animate={{
