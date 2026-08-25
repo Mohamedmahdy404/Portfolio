@@ -77,7 +77,7 @@ function App({ loading }) {
         rel="noopener noreferrer"
         aria-label={t.whatsapp}
         title={t.whatsapp}
-        className="fixed z-40 md:w-12 md:h-12 h-11 w-11 bottom-8 md:right-10 right-8 flex items-center justify-center rounded-full drop-shadow-[0_6px_14px_rgba(0,0,0,0.35)] hover:scale-110 transition-transform duration-300"
+        className="fixed z-40 md:w-12 md:h-12 h-11 w-11 bottom-8 md:right-10 right-8 flex items-center justify-center rounded-full ring-2 ring-white/80 dark:ring-white/20 shadow-[0_8px_24px_rgba(37,211,102,0.35)] hover:scale-110 hover:shadow-[0_10px_30px_rgba(37,211,102,0.5)] transition-all duration-300"
       >
         <WhatsappIcon className="w-full h-full" />
       </a>
