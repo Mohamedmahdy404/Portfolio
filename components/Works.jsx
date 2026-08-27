@@ -41,7 +41,7 @@ function ProjectCard({
         className="dark:bg-bgSecondaryDark bg-bgSecondaryLight p-3 md:p-5 rounded-xl md:rounded-2xl w-full h-fit min-h-[390px] xs:min-h-[410px] md:min-h-[590px] shadow-sm shadow-primary"
       >
         <div className="relative w-full h-[105px] xs:h-[120px] md:h-[230px]">
-          <div className="w-full h-full rounded-xl md:rounded-2xl relative overflow-hidden">
+          <div className="w-full h-full rounded-xl md:rounded-2xl relative overflow-hidden shine-sweep">
             <Image
               src={image}
               alt={`${name} — ${labels.imageLabel}`}

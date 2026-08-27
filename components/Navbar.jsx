@@ -14,6 +14,7 @@ function Navbar() {
 	const [active, setActive] = useState("");
 	const [toggle, setToggle] = useState(false);
 	const [avatarToggle, setAvatarToggle] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 	const { t, isArabic, toggleLanguage } = useLanguage();
 
 	useEffect(() => {
@@ -23,6 +24,38 @@ function Navbar() {
 			document.body.style.overflowY = "auto";
 		}
 	}, [avatarToggle]);
+
+	useEffect(() => {
+		const handleScroll = () => setScrolled(window.scrollY > 20);
+		handleScroll();
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	useEffect(() => {
+		const sections = navLinks
+			.map((nav) => document.getElementById(nav.id))
+			.filter(Boolean);
+
+		if (sections.length === 0) return undefined;
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const visible = entries
+					.filter((entry) => entry.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+				if (visible && visible.target && visible.target.id) {
+					setActive(visible.target.id);
+				}
+			},
+			{ rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+		);
+
+		sections.forEach((section) => observer.observe(section));
+
+		return () => observer.disconnect();
+	}, []);
 
 	function AvatarModal() {
 		return (
@@ -53,11 +86,15 @@ function Navbar() {
 	return (
 		<>
 			<nav
-				className={`paddingX w-full flex items-center py-5 fixed top-0 z-30 bg-transparent backdrop-filter backdrop-blur-xl bg-opacity-60`}
+				className={`paddingX w-full flex items-center py-4 md:py-5 fixed top-0 z-30 transition-all duration-300 ${
+					scrolled
+						? "backdrop-filter backdrop-blur-xl bg-bgPrimaryLight/80 dark:bg-bgPrimaryDark/80 shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
+						: "bg-transparent backdrop-filter backdrop-blur-xl bg-opacity-60"
+				}`}
 			>
 				{avatarToggle && <AvatarModal />}
 				<div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-					<div href="/" className="flex items-center gap-6">
+					<div href="/" className="flex items-center gap-3 sm:gap-6">
 						<div
 							className="w-9 h-9 object-contain
                         rounded-full relative cursor-pointer"
@@ -79,7 +116,7 @@ function Navbar() {
 							/>
 						</div>
 						<Link href="/">
-							<p className="dark:text-ctnPrimaryDark text-ctnPrimaryLight text-[18px] font-bold cursor-pointer flex ">
+							<p className="dark:text-ctnPrimaryDark text-ctnPrimaryLight text-[15px] xs:text-[16px] sm:text-[18px] font-bold cursor-pointer flex whitespace-nowrap">
 								{t.nav.name} &nbsp;
 								<span className="lg:block hidden"> | {t.nav.role}</span>
 							</p>
@@ -90,14 +127,21 @@ function Navbar() {
 						{navLinks.map((nav, index) => (
 							<li
 								key={nav.id}
-								className={`dark:text-ctnPrimaryDark text-ctnPrimaryLight border-secondary transition-all duration-200 ease-in text-[18px] font-medium cursor-pointer ${
+								className={`relative pb-1 dark:text-ctnPrimaryDark text-ctnPrimaryLight transition-colors duration-200 ease-in text-[18px] font-medium cursor-pointer ${
 									active === nav.id
-										? "text-quaternary dark:text-quaternary border-b-2 border-quaternary"
-										: "hover:text-tertiary hover:dark:text-tertiary hover:border-y-2"
+										? "text-quaternary dark:text-quaternary"
+										: "hover:text-tertiary hover:dark:text-tertiary"
 								}`}
 								onClick={() => setActive(nav.id)}
 							>
 								<a href={`#${nav.id}`}>{t.nav.links[index]}</a>
+								{active === nav.id && (
+									<motion.span
+										layoutId="nav-underline"
+										className="absolute left-0 right-0 -bottom-0.5 h-[2px] rounded-full bg-quaternary"
+										transition={{ type: "spring", stiffness: 380, damping: 30 }}
+									/>
+								)}
 							</li>
 						))}
 						<li>
@@ -121,7 +165,7 @@ function Navbar() {
 						<button
 							type="button"
 							aria-label={toggle ? t.nav.closeMenu : t.nav.openMenu}
-							className="w-[28px] h-[28px] object-contain text-ctnPrimaryLight dark:text-ctnPrimaryDark flex justify-center items-center cursor-pointer"
+							className="w-[28px] h-[28px] object-contain text-ctnPrimaryLight dark:text-ctnPrimaryDark flex justify-center items-center cursor-pointer relative z-10"
 							onClick={() => setToggle(!toggle)}
 						>
 							{toggle ? (
@@ -131,13 +175,21 @@ function Navbar() {
 							)}
 						</button>
 
+						{toggle && (
+							<div
+								className="fixed inset-0 z-[5] bg-black/40 backdrop-blur-[2px] md:hidden"
+								onClick={() => setToggle(false)}
+								aria-hidden="true"
+							/>
+						)}
+
 						<motion.div
 							variants={slideIn(isArabic ? "left" : "right", "tween", 0, 0.3)}
 							initial="hidden"
 							whileInView="show"
 							className={`${
 								!toggle ? "hidden" : "flex"
-								} p-6 bg-bgSecondaryLight dark:bg-bgSecondaryDark absolute top-20 ${isArabic ? "left-0" : "right-0"} mx-4 my-2 min-w-[170px] z-10 rounded-xl`}
+								} p-6 bg-bgSecondaryLight dark:bg-bgSecondaryDark absolute top-20 ${isArabic ? "left-0" : "right-0"} mx-4 my-2 min-w-[170px] z-10 rounded-xl shadow-2xl`}
 						>
 							<ul className="list-none flex justify-end items-start flex-1 flex-col gap-4">
 								{navLinks.map((nav, index) => (
