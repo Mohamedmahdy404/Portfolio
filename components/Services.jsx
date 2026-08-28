@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { services } from "@/constants";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { textVariant } from "@/utils/motion";
+import { fadeIn, textVariant } from "@/utils/motion";
 import ServiceCard from "./ServiceCard";
 
 function Services() {
@@ -36,6 +36,26 @@ function Services() {
             />
           ))}
         </div>
+
+        <motion.div
+          variants={fadeIn("up", "spring", 0.3, 0.8)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          className="mx-auto mt-14 flex max-w-xl flex-col items-center gap-4 text-center sm:mt-20 sm:flex-row sm:justify-center sm:gap-6"
+        >
+          <p className="text-sm font-semibold text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:text-base">
+            {t.services.ctaText}
+          </p>
+          <a
+            href="https://wa.me/201069033838"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-bold text-white shadow-[0_10px_28px_rgba(37,211,102,0.35)] transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            {t.services.ctaButton}
+          </a>
+        </motion.div>
       </div>
     </section>
   );

@@ -22,6 +22,8 @@ export const translations = {
       name: "Mohamed Mahdy",
       roles: ["Software Engineer", 900, "Full-Stack .NET Developer", 900],
       scrollLabel: "Scroll to the introduction",
+      ctaPrimary: "Start Your Project",
+      ctaSecondary: "View My Work",
     },
     about: {
       eyebrow: "Introduction",
@@ -52,6 +54,8 @@ export const translations = {
           description: "Architecture guidance, technology selection, and practical support for teams and student projects.",
         },
       ],
+      ctaText: "Have a project in mind?",
+      ctaButton: "Let's talk on WhatsApp",
     },
     experience: {
       eyebrow: "What I have done so far",
@@ -160,6 +164,17 @@ export const translations = {
       error: "Something went wrong. Please try again later.",
     },
     whatsapp: "Send me a message on WhatsApp",
+    whatsappWidget: {
+      greeting: "👋 Hi there!",
+      message: "Need a website for your business? Let's chat on WhatsApp.",
+      cta: "Chat now",
+      close: "Dismiss",
+    },
+    scrollTop: "Back to top",
+    footer: {
+      tagline: "Building reliable web platforms for businesses and startups.",
+      rights: "All rights reserved.",
+    },
   },
   ar: {
     meta: {
@@ -183,6 +198,8 @@ export const translations = {
       name: "محمد مهدي",
       roles: ["مهندس برمجيات", 900, "مطوّر Full-Stack .NET", 900],
       scrollLabel: "الانتقال إلى نبذة عني",
+      ctaPrimary: "ابدأ مشروعك الآن",
+      ctaSecondary: "شاهد أعمالي",
     },
     about: {
       eyebrow: "نبذة تعريفية",
@@ -213,6 +230,8 @@ export const translations = {
           description: "إرشاد معماري واختيار التقنيات ودعم عملي للفرق ومشاريع الطلاب.",
         },
       ],
+      ctaText: "لديك فكرة مشروع؟",
+      ctaButton: "لنتحدث عبر واتساب",
     },
     experience: {
       eyebrow: "مسيرتي المهنية حتى الآن",
@@ -320,5 +339,16 @@ export const translations = {
       error: "حدث خطأ. يرجى المحاولة مرة أخرى لاحقاً.",
     },
     whatsapp: "أرسل لي رسالة عبر واتساب",
+    whatsappWidget: {
+      greeting: "👋 أهلاً بك!",
+      message: "تحتاج موقعاً إلكترونياً لعملك؟ راسلني الآن على واتساب.",
+      cta: "تواصل الآن",
+      close: "إغلاق",
+    },
+    scrollTop: "العودة للأعلى",
+    footer: {
+      tagline: "أبني منصات ويب موثوقة للشركات والمشاريع الناشئة.",
+      rights: "جميع الحقوق محفوظة.",
+    },
   },
 };

@@ -52,6 +52,31 @@ function Hero({ loading, isMobile }) {
         <ComputersCanvas isMobile={isMobile} />
       </motion.div>
 
+      <motion.div
+        variants={fadeIn("up", "spring", 0.6, 0.9)}
+        initial="hidden"
+        whileInView={!loading && "show"}
+        viewport={{ once: true, amount: 0.25 }}
+        className="absolute inset-x-0 bottom-20 sm:bottom-24 z-20 flex justify-center px-4"
+      >
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <a
+            href="https://wa.me/201069033838"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shine-sweep inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white shadow-[0_12px_35px_rgba(128,77,238,0.4)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(128,77,238,0.55)] sm:text-base"
+          >
+            {t.hero.ctaPrimary}
+          </a>
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-white/10 px-6 py-3 text-sm font-bold text-primary backdrop-blur-sm transition-colors duration-300 hover:bg-primary/10 dark:text-five sm:text-base"
+          >
+            {t.hero.ctaSecondary}
+          </a>
+        </div>
+      </motion.div>
+
       <div className="absolute xs:bottom-10 bottom-32 left-1/2 justify-center items-center z-20 hidden md:flex">
         <a href="#about" aria-label={t.hero.scrollLabel}>
           <div className="w-[35px] h-[64px] rounded-3xl border-2 border-[#aaa6c3] flex justify-center items-start p-2">

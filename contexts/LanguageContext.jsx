@@ -5,11 +5,14 @@ import { translations } from "@/constants/translations";
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState("en");
+  // Arabic is the primary audience for this site, so it is the default
+  // language until the visitor picks something else (remembered in
+  // localStorage) or has explicitly switched before.
+  const [language, setLanguage] = useState("ar");
 
   useEffect(() => {
     const savedLanguage = window.localStorage.getItem("portfolio-language");
-    const initialLanguage = savedLanguage === "ar" ? "ar" : "en";
+    const initialLanguage = savedLanguage === "en" ? "en" : "ar";
     setLanguage(initialLanguage);
   }, []);
 
