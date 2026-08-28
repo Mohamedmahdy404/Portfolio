@@ -50,10 +50,14 @@ function WhatsAppButton() {
   if (!ready) return null;
 
   return (
-    <div className="fixed z-40 bottom-24 right-4 md:bottom-8 md:right-10 flex flex-col items-end gap-3 safe-bottom">
+    <div
+      dir="ltr"
+      className="fixed z-40 bottom-24 right-4 md:bottom-8 md:right-10 flex flex-col items-end gap-3 safe-bottom"
+    >
       <AnimatePresence>
         {showBubble && (
           <motion.div
+            dir={isArabic ? "rtl" : "ltr"}
             initial={{ opacity: 0, y: 12, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.9 }}
