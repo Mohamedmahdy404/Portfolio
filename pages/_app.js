@@ -1,5 +1,4 @@
 import { Analytics } from '@vercel/analytics/react';
-import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
@@ -78,13 +77,11 @@ export default function App({ Component, pageProps }) {
 				/>
 			</Head>
 
-			<ThemeProvider attribute="class" defaultTheme="dark">
-				<LanguageProvider>
-					<Component {...pageProps} loading={loading} />
-					<Analytics />
-					{loading && <PreLoader />}
-				</LanguageProvider>
-			</ThemeProvider>
+			<LanguageProvider>
+				<Component {...pageProps} loading={loading} />
+				<Analytics />
+				{loading && <PreLoader />}
+			</LanguageProvider>
 		</>
 	);
 }

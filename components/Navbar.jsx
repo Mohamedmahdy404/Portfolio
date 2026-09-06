@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { navLinks } from "../constants";
-import ThemeButton from "./ThemeButton";
 import Menu from "./../public/assets/icons/menu.svg";
 import Close from "./../public/assets/icons/close.svg";
 import { slideIn } from "@/utils/motion";
@@ -154,11 +153,6 @@ function Navbar() {
 								{t.nav.languageShort}
 							</button>
 						</li>
-						<li
-							className={`text-white hover:text-white text-[18px] font-medium cursor-pointer`}
-						>
-							<ThemeButton />
-						</li>
 					</ul>
 
 					<div className="md:hidden flex flex-1 justify-end items-center">
@@ -218,11 +212,6 @@ function Navbar() {
 									{t.nav.languageShort}
 								</button>
 							</li>
-								<li
-									className={`text-white hover:text-white text-[18px] font-medium cursor-pointer`}
-								>
-									<ThemeButton />
-								</li>
 							</ul>
 						</motion.div>
 					</div>

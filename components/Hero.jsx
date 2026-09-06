@@ -57,20 +57,20 @@ function Hero({ loading, isMobile }) {
         initial="hidden"
         whileInView={!loading && "show"}
         viewport={{ once: true, amount: 0.25 }}
-        className="absolute inset-x-0 bottom-20 sm:bottom-24 z-20 flex justify-center px-4"
+        className="absolute inset-x-0 bottom-6 xs:bottom-8 sm:bottom-24 z-20 flex justify-center px-4"
       >
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="grid w-full max-w-[440px] grid-cols-2 items-center justify-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:gap-4">
           <a
             href="https://wa.me/201069033838"
             target="_blank"
             rel="noopener noreferrer"
-            className="shine-sweep inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white shadow-[0_12px_35px_rgba(128,77,238,0.4)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(128,77,238,0.55)] sm:text-base"
+            className="shine-sweep inline-flex items-center justify-center whitespace-nowrap rounded-full bg-primary px-3 py-2.5 text-[11px] font-bold text-white shadow-[0_12px_35px_rgba(128,77,238,0.4)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_rgba(128,77,238,0.55)] xs:px-4 xs:text-xs sm:px-6 sm:py-3 sm:text-base"
           >
             {t.hero.ctaPrimary}
           </a>
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/60 bg-white/10 px-6 py-3 text-sm font-bold text-primary backdrop-blur-sm transition-colors duration-300 hover:bg-primary/10 dark:text-five sm:text-base"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full border border-primary/80 bg-[#212134] px-3 py-2.5 text-[11px] font-bold text-white shadow-[0_10px_28px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:border-five/70 xs:px-4 xs:text-xs sm:px-6 sm:py-3 sm:text-base"
           >
             {t.hero.ctaSecondary}
           </a>

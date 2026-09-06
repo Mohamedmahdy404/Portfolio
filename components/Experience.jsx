@@ -1,5 +1,3 @@
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   VerticalTimeline,
@@ -14,21 +12,19 @@ import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-function ExperienceCard({ experience, theme, isArabic }) {
+function ExperienceCard({ experience, isArabic }) {
   return (
     <VerticalTimelineElement
       contentStyle={{
         background:
-          theme !== "dark"
-            ? "linear-gradient(90deg, rgba(224,234,240,1) 0%, rgba(232,239,243,1) 50%, rgba(224,234,240,1) 100%)"
-            : "linear-gradient(90deg, rgba(33,33,52,1) 0%, rgba(39,39,61,1) 50%, rgba(33,33,52,1) 100%)",
-        color: theme !== "dark" ? "#7e8c9f" : "#e5e6e9",
+          "linear-gradient(90deg, rgba(33,33,52,1) 0%, rgba(39,39,61,1) 50%, rgba(33,33,52,1) 100%)",
+        color: "#e5e6e9",
         boxShadow: "0 1px 2px 0 rgb(128, 77, 238)",
       }}
       contentArrowStyle={
         isArabic
-          ? { borderLeft: `7px solid ${theme !== "dark" ? "#e0eaf0" : "#2b2b42"}` }
-          : { borderRight: `7px solid ${theme !== "dark" ? "#e0eaf0" : "#2b2b42"}` }
+          ? { borderLeft: "7px solid #2b2b42" }
+          : { borderRight: "7px solid #2b2b42" }
       }
       style={{
         boxShadow: "0 1px 2px 0 rgb(128, 77, 238 / 0.05)",
@@ -75,17 +71,7 @@ function ExperienceCard({ experience, theme, isArabic }) {
 }
 
 function Experience() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const { t, isArabic } = useLanguage();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <motion.section className="w-full p-8 mt-6 sm:mt-20">
@@ -95,7 +81,7 @@ function Experience() {
       </motion.div>
 
       <div className="mt-20 flex flex-col">
-        <VerticalTimeline lineColor={theme === "dark" ? "#7e8c9f" : "#8c9db1"}>
+        <VerticalTimeline lineColor="#7e8c9f">
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}
@@ -106,7 +92,6 @@ function Experience() {
                 date: t.experience.items[index].date,
                 points: t.experience.items[index].points,
               }}
-              theme={theme}
               isArabic={isArabic}
             />
           ))}
