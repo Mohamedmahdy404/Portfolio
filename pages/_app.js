@@ -1,5 +1,7 @@
 import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics, sendGAEvent } from "@next/third-parties/google";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import "@/styles/globals.css";
@@ -7,8 +9,12 @@ import "@/styles/globals.css";
 import { PreLoader } from "@/components/Loader";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
+const GA_MEASUREMENT_ID =
+	process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XV0FQ3FX9T";
+
 export default function App({ Component, pageProps }) {
 	const [loading, setLoading] = useState(true);
+	const router = useRouter();
 	useEffect(() => {
 		setTimeout(() => {
 			setLoading(false);
@@ -22,6 +28,21 @@ export default function App({ Component, pageProps }) {
 			document.body.style.overflowY = "auto";
 		}
 	}, [loading]);
+
+	useEffect(() => {
+		if (process.env.NODE_ENV !== "production") return undefined;
+
+		const trackPageView = (url) => {
+			sendGAEvent("event", "page_view", {
+				page_path: url,
+				page_location: `${window.location.origin}${url}`,
+				page_title: document.title,
+			});
+		};
+
+		router.events.on("routeChangeComplete", trackPageView);
+		return () => router.events.off("routeChangeComplete", trackPageView);
+	}, [router.events]);
 
 	const title = "Portfolio | Mohamed Yasser Mahdy";
 	const description =
@@ -80,6 +101,9 @@ export default function App({ Component, pageProps }) {
 			<LanguageProvider>
 				<Component {...pageProps} loading={loading} />
 				<Analytics />
+				{process.env.NODE_ENV === "production" && (
+					<GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+				)}
 				{loading && <PreLoader />}
 			</LanguageProvider>
 		</>
