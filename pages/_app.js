@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
@@ -80,6 +81,7 @@ export default function App({ Component, pageProps }) {
 			<LanguageProvider>
 				<Component {...pageProps} loading={loading} />
 				<Analytics />
+				<SpeedInsights />
 				{loading && <PreLoader />}
 			</LanguageProvider>
 		</>
