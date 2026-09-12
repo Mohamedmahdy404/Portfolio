@@ -42,7 +42,7 @@ function Tech() {
                 src={tech.icon}
                 alt={tech.name}
                 fill={true}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+                sizes="40px"
               />
 
               <div className="opacity-0 w-fit min-w-[80px] bg-bgPrimaryLight dark:bg-bgPrimaryDark text-ctnPrimaryLight dark:text-ctnPrimaryDark text-center text-xs rounded-lg py-2 absolute z-10 group-hover:opacity-100 px-3 -top-3/4 -left-1/3 pointer-events-none">

@@ -38,10 +38,11 @@ function Stars(props) {
 	);
 }
 
-function StarsCanvas() {
+function StarsCanvas({ active = true }) {
 	return (
 		<div className="w-full h-auto absolute inset-0 z-[-1]">
 			<Canvas
+				frameloop={active ? "always" : "never"}
 				camera={{ position: [0, 0, 1] }}
 				dpr={[1, 2]}
 				gl={{

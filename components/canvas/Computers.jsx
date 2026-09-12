@@ -1,5 +1,4 @@
 import {
-  Preload,
   useGLTF,
   OrbitControls,
   PerspectiveCamera,
@@ -44,9 +43,10 @@ function Computers({ isMobile }) {
   );
 }
 
-function ComputersCanvas({ isMobile }) {
+function ComputersCanvas({ isMobile, active = true }) {
   return (
     <Canvas
+      frameloop={active ? (isMobile ? "always" : "demand") : "never"}
       dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{
@@ -58,7 +58,6 @@ function ComputersCanvas({ isMobile }) {
       <Suspense fallback={<CanvasLoader />}>
         <Computers isMobile={isMobile} />
       </Suspense>
-      <Preload all />
     </Canvas>
   );
 }

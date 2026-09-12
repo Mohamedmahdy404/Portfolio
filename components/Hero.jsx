@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 
-import { ComputersCanvas } from "./canvas";
+import dynamic from "next/dynamic";
+import useDeferredCanvas from "@/utils/useDeferredCanvas";
+const ComputersCanvas = dynamic(() => import("./canvas/Computers"), { ssr: false });
 import { fadeIn, textVariant } from "@/utils/motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 function Hero({ loading, isMobile }) {
   const { t, isArabic } = useLanguage();
+  const canvas = useDeferredCanvas();
 
   return (
     <section
@@ -48,8 +51,9 @@ function Hero({ loading, isMobile }) {
         whileInView={!loading && "show"}
         viewport={{ once: true, amount: 0.25 }}
         className="w-full md:h-[800px] sm:h-[300px] h-[200px] absolute md:top-[170px] sm:top-[280px] top-[350px]"
+        ref={canvas.ref}
       >
-        <ComputersCanvas isMobile={isMobile} />
+        {!loading && canvas.ready && <ComputersCanvas isMobile={isMobile} active={canvas.visible} />}
       </motion.div>
 
       <motion.div

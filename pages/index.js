@@ -7,7 +7,6 @@ import {
   Experience,
   Hero,
   Navbar,
-  StarsCanvas,
   Tech,
   Works,
 } from "@/components";
@@ -19,14 +18,18 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import { useLanguage } from "@/contexts/LanguageContext";
+import dynamic from "next/dynamic";
+import useDeferredCanvas from "@/utils/useDeferredCanvas";
+const StarsCanvas = dynamic(() => import("@/components/canvas/Stars"), { ssr: false });
 
 function App({ loading }) {
   const { t } = useLanguage();
+  const contactCanvas = useDeferredCanvas();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -61,17 +64,17 @@ function App({ loading }) {
       </div>
       <section className="relative z-0 flex md:flex-row flex-col-reverse w-full h-full overflow-hidden">
         <About />
-        {!isMobile && <PlayerContainer isMobile={isMobile} />}
+        {isMobile === false && <PlayerContainer isMobile={isMobile} />}
       </section>
       <Services />
       <Experience />
       <Tech />
       <Works />
       {/* <Feedbacks /> */}
-      <section className="relative z-0 flex md:flex-row justify-between flex-col-reverse w-full h-full overflow-x-hidden sm:p-8 p-2 pb-8">
+      <section ref={contactCanvas.ref} className="relative z-0 flex md:flex-row justify-between flex-col-reverse w-full h-full overflow-x-hidden sm:p-8 p-2 pb-8">
         <Contact />
         <EarthContainer isMobile={isMobile} />
-        <StarsCanvas />
+        {contactCanvas.ready && <StarsCanvas active={contactCanvas.visible} />}
       </section>
       <Footer />
       <WhatsAppButton />

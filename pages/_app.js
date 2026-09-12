@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import "@/styles/globals.css";
 
-import { PreLoader } from "@/components/Loader";
+import PreLoader from "@/components/PreLoader";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const GA_MEASUREMENT_ID =
@@ -16,9 +16,15 @@ export default function App({ Component, pageProps }) {
 	const [loading, setLoading] = useState(true);
 	const router = useRouter();
 	useEffect(() => {
-		setTimeout(() => {
-			setLoading(false);
-		}, 3000);
+		// Reveal the hydrated page before starting expensive WebGL work.
+		let secondFrame;
+		const firstFrame = requestAnimationFrame(() => {
+			secondFrame = requestAnimationFrame(() => setLoading(false));
+		});
+		return () => {
+			cancelAnimationFrame(firstFrame);
+			cancelAnimationFrame(secondFrame);
+		};
 	}, []);
 
 	useEffect(() => {
@@ -30,8 +36,6 @@ export default function App({ Component, pageProps }) {
 	}, [loading]);
 
 	useEffect(() => {
-		if (process.env.NODE_ENV !== "production") return undefined;
-
 		const trackPageView = (url) => {
 			sendGAEvent("event", "page_view", {
 				page_path: url,
@@ -101,9 +105,7 @@ export default function App({ Component, pageProps }) {
 			<LanguageProvider>
 				<Component {...pageProps} loading={loading} />
 				<Analytics />
-				{process.env.NODE_ENV === "production" && (
-					<GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
-				)}
+				<GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
 				{loading && <PreLoader />}
 			</LanguageProvider>
 		</>

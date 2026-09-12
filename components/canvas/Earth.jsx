@@ -42,9 +42,10 @@ function Earth({ isMobile }) {
   );
 }
 
-function EarthCanvas({ isMobile }) {
+function EarthCanvas({ isMobile, active = true }) {
   return (
     <Canvas
+      frameloop={active ? "always" : "never"}
       dpr={[1, 2]}
       gl={{
         outputColorSpace: THREE.SRGBColorSpace,
@@ -52,7 +53,9 @@ function EarthCanvas({ isMobile }) {
       }}
       className="cursor-pointer"
     >
-      <Earth isMobile={isMobile} />
+      <Suspense fallback={<CanvasLoader />}>
+        <Earth isMobile={isMobile} />
+      </Suspense>
     </Canvas>
   );
 }

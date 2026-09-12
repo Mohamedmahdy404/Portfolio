@@ -51698,9 +51698,6 @@
       "doubleSided": true,
       "name": "Material",
       "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 0
-        },
         "metallicFactor": 0.0,
         "metallicRoughnessTexture": {
           "index": 1
@@ -52345,9 +52342,6 @@
       "doubleSided": true,
       "name": "Material.074_25",
       "pbrMetallicRoughness": {
-        "baseColorTexture": {
-          "index": 36
-        },
         "metallicFactor": 0.2567561097085095,
         "roughnessFactor": 0.47029494993993237
       }
