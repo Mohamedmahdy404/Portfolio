@@ -26,6 +26,8 @@ const conceptGroups = [
         palette: ["#111111", "#f7f7f5", "#8d8d8a", "#d9d4ca"],
         image:
           "/assets/projects/Build with us/fashon/From Klickpin.com- Need fresh inspiration Pin these cozy puppy training ideas that make everything look instantly polished with aesthetic touches.jpg",
+        mobileImage:
+          "/assets/projects/Build with us/mobile/fashion-streetwear.png",
       },
       {
         title: { ar: "أناقة عصرية", en: "Modern Elegance" },
@@ -40,9 +42,11 @@ const conceptGroups = [
         palette: ["#f4efe8", "#b49b84", "#2c2926", "#d8ccc0"],
         image:
           "/assets/projects/Build with us/fashon/From Klickpin.com- Need fresh inspiration Pin these cozy puppy training ideas that make everything look instantly polished with aesthetic touches (1).jpg",
+        mobileImage:
+          "/assets/projects/Build with us/mobile/fashion-modern-elegance.png",
       },
       {
-        title: { ar: "بساطة محتشمة", en: "Modest Simplicity" },
+        title: { ar: "أناقة راقية", en: "Modest Simplicity" },
         description: {
           ar: "تجربة هادئة لبراند أزياء محتشمة، مع Lookbook بصري وأقسام مرتبة تبرز الخامات والقصّات.",
           en: "A calm modest-fashion experience with a visual lookbook and thoughtfully organized collections.",
@@ -54,6 +58,8 @@ const conceptGroups = [
         palette: ["#f0ebe2", "#8f8069", "#3f4435", "#b8a38b"],
         image:
           "/assets/projects/Build with us/fashon/From Klickpin.com- 892486851183305154-pin-id-892486851183305154.jpg",
+        mobileImage:
+          "/assets/projects/Build with us/mobile/fashion-modest-elegance.png",
       },
     ],
   },
@@ -75,6 +81,7 @@ const conceptGroups = [
         palette: ["#fde2cc", "#f29157", "#9b633f", "#fffaf5"],
         image:
           "/assets/projects/Build with us/food/From Klickpin.com- 131659989103528014-pin-id-131659989103528014.jpg",
+        mobileImage: "/assets/projects/Build with us/mobile/food-coffee.png",
       },
       {
         title: { ar: "منيو مطعم فاخر", en: "Premium Restaurant Menu" },
@@ -89,6 +96,8 @@ const conceptGroups = [
         palette: ["#111512", "#c3914f", "#304a32", "#f3e1c2"],
         image:
           "/assets/projects/Build with us/food/From Klickpin.com- 426505027239668528-pin-id-426505027239668528.jpg",
+        mobileImage:
+          "/assets/projects/Build with us/mobile/food-restaurant.png",
       },
       {
         title: { ar: "تغذية صحية واضحة", en: "Clear Healthy Nutrition" },
@@ -103,6 +112,7 @@ const conceptGroups = [
         palette: ["#f2ecdf", "#40551c", "#9a7d38", "#c9b98f"],
         image:
           "/assets/projects/Build with us/food/From Klickpin.com- Simple tiny lifestyle changes with simple charm and useful ideas today for calm daily living-pin-id-984177324840545302.jpg",
+        mobileImage: "/assets/projects/Build with us/mobile/food-healthy.png",
       },
     ],
   },
@@ -124,6 +134,7 @@ const conceptGroups = [
         palette: ["#371925", "#a75e51", "#ead2c4", "#fff8f1"],
         image:
           "/assets/projects/Build with us/Beauty/From Klickpin.com- Simple Spa Night Ideas for 2026-pin-id-222998619045347538.jpg",
+        mobileImage: "/assets/projects/Build with us/mobile/beauty-luxury.png",
       },
       {
         title: { ar: "جمال طبيعي ناعم", en: "Soft Natural Beauty" },
@@ -138,6 +149,8 @@ const conceptGroups = [
         palette: ["#f4d8da", "#163a31", "#c78888", "#fff8f4"],
         image:
           "/assets/projects/Build with us/Beauty/From Klickpin.com- 1102537552562599027-pin-id-1102537552562599027.jpg",
+        mobileImage:
+          "/assets/projects/Build with us/mobile/beauty-natural.png",
       },
       {
         title: { ar: "متجر عناية بسيط", en: "Simple Care Store" },
@@ -152,6 +165,7 @@ const conceptGroups = [
         palette: ["#fffaf5", "#cdeca7", "#ecd8c4", "#8b6d45"],
         image:
           "/assets/projects/Build with us/Beauty/From Klickpin.com- Pin these 11 Dreamy boho home decor ideas that are worth saving if you love elegant details and creative inspiration for anyone.jpg",
+        mobileImage: "/assets/projects/Build with us/mobile/beauty-simple.png",
       },
     ],
   },
@@ -224,7 +238,7 @@ function BrowserPreview({ concept, labels, language }) {
         <div className="absolute left-1/2 top-1 z-10 h-1.5 w-7 -translate-x-1/2 rounded-full bg-black/80 sm:h-2 sm:w-10" />
         <div className="relative aspect-[9/16] overflow-hidden rounded-[12px] bg-white">
           <Image
-            src={concept.image}
+            src={concept.mobileImage}
             alt={`${labels.mobileLabel}: ${concept.title[language]}`}
             fill
             sizes="(max-width: 768px) 24vw, 158px"
@@ -266,7 +280,7 @@ function BuildWithUs() {
     <section
       id="build-with-us"
       dir={isArabic ? "rtl" : "ltr"}
-      className="relative my-20 overflow-hidden border-y border-white/10 bg-[#111119] px-4 py-16 text-white sm:px-8 md:my-28 md:px-16 md:py-24"
+      className="relative mb-0 mt-20 overflow-hidden border-y border-white/10 bg-[#111119] px-4 py-16 text-white sm:px-8 md:my-28 md:px-16 md:py-24"
     >
       <div className="mx-auto max-w-[1220px]">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
