@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 function About() {
   const { t, isArabic } = useLanguage();
+  const overviewSocials = socials.filter((social) => social.id !== "whatsapp");
 
   return (
     <section
@@ -34,7 +35,7 @@ function About() {
         </div>
         {/* removed single-email row: socials contains email icon already */}
         <div className="flex gap-5 items-center">
-          {socials.map((social) => (
+          {overviewSocials.map((social) => (
             <Link
               href={social.link}
               target="_blank"
@@ -48,19 +49,10 @@ function About() {
         <a
           href="/document/Mohamed-Yasser-Resume.pdf"
           download
-          className="w-fit"
+          className="inline-flex w-fit rounded-md bg-tertiary px-7 py-2 font-semibold text-white transition-colors hover:bg-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-five"
           aria-label={t.about.resumeLabel}
         >
-          <div className="btn w-fit bg-tertiary text-white px-7 py-2 rounded-md overflow-hidden relative cursor-pointer">
-            <div className="original bg-primary text-white px-7 py-2">
-              {t.about.resume}
-            </div>
-            <div className="letters" aria-hidden="true">
-              {[...t.about.resume].map((letter, index) => (
-                <span key={`${letter}-${index}`}>{letter}</span>
-              ))}
-            </div>
-          </div>
+          {t.about.resume}
         </a>
       </motion.div>
     </section>

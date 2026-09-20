@@ -74,7 +74,7 @@ function Experience() {
   const { t, isArabic } = useLanguage();
 
   return (
-    <motion.section className="w-full p-8 mt-6 sm:mt-20">
+    <motion.section className="mt-0 w-full px-8 pb-8 pt-2 sm:mt-20 sm:p-8">
       <motion.div variants={textVariant()}>
         <p className={`sectionSubText text-center`}>{t.experience.eyebrow}</p>
         <h2 className={`sectionHeadText text-center`}>{t.experience.title}</h2>

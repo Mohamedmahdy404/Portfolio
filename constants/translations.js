@@ -114,38 +114,88 @@ export const translations = {
       openLive: "Open the live website for",
       openSource: "Open the source code for",
       imageLabel: "project preview",
+      showImage: "Show image",
       items: [
         {
           name: "Moussa Shipping",
-          description: "A corporate website presenting 24/7 ship provisioning, technical supplies, and direct contact channels in Port Said.",
+          description: "A business website that helps ships and maritime companies quickly explore 24/7 supply services and contact the right department in Port Said.",
+          tags: [
+            { name: "Business Website", color: "blue-text-gradient" },
+            { name: "24/7 Enquiries", color: "green-text-gradient" },
+            { name: "Mobile Friendly", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Paxi Go",
-          description: "A ride-hailing and delivery platform with real-time dispatch and live tracking across Newulm’s mobility services.",
+          description: "A mobile app for booking rides and delivery services with live tracking. Available for iPhone and Android on the App Store and Google Play.",
+          tags: [
+            { name: "iPhone & Android", color: "blue-text-gradient" },
+            { name: "Ride Booking", color: "green-text-gradient" },
+            { name: "Live Tracking", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Ulm Care",
-          description: "A scalable healthcare platform for booking surgeries, lab tests, and home visits.",
+          description: "A healthcare mobile app for booking surgeries, lab tests, and home visits. Available for iPhone and Android on the App Store and Google Play.",
+          tags: [
+            { name: "iPhone & Android", color: "blue-text-gradient" },
+            { name: "Healthcare Booking", color: "green-text-gradient" },
+            { name: "Home Services", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Store Management System",
-          description: "A desktop system for products, orders, inventory tracking, CRUD workflows, and Excel integration.",
+          description: "A desktop application for shops to manage products, sales, orders, and stock from one place, with simple Excel import and export.",
+          tags: [
+            { name: "Desktop Business App", color: "blue-text-gradient" },
+            { name: "Stock Control", color: "green-text-gradient" },
+            { name: "Sales Management", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "ClayHaven E-commerce Platform",
-          description: "An online handmade-clay store with accounts, role-based access, and Stripe payments.",
+          description: "An online store that lets a handmade-products brand showcase items, manage customer accounts, and accept secure online payments.",
+          tags: [
+            { name: "Online Store", color: "blue-text-gradient" },
+            { name: "Secure Payments", color: "green-text-gradient" },
+            { name: "Customer Accounts", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Pharmacy E-Commerce Platform",
-          description: "A multi-store pharmacy platform with fuzzy search that helps customers find nearby pharmacies and products.",
+          description: "An online marketplace where pharmacies can sell their products and customers can quickly find the medicine they need at nearby stores.",
+          tags: [
+            { name: "Pharmacy Marketplace", color: "blue-text-gradient" },
+            { name: "Nearby Stores", color: "green-text-gradient" },
+            { name: "Fast Product Search", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Ayah Online – Quran & Arabic Academy",
-          description: "A responsive, family-friendly academy website presenting Quran and Arabic programs for children.",
+          description: "A family-friendly website that presents Quran and Arabic programs for children and makes it easy for parents to learn more and enquire.",
+          tags: [
+            { name: "Education Website", color: "blue-text-gradient" },
+            { name: "Parent Friendly", color: "green-text-gradient" },
+            { name: "Easy Enquiries", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Middle East Company Platform",
-          description: "A full-stack company website with a secure admin dashboard, content management, and cloud image storage.",
+          description: "A company website with a private control panel that lets the business owner update services, content, and images without developer help.",
+          tags: [
+            { name: "Business Website", color: "blue-text-gradient" },
+            { name: "Owner Control Panel", color: "green-text-gradient" },
+            { name: "Easy Content Updates", color: "pink-text-gradient" },
+          ],
+        },
+        {
+          name: "Rangdata Fashion Store",
+          description: "A fashion-brand online store that showcases seasonal collections and products through a smooth shopping experience on mobile and desktop.",
+          tags: [
+            { name: "Fashion Online Store", color: "blue-text-gradient" },
+            { name: "Product Showcase", color: "pink-text-gradient" },
+            { name: "Mobile Shopping", color: "green-text-gradient" },
+          ],
         },
       ],
     },
@@ -162,6 +212,11 @@ export const translations = {
       sending: "Sending…",
       success: "Thank you for your message. I will get back to you soon.",
       error: "Something went wrong. Please try again later.",
+      validation: {
+        name: "Please enter at least 3 characters for your name.",
+        email: "Please enter a valid email address.",
+        message: "Please write at least 10 characters in your message.",
+      },
     },
     whatsapp: "Send me a message on WhatsApp",
     whatsappWidget: {
@@ -289,38 +344,88 @@ export const translations = {
       openLive: "فتح الموقع المباشر لمشروع",
       openSource: "فتح الكود المصدري لمشروع",
       imageLabel: "صورة المشروع",
+      showImage: "عرض الصورة",
       items: [
         {
           name: "موسى للخدمات البحرية",
-          description: "موقع شركة يعرض خدمات تموين السفن والدعم الفني على مدار الساعة وقنوات التواصل المباشر في بورسعيد.",
+          description: "موقع أعمال يساعد السفن والشركات البحرية على استعراض خدمات التوريد المتاحة طوال اليوم والتواصل سريعاً مع القسم المناسب في بورسعيد.",
+          tags: [
+            { name: "موقع شركة", color: "blue-text-gradient" },
+            { name: "طلبات على مدار اليوم", color: "green-text-gradient" },
+            { name: "متوافق مع الموبايل", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Paxi Go",
-          description: "منصة للنقل والتوصيل تضم توزيع الطلبات والتتبع المباشر ضمن منظومة خدمات Newulm.",
+          description: "تطبيق موبايل لحجز الرحلات وخدمات التوصيل مع تتبع مباشر، ومتاح للآيفون والأندرويد على App Store وGoogle Play.",
+          tags: [
+            { name: "آيفون وأندرويد", color: "blue-text-gradient" },
+            { name: "حجز الرحلات", color: "green-text-gradient" },
+            { name: "تتبع مباشر", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "Ulm Care",
-          description: "منصة رعاية صحية قابلة للتوسع لحجز العمليات والتحاليل والزيارات المنزلية.",
+          description: "تطبيق موبايل للرعاية الصحية يتيح حجز العمليات والتحاليل والزيارات المنزلية، ومتاح للآيفون والأندرويد على App Store وGoogle Play.",
+          tags: [
+            { name: "آيفون وأندرويد", color: "blue-text-gradient" },
+            { name: "حجوزات طبية", color: "green-text-gradient" },
+            { name: "خدمات منزلية", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "نظام إدارة المتجر",
-          description: "نظام مكتبي لإدارة المنتجات والطلبات والمخزون وعمليات CRUD والتكامل مع Excel.",
+          description: "برنامج ديسكتوب للمحلات يجمع إدارة المنتجات والمبيعات والطلبات والمخزون في مكان واحد، مع استيراد وتصدير ملفات Excel بسهولة.",
+          tags: [
+            { name: "برنامج لإدارة الأعمال", color: "blue-text-gradient" },
+            { name: "إدارة المخزون", color: "green-text-gradient" },
+            { name: "إدارة المبيعات", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "منصة ClayHaven للتجارة الإلكترونية",
-          description: "متجر إلكتروني لمنتجات الصلصال اليدوية يضم الحسابات والصلاحيات والدفع عبر Stripe.",
+          description: "متجر إلكتروني يساعد علامة للمنتجات اليدوية على عرض منتجاتها وإدارة حسابات العملاء واستقبال المدفوعات أونلاين بأمان.",
+          tags: [
+            { name: "متجر إلكتروني", color: "blue-text-gradient" },
+            { name: "دفع آمن", color: "green-text-gradient" },
+            { name: "حسابات العملاء", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "منصة الصيدليات الإلكترونية",
-          description: "منصة متعددة المتاجر مع بحث تقريبي يساعد العملاء على إيجاد الصيدليات والمنتجات القريبة.",
+          description: "سوق إلكتروني يتيح للصيدليات بيع منتجاتها ويساعد العملاء على الوصول بسرعة إلى الدواء المطلوب في أقرب الصيدليات.",
+          tags: [
+            { name: "سوق للصيدليات", color: "blue-text-gradient" },
+            { name: "متاجر قريبة", color: "green-text-gradient" },
+            { name: "بحث سريع", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "أكاديمية آية أونلاين للقرآن والعربية",
-          description: "موقع متجاوب بطابع عائلي يعرض برامج تعليم القرآن واللغة العربية للأطفال.",
+          description: "موقع مناسب للعائلات يعرض برامج تعليم القرآن والعربية للأطفال ويسهّل على أولياء الأمور معرفة التفاصيل والتواصل مع الأكاديمية.",
+          tags: [
+            { name: "موقع تعليمي", color: "blue-text-gradient" },
+            { name: "مناسب للعائلات", color: "green-text-gradient" },
+            { name: "تواصل سهل", color: "pink-text-gradient" },
+          ],
         },
         {
           name: "منصة شركة ميدل إيست",
-          description: "موقع متكامل مع لوحة إدارة آمنة لإدارة المحتوى وتخزين الصور سحابياً.",
+          description: "موقع شركة مزود بلوحة تحكم خاصة تتيح لصاحب العمل تحديث الخدمات والمحتوى والصور بسهولة من دون الرجوع إلى مطوّر.",
+          tags: [
+            { name: "موقع شركة", color: "blue-text-gradient" },
+            { name: "لوحة تحكم للمالك", color: "green-text-gradient" },
+            { name: "تحديث محتوى سهل", color: "pink-text-gradient" },
+          ],
+        },
+        {
+          name: "متجر Rangdata للأزياء",
+          description: "متجر إلكتروني لعلامة أزياء يعرض المجموعات الموسمية والمنتجات من خلال تجربة تسوق سلسة على الموبايل والديسكتوب.",
+          tags: [
+            { name: "متجر أزياء", color: "blue-text-gradient" },
+            { name: "عرض المنتجات", color: "pink-text-gradient" },
+            { name: "تسوق عبر الموبايل", color: "green-text-gradient" },
+          ],
         },
       ],
     },
@@ -337,6 +442,11 @@ export const translations = {
       sending: "جارٍ الإرسال…",
       success: "شكراً لرسالتك. سأتواصل معك قريباً.",
       error: "حدث خطأ. يرجى المحاولة مرة أخرى لاحقاً.",
+      validation: {
+        name: "يرجى كتابة الاسم من 3 أحرف على الأقل.",
+        email: "يرجى كتابة بريد إلكتروني صحيح.",
+        message: "يرجى كتابة رسالة من 10 أحرف على الأقل.",
+      },
     },
     whatsapp: "أرسل لي رسالة عبر واتساب",
     whatsappWidget: {

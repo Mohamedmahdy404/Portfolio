@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import {
   About,
+  BuildWithUs,
   Contact,
   Experience,
   Hero,
@@ -16,7 +17,6 @@ import PlayerContainer from "@/components/PlayerContainer";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import ScrollToTop from "@/components/ScrollToTop";
 import { useLanguage } from "@/contexts/LanguageContext";
 import dynamic from "next/dynamic";
 import useDeferredCanvas from "@/utils/useDeferredCanvas";
@@ -70,6 +70,7 @@ function App({ loading }) {
       <Experience />
       <Tech />
       <Works />
+      <BuildWithUs />
       {/* <Feedbacks /> */}
       <section ref={contactCanvas.ref} className="relative z-0 flex md:flex-row justify-between flex-col-reverse w-full h-full overflow-x-hidden sm:p-8 p-2 pb-8">
         <Contact />
@@ -78,7 +79,6 @@ function App({ loading }) {
       </section>
       <Footer />
       <WhatsAppButton />
-      <ScrollToTop />
       </main>
     </>
   );

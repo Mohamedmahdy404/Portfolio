@@ -10,7 +10,7 @@ function Services() {
   const serviceIcons = services.slice(0, 4).map((service) => service.icon);
 
   return (
-    <section className="services-section relative overflow-hidden px-3 pt-16 pb-8 sm:px-8 sm:py-24 md:py-32">
+    <section className="services-section relative overflow-hidden px-3 pt-16 pb-2 sm:px-8 sm:py-24 md:py-32">
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <motion.div
           variants={textVariant()}
@@ -42,7 +42,7 @@ function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className="mx-auto mt-14 flex max-w-xl flex-col items-center gap-4 text-center sm:mt-20 sm:flex-row sm:justify-center sm:gap-6"
+          className="mx-auto mt-8 flex max-w-xl flex-col items-center gap-3 text-center sm:mt-20 sm:flex-row sm:justify-center sm:gap-6"
         >
           <p className="text-sm font-semibold text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:text-base">
             {t.services.ctaText}

@@ -191,12 +191,11 @@ const projects = [
   {
     name: "Moussa Shipping",
     description:
-      "Corporate website for Moussa Ship Supply in Port Said, Egypt, presenting its 24-hour ship provisioning, technical, and general supply services with direct department contact channels.",
+      "A business website that helps ships and maritime companies quickly explore 24/7 supply services and contact the right department in Port Said.",
     tags: [
-      { name: "Ship Supply", color: "blue-text-gradient" },
-      { name: "Provisions", color: "green-text-gradient" },
-      { name: "Technical Supply", color: "pink-text-gradient" },
-      { name: "Responsive Website", color: "blue-text-gradient" },
+      { name: "Business Website", color: "blue-text-gradient" },
+      { name: "24/7 Enquiries", color: "green-text-gradient" },
+      { name: "Mobile Friendly", color: "pink-text-gradient" },
     ],
     image: "/assets/projects/moussa-shipping.png",
     source_code_link: "#",
@@ -205,12 +204,11 @@ const projects = [
   {
     name: "Paxi Go",
     description:
-      "Ride-hailing and delivery platform with real-time request dispatching and live tracking features, built as part of Newulm's mobility services ecosystem.",
+      "A mobile app for booking rides and delivery services with live tracking. Available for iPhone and Android on the App Store and Google Play.",
     tags: [
-      { name: "ASP.NET Core", color: "blue-text-gradient" },
-      { name: "Microservices", color: "green-text-gradient" },
-      { name: "Real-Time Tracking", color: "pink-text-gradient" },
-      { name: "Azure", color: "blue-text-gradient" },
+      { name: "iPhone & Android", color: "blue-text-gradient" },
+      { name: "Ride Booking", color: "green-text-gradient" },
+      { name: "Live Tracking", color: "pink-text-gradient" },
     ],
     image: "/assets/projects/paxi-go.png",
     source_code_link: "#",
@@ -219,12 +217,11 @@ const projects = [
   {
     name: "Ulm Care",
     description:
-      "Healthcare booking platform supporting surgery reservations, lab tests, and home-visit scheduling with scalable backend services.",
+      "A healthcare mobile app for booking surgeries, lab tests, and home visits. Available for iPhone and Android on the App Store and Google Play.",
     tags: [
-      { name: "ASP.NET Core", color: "blue-text-gradient" },
-      { name: "Healthcare", color: "green-text-gradient" },
-      { name: "Microservices", color: "pink-text-gradient" },
-      { name: "Azure", color: "blue-text-gradient" },
+      { name: "iPhone & Android", color: "blue-text-gradient" },
+      { name: "Healthcare Booking", color: "green-text-gradient" },
+      { name: "Home Services", color: "pink-text-gradient" },
     ],
     image: "/assets/projects/ulm-care.png",
     source_code_link: "#",
@@ -233,12 +230,11 @@ const projects = [
   {
     name: "Store Management System",
     description:
-      "Developed a system to manage products and orders with CRUD operations, inventory tracking, and Excel integration.",
+      "A desktop application for shops to manage products, sales, orders, and stock from one place, with simple Excel import and export.",
     tags: [
-      { name: "C#", color: "blue-text-gradient" },
-      { name: "Windows Forms", color: "green-text-gradient" },
-      { name: "SQL Server", color: "pink-text-gradient" },
-      { name: "Desktop Application", color: "pink-text-gradient" },
+      { name: "Desktop Business App", color: "blue-text-gradient" },
+      { name: "Stock Control", color: "green-text-gradient" },
+      { name: "Sales Management", color: "pink-text-gradient" },
     ],
     image: "/assets/projects/InventoryAndSales.jpg",
     source_code_link: "https://github.com/RouQandel/InventoryAndSales",
@@ -247,14 +243,11 @@ const projects = [
   {
     name: "ClayHaven E-commerce Platform",
     description:
-      "Online platform for handmade clay products with user registration, role-based access, and Stripe payment integration.",
+      "An online store that lets a handmade-products brand showcase items, manage customer accounts, and accept secure online payments.",
     tags: [
-      { name: "ASP.NET MVC", color: "blue-text-gradient" },
-      { name: "C#", color: "green-text-gradient" },
-      { name: "Entity Framework", color: "pink-text-gradient" },
-      { name: "Stripe", color: "pink-text-gradient" },
-      { name: "Stripe Payments", color: "green-text-gradient" },
-      { name: "Role-Based Access", color: "pink-text-gradient" },
+      { name: "Online Store", color: "blue-text-gradient" },
+      { name: "Secure Payments", color: "green-text-gradient" },
+      { name: "Customer Accounts", color: "pink-text-gradient" },
     ],
     image: "/assets/projects/clayhaven.png",
     source_code_link: "https://github.com/Mohamedmahdy404/ClayHaven#",
@@ -263,14 +256,11 @@ const projects = [
   {
     name: "Pharmacy E-Commerce Platform",
     description:
-      "Platform for pharmacy owners to create online shops; includes partial/fuzzy search to help users find nearest pharmacies with required products.",
+      "An online marketplace where pharmacies can sell their products and customers can quickly find the medicine they need at nearby stores.",
     tags: [
-      { name: "Angular", color: "blue-text-gradient" },
-      { name: "ASP.NET Web API", color: "green-text-gradient" },
-      { name: "SQL Server", color: "pink-text-gradient" },
-      { name: "RESTful APIs", color: "blue-text-gradient" },
-      { name: "Fuzzy Search", color: "green-text-gradient" },
-      { name: "Full-Stack Application", color: "pink-text-gradient" },
+      { name: "Pharmacy Marketplace", color: "blue-text-gradient" },
+      { name: "Nearby Stores", color: "green-text-gradient" },
+      { name: "Fast Product Search", color: "pink-text-gradient" },
     ],
     image: "/assets/projects/PharmaHub.png",
     source_code_link: "https://github.com/PharmaHub-Ecommerce-Angular-WebAPI",
@@ -279,13 +269,11 @@ const projects = [
   {
   name: "Ayah Online – Quran & Arabic Academy",
   description:
-    "Clean and responsive landing page for an online academy teaching Quran recitation and Arabic grammar to children. Designed with a family-friendly UI to showcase services, values, and contact options.",
+    "A family-friendly website that presents Quran and Arabic programs for children and makes it easy for parents to learn more and enquire.",
   tags: [
-    { name: "HTML", color: "blue-text-gradient" },
-    { name: "CSS", color: "green-text-gradient" },
-    { name: "JavaScript", color: "pink-text-gradient" },
-    { name: "Responsive Design", color: "blue-text-gradient" },
-    { name: "EmailJs", color: "yellow-text-gradient" },
+    { name: "Education Website", color: "blue-text-gradient" },
+    { name: "Parent Friendly", color: "green-text-gradient" },
+    { name: "Easy Enquiries", color: "pink-text-gradient" },
   ],
   image: "/assets/projects/ayah-online.png",
   source_code_link: "https://github.com/Mohamedmahdy404/Ayah-Online",
@@ -294,18 +282,33 @@ const projects = [
 {
   name: "Middle East Company Platform",
   description:
-    "Full-stack web platform featuring a public-facing website and a secure admin dashboard. The dashboard supports full CRUD operations for managing content and services, with image uploads stored securely in cloud storage, enabling dynamic and easy website management.",
+    "A company website with a private control panel that lets the business owner update services, content, and images without developer help.",
   tags: [
-    { name: "Angular", color: "blue-text-gradient" },
-    { name: "ASP.NET Web API", color: "green-text-gradient" },
-    { name: "SQL Server", color: "pink-text-gradient" },
-    { name: "Admin Dashboard", color: "blue-text-gradient" },
-    { name: "CRUD Operations", color: "green-text-gradient" },
-    { name: "Cloud Storage", color: "pink-text-gradient" },
+    { name: "Business Website", color: "blue-text-gradient" },
+    { name: "Owner Control Panel", color: "green-text-gradient" },
+    { name: "Easy Content Updates", color: "pink-text-gradient" },
   ],
   image: "/assets/projects/middle-east-seven.png",
   source_code_link: "#",
   deployed_link: "https://middle-east-seven.vercel.app/",
+},
+{
+  name: "Rangdata Fashion Store",
+  description:
+    "A fashion-brand online store that showcases seasonal collections and products through a smooth shopping experience on mobile and desktop.",
+  tags: [
+    { name: "Fashion Online Store", color: "blue-text-gradient" },
+    { name: "Product Showcase", color: "pink-text-gradient" },
+    { name: "Mobile Shopping", color: "green-text-gradient" },
+  ],
+  image: "/assets/projects/rangdata 1.png",
+  images: [
+    "/assets/projects/rangdata 1.png",
+    "/assets/projects/rangdata 2.png",
+    "/assets/projects/rangdata 3.png",
+  ],
+  source_code_link: "#",
+  deployed_link: "https://rangdata.github.io/Rang-Data/",
 },
 
 ];

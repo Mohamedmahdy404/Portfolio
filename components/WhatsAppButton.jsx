@@ -13,6 +13,7 @@ function WhatsAppButton() {
   const { t, isArabic } = useLanguage();
   const [ready, setReady] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
+  const [hideForBuildSection, setHideForBuildSection] = useState(false);
 
   useEffect(() => {
     const revealTimer = setTimeout(() => setReady(true), 900);
@@ -47,7 +48,23 @@ function WhatsAppButton() {
     return () => clearTimeout(hideTimer);
   }, [showBubble]);
 
-  if (!ready) return null;
+  useEffect(() => {
+    const buildSection = document.getElementById("build-with-us");
+    if (!buildSection) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setHideForBuildSection(entry.isIntersecting);
+        if (entry.isIntersecting) setShowBubble(false);
+      },
+      { threshold: 0.12 }
+    );
+
+    observer.observe(buildSection);
+    return () => observer.disconnect();
+  }, []);
+
+  if (!ready || hideForBuildSection) return null;
 
   return (
     <div
