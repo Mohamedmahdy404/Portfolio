@@ -14,7 +14,7 @@ const conceptGroups = [
     accent: "#d8c3ad",
     concepts: [
       {
-        title: { ar: "ستريت وير جريء", en: "Bold Streetwear" },
+        title: { ar: "مظهر حديث", en: "Bold Streetwear" },
         description: {
           ar: "متجر سريع يضع المنتج في الواجهة، مع اختيار المقاس واللون وتجربة شراء مباشرة وواضحة.",
           en: "A product-first store with clear sizing, color selection, and a fast shopping journey.",
@@ -250,6 +250,86 @@ function BrowserPreview({ concept, labels, language }) {
   );
 }
 
+function ConceptPicker({
+  activeGroup,
+  activeConceptIndex,
+  labels,
+  language,
+  reduceMotion,
+  onSelect,
+}) {
+  return (
+    <div className="mt-4">
+      <p className="text-xs font-bold text-ctnSecondaryDark">
+        {labels.directionLabel}
+      </p>
+
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={activeGroup.id}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
+          transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeOut" }}
+          className="mt-3 grid grid-cols-3 gap-2 sm:gap-3"
+        >
+          {activeGroup.concepts.map((concept, index) => {
+            const isActive = activeConceptIndex === index;
+
+            return (
+              <motion.button
+                key={concept.title.en}
+                type="button"
+                onClick={() => onSelect(index)}
+                aria-label={`${labels.directionLabel}: ${concept.title[language]}`}
+                aria-pressed={isActive}
+                whileHover={reduceMotion ? undefined : { y: -4 }}
+                whileTap={reduceMotion ? undefined : { scale: 0.97 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className={`group relative aspect-square min-w-0 overflow-hidden rounded-md border text-start shadow-[0_12px_32px_rgba(0,0,0,0.18)] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-[#181826] ${
+                  isActive
+                    ? "border-primary"
+                    : "border-white/10 hover:border-white/35"
+                }`}
+              >
+                <Image
+                  src={concept.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) 30vw, (max-width: 1024px) 190px, 150px"
+                  className={`object-cover object-top transition duration-500 ${
+                    isActive
+                      ? "scale-105 saturate-100"
+                      : "saturate-[0.72] group-hover:scale-105 group-hover:saturate-100"
+                  }`}
+                />
+                <span
+                  className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-[#0c0c14]/35 to-transparent"
+                  aria-hidden="true"
+                />
+                <span className="absolute right-2 top-2 text-[10px] font-black text-white/80 sm:text-xs">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="absolute inset-x-2 bottom-2 text-[11px] font-black leading-4 text-white sm:inset-x-3 sm:bottom-3 sm:text-sm sm:leading-5">
+                  {concept.title[language]}
+                </span>
+                {isActive && (
+                  <motion.span
+                    layoutId="active-concept-outline"
+                    className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-inset ring-primary"
+                    transition={{ duration: reduceMotion ? 0 : 0.25 }}
+                    aria-hidden="true"
+                  />
+                )}
+              </motion.button>
+            );
+          })}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function BuildWithUs() {
   const { isArabic } = useLanguage();
   const language = isArabic ? "ar" : "en";
@@ -280,10 +360,10 @@ function BuildWithUs() {
     <section
       id="build-with-us"
       dir={isArabic ? "rtl" : "ltr"}
-      className="relative mb-0 mt-20 overflow-hidden border-y border-white/10 bg-[#111119] px-4 py-16 text-white sm:px-8 md:my-28 md:px-16 md:py-24"
+      className="relative mb-0 mt-20 overflow-hidden px-4 py-16 text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:px-8 md:my-28 md:px-16 md:py-24"
     >
       <div className="mx-auto max-w-[1220px]">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-14">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold text-[#a98bff] sm:text-base">
               {labels.eyebrow}
@@ -296,30 +376,41 @@ function BuildWithUs() {
             </p>
           </div>
 
-          <div
-            className="grid w-full grid-cols-3 overflow-hidden rounded-lg border border-white/15 bg-white/[0.04] p-1 lg:w-auto lg:min-w-[440px]"
-            role="tablist"
-            aria-label={labels.directionLabel}
-          >
-            {conceptGroups.map((group) => {
-              const isActive = activeGroup.id === group.id;
-              return (
-                <button
-                  key={group.id}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => selectGroup(group.id)}
-                  className={`min-h-[48px] px-2 py-2 text-xs font-bold transition-colors sm:px-4 sm:text-sm ${
-                    isActive
-                      ? "bg-white text-[#171720]"
-                      : "text-white/60 hover:bg-white/[0.06] hover:text-white"
-                  }`}
-                >
-                  {group.label[language]}
-                </button>
-              );
-            })}
+          <div className="w-full lg:w-[500px] lg:shrink-0">
+            <div
+              className="grid w-full grid-cols-3 overflow-hidden rounded-lg border border-white/15 bg-white/[0.04] p-1 backdrop-blur-sm"
+              role="tablist"
+              aria-label={labels.directionLabel}
+            >
+              {conceptGroups.map((group) => {
+                const isActive = activeGroup.id === group.id;
+                return (
+                  <button
+                    key={group.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => selectGroup(group.id)}
+                    className={`min-h-[48px] px-2 py-2 text-xs font-bold transition-all duration-300 sm:px-4 sm:text-sm ${
+                      isActive
+                        ? "bg-primary text-white shadow-[0_8px_24px_rgba(128,77,238,0.32)]"
+                        : "text-white/60 hover:bg-white/[0.06] hover:text-white"
+                    }`}
+                  >
+                    {group.label[language]}
+                  </button>
+                );
+              })}
+            </div>
+
+            <ConceptPicker
+              activeGroup={activeGroup}
+              activeConceptIndex={activeConceptIndex}
+              labels={labels}
+              language={language}
+              reduceMotion={reduceMotion}
+              onSelect={setActiveConceptIndex}
+            />
           </div>
         </div>
 
@@ -400,7 +491,7 @@ function BuildWithUs() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 flex min-h-[54px] w-full items-center justify-center gap-3 rounded-lg bg-[#25D366] px-5 py-3 text-center text-sm font-black text-[#07180d] shadow-[0_12px_36px_rgba(37,211,102,0.25)] transition hover:-translate-y-1 hover:bg-[#35df75] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#111119] sm:text-base"
+              className="mt-8 flex min-h-[54px] w-full items-center justify-center gap-3 rounded-lg bg-[#25D366] px-5 py-3 text-center text-sm font-black text-[#07180d] shadow-[0_12px_36px_rgba(37,211,102,0.25)] transition hover:-translate-y-1 hover:bg-[#35df75] focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#181826] sm:text-base"
             >
               <span className="h-6 w-6 shrink-0">
                 <WhatsappIcon className="h-full w-full" />
@@ -410,35 +501,9 @@ function BuildWithUs() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 pt-7">
-          <p className="text-xs font-bold text-white/40">{labels.directionLabel}</p>
-          <div className="mt-3 grid gap-2 sm:grid-cols-3">
-            {activeGroup.concepts.map((concept, index) => {
-              const isActive = activeConceptIndex === index;
-              return (
-                <button
-                  key={concept.title.en}
-                  type="button"
-                  onClick={() => setActiveConceptIndex(index)}
-                  aria-pressed={isActive}
-                  className={`flex min-h-[64px] items-center gap-4 border px-4 py-3 text-start transition ${
-                    isActive
-                      ? "border-[#a98bff] bg-[#a98bff]/10 text-white"
-                      : "border-white/10 text-white/55 hover:border-white/30 hover:text-white"
-                  }`}
-                >
-                  <span className="text-xs font-black text-[#a98bff]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-sm font-bold">{concept.title[language]}</span>
-                </button>
-              );
-            })}
-          </div>
-          <p className="mt-5 text-center text-xs leading-6 text-white/35">
-            {labels.note}
-          </p>
-        </div>
+        <p className="mt-10 border-t border-white/10 pt-5 text-center text-xs leading-6 text-white/35">
+          {labels.note}
+        </p>
       </div>
     </section>
   );
