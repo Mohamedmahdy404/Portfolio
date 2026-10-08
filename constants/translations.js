@@ -67,8 +67,7 @@ export const translations = {
           company: "Arab International Bank (AIB)",
           date: "Mar 2026 – Present",
           points: [
-            "Build application integrations and data workflows for internal banking systems.",
-            "Develop SSIS ETL pipelines and secure, optimized SQL queries for enterprise data.",
+            "Build banking integrations and data pipelines with SQL and SSIS.",
           ],
         },
         {
@@ -76,8 +75,7 @@ export const translations = {
           company: "Newulm Medical",
           date: "Dec 2025 – Apr 2026",
           points: [
-            "Built microservice backends for Ulm Care and Paxi Go, including booking, dispatch, and live tracking.",
-            "Delivered third-party integrations and automated Azure deployments with GitHub Actions.",
+            "Built booking and live-tracking backends for Ulm Care and Paxi Go.",
           ],
         },
         {
@@ -85,8 +83,7 @@ export const translations = {
           company: "Information Technology Institute (ITI) – MCIT",
           date: "Jul 2025 – Present",
           points: [
-            "Teach C#, Entity Framework, ASP.NET MVC, Web API, databases, TypeScript, and Angular.",
-            "Lead practical sessions and mentor students on clean, maintainable project development.",
+            "Teach .NET and Angular through practical projects and mentoring.",
           ],
         },
         {
@@ -94,8 +91,7 @@ export const translations = {
           company: "New Vision Systems Canada",
           date: "Mar 2025 – Mar 2026",
           points: [
-            "Built RFID inventory and access-control applications with ASP.NET Core, Angular, SignalR, and SQL Server.",
-            "Integrated Kafka event streams and delivered responsive interfaces with Angular and PrimeNG.",
+            "Built RFID inventory and access-control systems with .NET and Angular.",
           ],
         },
       ],
@@ -361,8 +357,7 @@ export const translations = {
           company: "المصرف العربي الدولي (AIB)",
           date: "مارس 2026 – حتى الآن",
           points: [
-            "تطوير تكاملات التطبيقات ومسارات البيانات للأنظمة المصرفية الداخلية.",
-            "إنشاء مسارات ETL باستخدام SSIS وكتابة استعلامات SQL آمنة ومحسّنة للبيانات المؤسسية.",
+            "تطوير تكاملات مصرفية ومسارات بيانات باستخدام SQL وSSIS.",
           ],
         },
         {
@@ -370,8 +365,7 @@ export const translations = {
           company: "نيولم الطبية",
           date: "ديسمبر 2025 – أبريل 2026",
           points: [
-            "تطوير خدمات مصغّرة لمنصتي Ulm Care وPaxi Go تشمل الحجز والتوزيع والتتبع المباشر.",
-            "تنفيذ تكاملات خارجية النشر على Azure باستخدام GitHub Actions.",
+            "تطوير خدمات الحجز والتتبع المباشر لمنصتي Ulm Care وPaxi Go.",
           ],
         },
         {
@@ -379,8 +373,7 @@ export const translations = {
           company: "معهد تكنولوجيا المعلومات (ITI) – وزارة الاتصالات",
           date: "يوليو 2025 – حتى الآن",
           points: [
-            "تدريس C# وEntity Framework وASP.NET MVC وWeb API وقواعد البيانات وTypeScript وAngular.",
-            "قيادة الجلسات العملية وإرشاد الطلاب لبناء مشاريع نظيفة وسهلة الصيانة.",
+            "تدريس .NET وAngular من خلال مشاريع عملية وإرشاد الطلاب.",
           ],
         },
         {
@@ -388,8 +381,7 @@ export const translations = {
           company: "New Vision Systems Canada",
           date: "مارس 2025 – مارس 2026",
           points: [
-            "تطوير تطبيقات للمخزون والتحكم في الدخول بتقنية RFID باستخدام ASP.NET Core وAngular وSignalR وSQL Server.",
-            "دمج تدفقات Kafka وبناء واجهات متجاوبة باستخدام Angular وPrimeNG.",
+            "تطوير أنظمة المخزون والتحكم في الدخول بتقنية RFID باستخدام .NET وAngular.",
           ],
         },
       ],

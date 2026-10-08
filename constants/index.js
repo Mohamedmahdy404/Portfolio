@@ -121,8 +121,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Mar 2026 - Present",
     points: [
-      "Build application integrations and data workflows for internal banking systems.",
-      "Develop SSIS ETL pipelines and secure, optimized SQL queries for enterprise data.",
+      "Build banking integrations and data pipelines with SQL and SSIS.",
     ],
   },
   {
@@ -132,8 +131,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Dec 2025 - Apr 2026",
     points: [
-      "Built microservice backends for Ulm Care and Paxi Go, including booking, dispatch, and live tracking.",
-      "Delivered third-party integrations and automated Azure deployments with GitHub Actions.",
+      "Built booking and live-tracking backends for Ulm Care and Paxi Go.",
     ],
   },
   {
@@ -143,8 +141,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Jul 2025 - Present",
     points: [
-      "Teach C#, Entity Framework, ASP.NET MVC, Web API, databases, TypeScript, and Angular.",
-      "Lead practical sessions and mentor students on clean, maintainable project development.",
+      "Teach .NET and Angular through practical projects and mentoring.",
     ],
   },
   {
@@ -154,8 +151,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Mar 2025 - Mar 2026",
     points: [
-      "Built RFID inventory and access-control applications with ASP.NET Core, Angular, SignalR, and SQL Server.",
-      "Integrated Kafka event streams and delivered responsive interfaces with Angular and PrimeNG.",
+      "Built RFID inventory and access-control systems with .NET and Angular.",
     ],
   },
 ];
