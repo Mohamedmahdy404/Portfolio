@@ -1,77 +1,50 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import ProjectReference from "./ProjectReference";
+import styles from "./ClientSections.module.css";
 
-import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
-import { testimonials } from "../constants";
-import Image from "next/image";
+export default function Feedbacks({ onOpenProject }) {
+  const { t, direction } = useLanguage();
+  const reduceMotion = useReducedMotion();
+  const content = t.feedback;
+  const hasDrafts = content.items.some((item) => item.draft);
 
-function FeedbackCard({
-	index,
-	testimonial,
-	name,
-	designation,
-	company,
-	image
-}) {
-	return (
-		<motion.section
-			variants={fadeIn("", "spring", index * 0.5, 0.75)}
-			className="bg-black-200 p-10 rounded-3xl xs:w-[320px] w-full"
-		>
-			<p className="text-white font-black text-[48px]">&quot;</p>
+  return (
+    <section id="feedback" dir={direction} aria-labelledby="feedback-title" className="relative px-5 py-16 sm:px-8 md:py-24">
+      <div className="mx-auto max-w-[1160px]">
+        <div className="mb-8 max-w-3xl md:mb-12">
+          <p className="sectionSubText">{content.eyebrow}</p>
+          <h2 id="feedback-title" className="sectionHeadText mt-2">{content.title}</h2>
+          {hasDrafts && <p className="mt-5 border-s-2 border-primary/50 ps-4 text-sm leading-7 text-ctnPrimaryLight dark:text-ctnPrimaryDark">{content.draftNotice}</p>}
+        </div>
 
-			<div className="mt-1">
-				<p className="text-white tracking-wider text-[18px]">
-					{testimonial}
-				</p>
-
-				<div className="mt-7 flex justify-between items-center gap-1">
-					<div className="flex-1 flex flex-col">
-						<p className="text-white font-medium text-[16px]">
-							<span className="blue-text-gradient">@</span> {name}
-						</p>
-						<p className="mt-1 text-secondary text-[12px]">
-							{designation} of {company}
-						</p>
-					</div>
-					<div className="w-10 h-10 rounded-full object-cover">
-						<Image
-							src={image}
-							alt={`feedback_by-${name}`}
-							fill={true}
-							sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-							className="rounded-full object-cover"
-						/>
-					</div>
-				</div>
-			</div>
-		</motion.section>
-	);
+        <div className="grid gap-4 md:grid-cols-3">
+          {content.items.map((item, index) => (
+            <motion.div
+              key={item.projectName}
+              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.45, delay: reduceMotion ? 0 : index * 0.08 }}
+              className="min-w-0"
+            >
+              <article className={`${styles.review} flex h-full flex-col bg-bgSecondaryLight p-4 dark:bg-bgSecondaryDark sm:p-5`} style={{ "--review-delay": `${index * -2}s` }}>
+                <div className="mb-3 flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-bold leading-6 text-ctnPrimaryLight dark:text-ctnPrimaryDark">{item.name}</p>
+                    <p className="text-xs leading-5 text-ctnSecondaryLight dark:text-ctnSecondaryDark">{item.role}</p>
+                  </div>
+                  <span aria-hidden="true" className="h-7 text-4xl leading-none text-primary/60">&ldquo;</span>
+                </div>
+                <blockquote className="flex-1 text-[13px] leading-6 text-ctnPrimaryLight dark:text-ctnPrimaryDark">{item.text}</blockquote>
+                <div className="mt-4 border-t border-primary/15 pt-3">
+                  <ProjectReference projectName={item.projectName} label={content.openProject} onOpenProject={onOpenProject} />
+                </div>
+              </article>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
-
-function Feedback() {
-	return (
-		<div className={`mt-12 bg-black-100 rounded-[20px]`}>
-			<div className={`bg-tertiary rounded-2xl padding min-h-[300px]`}>
-				<motion.div variants={textVariant()}>
-					<p className={"sectionSubText"}>What others say</p>
-					<h2 className={"sectionHeadText"}>Testimonials.</h2>
-				</motion.div>
-			</div>
-			<div
-				className={`-mt-20 pb-14 paddingX flex flex-wrap gap-7 justify-center`}
-			>
-				{testimonials.map((testimonial, index) => (
-					<FeedbackCard
-						key={testimonial.name}
-						index={index}
-						{...testimonial}
-					/>
-				))}
-			</div>
-		</div>
-	);
-}
-
-export default SectionWrapper(Feedback, "feedback");

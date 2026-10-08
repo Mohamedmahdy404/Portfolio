@@ -1,0 +1,205 @@
+.scene { width: 100%; min-height: 100%; color: #253144; background: #f4f6fa; font-size: 11px; line-height: 1.5; }
+.scene * { min-width: 0; }
+.scene h4 { margin: 0 0 12px; font-size: 12px; font-weight: 700; }
+.crmHeader { display: flex; align-items: center; gap: 28px; padding: 12px 20px; background: #242637; color: #fff; }
+.crmHeader > strong { color: #b9b5ff; font-size: 20px; }
+.crmHeader > div { display: flex; flex: 1; gap: 18px; color: #a5abbe; }
+.selectedNav { color: #fff; border-bottom: 2px solid #b9b5ff; }
+.profile { display: grid; place-items: center; width: 25px; height: 25px; background: #51536c; border-radius: 50%; }
+.crmBody { padding: 18px; }
+.pipelineHeading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.pipelineHeading > div { display: grid; gap: 3px; }
+.pipelineHeading strong { font-size: 18px; }
+.pipelineHeading span { color: #7f8898; font-size: 10px; }
+.pipeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.stage { background: #eaedf4; padding: 10px; }
+.stageHeading { display: flex; align-items: center; justify-content: space-between; color: #525d73; }
+.stageHeading span { font-size: 10px; }
+.stageRule { height: 3px; background: #74bfc9; margin: 8px 0 12px; }
+.stage:nth-child(2) .stageRule { background: #e8b366; }
+.stage:nth-child(3) .stageRule { background: #9a90e2; }
+.lead { background: #fff; border: 1px solid #e2e6ee; border-radius: 5px; padding: 12px; margin-top: 10px; display: grid; gap: 8px; box-shadow: 0 2px 4px #18234005; }
+.leadCategory { font-size: 8px; color: #949bae; }
+.lead > strong { font-size: 12px; }
+.lead > b { font-size: 10px; color: #686e84; }
+.leadFooter { display: flex; justify-content: space-between; align-items: center; gap: 4px; border-top: 1px solid #eff1f5; padding-top: 8px; color: #9199a8; font-size: 8px; }
+.leadFooter i { display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: #eeeafa; font-style: normal; color: #8576bd; }
+.operations { display: grid; grid-template-columns: 82px minmax(0, 1fr); min-height: 100%; background: #fff; }
+.opsRail { background: #123f48; color: #bdd2d6; padding: 20px 10px; display: flex; flex-direction: column; gap: 15px; }
+.opsRail > strong { color: #fff; font-size: 20px; margin-bottom: 10px; }
+.opsRail > span { padding: 7px 5px; font-size: 9px; }
+.opsRail .railActive { background: #2b5d66; color: #fff; border-inline-start: 2px solid #80d9cb; }
+.opsMain { padding: 18px; }
+.opsHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.opsHeader > div { display: grid; gap: 3px; }
+.opsHeader strong { font-size: 18px; }
+.opsHeader div > span { font-size: 9px; color: #8a939e; }
+.liveDot { width: 8px; height: 8px; border-radius: 50%; background: #37aa8d; box-shadow: 0 0 0 4px #edf8f4; }
+.opsSummary { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid #e5ebed; color: #6d7f88; font-size: 9px; }
+.opsSummary b { color: #27616d; font-size: 15px; }
+.progressBar { flex: 1; height: 6px; background: #edf2f3; overflow: hidden; border-radius: 3px; }
+.progressBar > span { display: block; width: 68%; height: 100%; background: #46a6a1; }
+.opsSplit { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; }
+.queue h4 { color: #46616b; }
+.ticket { display: flex; align-items: center; gap: 8px; padding: 11px 8px; margin-bottom: 7px; border: 1px solid #e7edef; border-radius: 4px; }
+.selectedTicket { border-color: #a8d7d5; background: #f1faf8; }
+.ticketMarker { width: 4px; height: 22px; border-radius: 2px; background: #8bafb2; flex: none; }
+.ticket > div { flex: 1; display: grid; gap: 2px; }
+.ticket strong { font-size: 10px; }
+.ticket div > span { font-size: 8px; color: #8c989f; }
+.ticketStatus { font-size: 8px; color: #3c8c82; }
+.orderDetail { border-inline-start: 1px solid #e5ebed; padding-inline-start: 16px; }
+.detailLabel { display: block; color: #939da5; font-size: 9px; margin-bottom: 4px; }
+.orderDetail > strong { font-size: 14px; }
+.orderDetail > p { margin: 4px 0 16px; font-size: 9px; color: #758892; }
+.timeline { padding: 0; margin: 0; list-style: none; }
+.timeline li { display: flex; gap: 10px; position: relative; min-height: 48px; }
+.timeline li:not(:last-child)::before { content: ""; position: absolute; inset-inline-start: 4px; top: 10px; bottom: 0; width: 1px; background: #dce7e7; }
+.stepDot { width: 9px; height: 9px; margin-top: 4px; background: #dce5e7; border-radius: 50%; flex: none; position: relative; }
+.complete .stepDot { background: #58afa1; }
+.current .stepDot { background: #e2b35a; box-shadow: 0 0 0 3px #fcf3df; }
+.timeline li > div { display: grid; align-content: start; gap: 2px; }
+.timeline strong { font-size: 10px; font-weight: 600; }
+.timeline div > span { font-size: 8px; color: #9aa3aa; }
+.shiftRow { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding-top: 12px; border-top: 1px solid #e5ebed; font-size: 8px; color: #758892; }
+.shiftRow > div { flex: 1; }
+.shiftRow > div > div { height: 4px; background: #edf2f3; margin-top: 4px; }
+.shiftRow > div > div::before { content: ""; display: block; height: 100%; width: var(--shift-progress); background: #82baba; }
+.access { background: #f8faf8; }
+.teamHeader { display: flex; align-items: center; gap: 30px; padding: 15px 20px; border-bottom: 1px solid #dce8de; background: #e9f1eb; }
+.teamHeader > strong { color: #37654b; font-size: 20px; }
+.teamHeader > div { display: flex; flex: 1; gap: 20px; color: #849589; }
+.teamHeader .teamActive { color: #37654b; font-weight: 700; }
+.teamHeader > span { color: #5a8068; font-weight: 700; }
+.teamBody { padding: 20px; }
+.teamHeading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.teamHeading > strong { font-size: 18px; color: #304e3b; }
+.teamHeading > span { font-size: 9px; color: #85978b; }
+.accessSplit { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 20px; }
+.accessSplit h4 { color: #5a7563; }
+.memberGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.member { display: grid; justify-items: center; align-content: start; gap: 4px; padding: 12px 6px; border: 1px solid #e1e9e2; border-radius: 6px; background: #fff; text-align: center; }
+.avatar { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: #e3eee7; color: #609474; font-size: 11px; margin-bottom: 4px; }
+.member:nth-child(2) .avatar { background: #f6ebdd; color: #b98c58; }
+.member:nth-child(3) .avatar { background: #e3ebf6; color: #6f91bf; }
+.member:nth-child(4) .avatar { background: #eee5f0; color: #a07fac; }
+.member > strong { font-size: 10px; }
+.member > span:not(.avatar) { font-size: 8px; color: #8d9b91; }
+.member .department { padding-top: 3px; }
+.permissions { border-inline-start: 1px solid #e0e9e1; padding-inline-start: 20px; }
+.matrixHead, .matrixRow { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, .8fr)); align-items: center; gap: 8px; padding: 12px 0; text-align: center; border-bottom: 1px solid #e5ece6; }
+.matrixHead { color: #92a095; font-size: 9px; }
+.matrixRow > strong { font-size: 9px; text-align: start; color: #597060; }
+.matrixRow > span { font-size: 13px; }
+.allowed { color: #439566; }
+.denied { color: #bac8bf; }
+.policy { display: flex; gap: 8px; align-items: start; margin-top: 18px; }
+.policyMark { display: grid; place-items: center; width: 24px; height: 24px; background: #e4f0e7; color: #5c9b72; border-radius: 50%; flex: none; }
+.policy strong { font-size: 10px; color: #547760; }
+.policy p { font-size: 8px; margin: 4px 0 0; color: #8f9f94; }
+.compact { font-size: 4px; line-height: 1.3; }
+.compact h4 { font-size: 5px; margin-bottom: 4px; }
+.compact .crmHeader, .compact .teamHeader { padding: 5px 7px; gap: 8px; }
+.compact .crmHeader > strong, .compact .teamHeader > strong { font-size: 8px; }
+.compact .crmHeader > div, .compact .teamHeader > div { gap: 5px; }
+.compact .profile { width: 10px; height: 10px; }
+.compact .crmBody, .compact .teamBody { padding: 6px; }
+.compact .pipelineHeading, .compact .teamHeading { margin-bottom: 6px; }
+.compact .pipelineHeading strong, .compact .teamHeading > strong { font-size: 7px; }
+.compact .pipelineHeading span, .compact .teamHeading > span { font-size: 4px; }
+.compact .pipeline { gap: 4px; }
+.compact .stage { padding: 4px; }
+.compact .stageHeading span { font-size: 4px; }
+.compact .stageRule { margin: 4px 0; height: 2px; }
+.compact .lead { padding: 4px; margin-top: 4px; gap: 3px; border-radius: 2px; }
+.compact .lead > strong { font-size: 5px; }
+.compact .lead > b, .compact .leadCategory, .compact .leadFooter { font-size: 3px; }
+.compact .leadFooter { padding-top: 3px; }
+.compact .leadFooter i { width: 7px; height: 7px; }
+.compact .operations { grid-template-columns: 28px minmax(0, 1fr); }
+.compact .opsRail { padding: 7px 3px; gap: 5px; }
+.compact .opsRail > strong { font-size: 8px; margin-bottom: 4px; }
+.compact .opsRail > span { padding: 3px 1px; font-size: 3px; }
+.compact .opsMain { padding: 6px; }
+.compact .opsHeader { margin-bottom: 5px; }
+.compact .opsHeader strong { font-size: 7px; }
+.compact .opsHeader div > span, .compact .opsSummary { font-size: 3px; }
+.compact .opsSummary { padding-bottom: 5px; gap: 4px; }
+.compact .opsSummary b { font-size: 5px; }
+.compact .liveDot { width: 4px; height: 4px; box-shadow: none; }
+.compact .progressBar { height: 3px; }
+.compact .opsSplit { gap: 5px; margin-top: 6px; }
+.compact .ticket { padding: 4px 2px; margin-bottom: 3px; gap: 2px; }
+.compact .ticketMarker { height: 10px; width: 2px; }
+.compact .ticket strong { font-size: 4px; }
+.compact .ticket div > span, .compact .ticketStatus, .compact .detailLabel, .compact .orderDetail > p, .compact .timeline div > span { font-size: 3px; }
+.compact .orderDetail { padding-inline-start: 5px; }
+.compact .orderDetail > strong { font-size: 5px; }
+.compact .orderDetail > p { margin: 2px 0 6px; }
+.compact .timeline li { min-height: 19px; gap: 3px; }
+.compact .timeline strong { font-size: 4px; }
+.compact .stepDot { width: 4px; height: 4px; margin-top: 2px; }
+.compact .timeline li:not(:last-child)::before { inset-inline-start: 1px; top: 5px; }
+.compact .shiftRow { display: none; }
+.compact .accessSplit { gap: 7px; }
+.compact .memberGrid { gap: 4px; }
+.compact .member { padding: 5px 2px; gap: 2px; border-radius: 3px; }
+.compact .avatar { width: 15px; height: 15px; font-size: 5px; margin-bottom: 1px; }
+.compact .member > strong { font-size: 4px; }
+.compact .member > span:not(.avatar) { font-size: 3px; }
+.compact .permissions { padding-inline-start: 7px; }
+.compact .matrixHead, .compact .matrixRow { gap: 2px; padding: 5px 0; }
+.compact .matrixHead, .compact .matrixRow > strong { font-size: 3px; }
+.compact .matrixRow > span { font-size: 6px; }
+.compact .policy { margin-top: 7px; gap: 3px; }
+.compact .policyMark { width: 10px; height: 10px; }
+.compact .policy strong { font-size: 4px; }
+.compact .policy p { font-size: 3px; margin-top: 2px; }
+@media (max-width: 639px) {
+  .scene:not(.compact) { font-size: 8px; }
+  .scene:not(.compact) .crmHeader, .scene:not(.compact) .teamHeader { padding: 10px; gap: 14px; }
+  .scene:not(.compact) .crmHeader > strong, .scene:not(.compact) .teamHeader > strong { font-size: 14px; }
+  .scene:not(.compact) .crmHeader > div, .scene:not(.compact) .teamHeader > div { gap: 10px; }
+  .scene:not(.compact) .crmBody, .scene:not(.compact) .teamBody { padding: 12px; }
+  .scene:not(.compact) .pipelineHeading strong, .scene:not(.compact) .teamHeading > strong { font-size: 13px; }
+  .scene:not(.compact) .pipelineHeading span, .scene:not(.compact) .teamHeading > span { font-size: 7px; }
+  .scene:not(.compact) .pipeline { gap: 6px; }
+  .scene:not(.compact) .stage { padding: 5px; }
+  .scene:not(.compact) .stageHeading span { font-size: 7px; }
+  .scene:not(.compact) .lead { padding: 6px; gap: 5px; }
+  .scene:not(.compact) .lead > strong { font-size: 9px; }
+  .scene:not(.compact) .lead > b, .scene:not(.compact) .leadCategory, .scene:not(.compact) .leadFooter { font-size: 6px; }
+  .scene:not(.compact) .leadFooter i { width: 12px; height: 12px; }
+  .scene:not(.compact) .operations { grid-template-columns: 48px minmax(0, 1fr); }
+  .scene:not(.compact) .opsRail { padding: 12px 4px; gap: 10px; }
+  .scene:not(.compact) .opsRail > strong { font-size: 13px; margin-bottom: 4px; }
+  .scene:not(.compact) .opsRail > span { padding: 5px 2px; font-size: 6px; }
+  .scene:not(.compact) .opsMain { padding: 12px 8px; }
+  .scene:not(.compact) .opsHeader strong { font-size: 13px; }
+  .scene:not(.compact) .opsHeader div > span, .scene:not(.compact) .opsSummary { font-size: 6px; }
+  .scene:not(.compact) .opsSummary { gap: 6px; }
+  .scene:not(.compact) .opsSummary b { font-size: 11px; }
+  .scene:not(.compact) .opsSplit { gap: 8px; }
+  .scene:not(.compact) h4 { font-size: 9px; margin-bottom: 8px; }
+  .scene:not(.compact) .ticket { padding: 9px 4px; gap: 4px; }
+  .scene:not(.compact) .ticket strong { font-size: 7px; }
+  .scene:not(.compact) .ticket div > span, .scene:not(.compact) .ticketStatus, .scene:not(.compact) .detailLabel, .scene:not(.compact) .orderDetail > p, .scene:not(.compact) .timeline div > span { font-size: 6px; }
+  .scene:not(.compact) .orderDetail { padding-inline-start: 8px; }
+  .scene:not(.compact) .orderDetail > strong { font-size: 10px; }
+  .scene:not(.compact) .timeline li { min-height: 42px; gap: 6px; }
+  .scene:not(.compact) .timeline strong { font-size: 7px; }
+  .scene:not(.compact) .shiftRow { font-size: 6px; gap: 6px; }
+  .scene:not(.compact) .accessSplit { gap: 10px; }
+  .scene:not(.compact) .memberGrid { gap: 6px; }
+  .scene:not(.compact) .member { padding: 9px 3px; gap: 3px; }
+  .scene:not(.compact) .avatar { width: 24px; height: 24px; font-size: 8px; }
+  .scene:not(.compact) .member > strong { font-size: 8px; }
+  .scene:not(.compact) .member > span:not(.avatar) { font-size: 6px; }
+  .scene:not(.compact) .permissions { padding-inline-start: 10px; }
+  .scene:not(.compact) .matrixHead, .scene:not(.compact) .matrixRow { gap: 4px; padding: 10px 0; }
+  .scene:not(.compact) .matrixHead, .scene:not(.compact) .matrixRow > strong { font-size: 6px; }
+  .scene:not(.compact) .matrixRow > span { font-size: 10px; }
+  .scene:not(.compact) .policyMark { width: 18px; height: 18px; }
+  .scene:not(.compact) .policy strong { font-size: 8px; }
+  .scene:not(.compact) .policy p { font-size: 6px; }
+}

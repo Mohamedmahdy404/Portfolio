@@ -7,7 +7,7 @@ import ServiceCard from "./ServiceCard";
 
 function Services() {
   const { t } = useLanguage();
-  const serviceIcons = services.slice(0, 4).map((service) => service.icon);
+  const serviceIcons = services.map((service) => service.icon);
 
   return (
     <section className="services-section relative overflow-hidden px-3 pt-16 pb-2 sm:px-8 sm:py-24 md:py-32">

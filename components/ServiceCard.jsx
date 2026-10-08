@@ -16,8 +16,8 @@ function ServiceCard({ index, title, description, icon }) {
       >
         <div className="service-orbit-ring absolute inset-3 rounded-full border border-primary/20" />
 
-        <span className="absolute top-[20%] font-mono text-[9px] tracking-[0.25em] text-primary/80 sm:top-[23%] sm:text-sm sm:tracking-[0.3em]">
-          {String(index + 1).padStart(2, "0")}
+        <span className="absolute top-[20%] font-mono text-[9px] text-primary/80 sm:top-[23%] sm:text-sm">
+          {index + 1}
         </span>
 
         <div
@@ -27,13 +27,12 @@ function ServiceCard({ index, title, description, icon }) {
           {icon}
         </div>
 
-        <h3 className="absolute bottom-[17%] max-w-[82%] text-[12px] font-bold leading-snug text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:bottom-[20%] sm:max-w-[72%] sm:text-xl">
-          {title}
-        </h3>
-
       </div>
 
-      <p className="mt-5 max-w-[180px] text-[10px] leading-5 text-ctnSecondaryLight dark:text-ctnSecondaryDark sm:mt-9 sm:max-w-[300px] sm:text-sm sm:leading-7">
+      <h3 className="mt-5 flex min-h-[48px] w-full items-center justify-center text-sm font-bold leading-6 tracking-normal text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:mt-7 sm:min-h-[56px] sm:text-lg sm:leading-7">
+        {title}
+      </h3>
+      <p className="mt-2 max-w-[180px] text-xs leading-6 text-ctnSecondaryLight dark:text-ctnSecondaryDark sm:max-w-[300px] sm:text-sm sm:leading-7">
         {description}
       </p>
     </motion.article>

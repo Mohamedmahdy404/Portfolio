@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Tilt from "react-parallax-tilt";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import truncateText from "@/utils/truncate";
-import GithubLogo from "./../public/assets/icons/github.svg";
-import RocketLogo from "./../public/assets/icons/rocket.svg";
+import DetailsIcon from "./../public/assets/icons/up-arrow.svg";
+import ProjectLinks from "./ProjectLinks";
+import ProjectDetails from "./ProjectDetails";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 function ProjectCard({
@@ -16,70 +17,28 @@ function ProjectCard({
   description,
   tags,
   image,
-  images,
   source_code_link,
   deployed_link,
+  app_store_link,
   labels,
+  onDetails,
 }) {
   const CHAR_LIMIT = 280;
-  const slides = images?.length ? images : [image];
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [slideDirection, setSlideDirection] = useState(1);
-  const [carouselCycle, setCarouselCycle] = useState(0);
-  const [carouselPaused, setCarouselPaused] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
   const [isCoarsePointer, setIsCoarsePointer] = useState(false);
 
-  const hasSourceCode =
-    source_code_link && source_code_link !== "#";
-  const hasDemo =
-    deployed_link && deployed_link !== "#";
-
   useEffect(() => {
-    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
     const syncPreferences = () => {
-      setReduceMotion(reducedMotionQuery.matches);
       setIsCoarsePointer(coarsePointerQuery.matches);
     };
 
     syncPreferences();
-    reducedMotionQuery.addEventListener("change", syncPreferences);
     coarsePointerQuery.addEventListener("change", syncPreferences);
 
     return () => {
-      reducedMotionQuery.removeEventListener("change", syncPreferences);
       coarsePointerQuery.removeEventListener("change", syncPreferences);
     };
   }, []);
-
-  useEffect(() => {
-    if (slides.length < 2 || carouselPaused || reduceMotion) return undefined;
-
-    const interval = window.setInterval(() => {
-      setSlideDirection(1);
-      setActiveSlide((current) => (current + 1) % slides.length);
-    }, 4500);
-
-    return () => window.clearInterval(interval);
-  }, [slides.length, carouselPaused, reduceMotion, carouselCycle]);
-
-  const showSlide = (nextSlide, direction = nextSlide >= activeSlide ? 1 : -1) => {
-    setSlideDirection(direction);
-    setActiveSlide((nextSlide + slides.length) % slides.length);
-    setCarouselCycle((cycle) => cycle + 1);
-  };
-
-  const handleSwipeEnd = (_, info) => {
-    setCarouselPaused(false);
-
-    const passedDistanceThreshold = Math.abs(info.offset.x) > 24;
-    const passedVelocityThreshold = Math.abs(info.velocity.x) > 250;
-    if (!passedDistanceThreshold && !passedVelocityThreshold) return;
-
-    const direction = info.offset.x < 0 ? 1 : -1;
-    showSlide(activeSlide + direction, direction);
-  };
 
   return (
     <motion.div
@@ -96,92 +55,18 @@ function ProjectCard({
         className="dark:bg-bgSecondaryDark bg-bgSecondaryLight flex h-full w-full flex-col rounded-xl p-3 shadow-sm shadow-primary md:rounded-2xl md:p-5"
       >
         <div className="relative w-full h-[105px] xs:h-[120px] md:h-[230px]">
-          <div
-            className="w-full h-full rounded-xl md:rounded-2xl relative overflow-hidden shine-sweep touch-pan-y"
-            onMouseEnter={() => setCarouselPaused(true)}
-            onMouseLeave={() => setCarouselPaused(false)}
-            onFocusCapture={() => setCarouselPaused(true)}
-            onBlurCapture={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget)) {
-                setCarouselPaused(false);
-              }
-            }}
-          >
-            <AnimatePresence initial={false} mode="popLayout">
-              <motion.div
-                key={slides[activeSlide]}
-                initial={reduceMotion ? false : { opacity: 0, x: slideDirection * 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={reduceMotion ? { opacity: 1 } : { opacity: 0, x: slideDirection * -16 }}
-                transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
-                drag={slides.length > 1 ? "x" : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.16}
-                dragMomentum={false}
-                onDragStart={() => setCarouselPaused(true)}
-                onDragEnd={handleSwipeEnd}
-                style={{ touchAction: "pan-y" }}
-                className="absolute inset-0 cursor-grab select-none active:cursor-grabbing"
-              >
-                <Image
-                  src={slides[activeSlide]}
-                  alt={`${name} — ${labels.imageLabel} ${activeSlide + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 370px"
-                  className="object-cover"
-                  draggable={false}
-                />
-              </motion.div>
-            </AnimatePresence>
-
-            {slides.length > 1 && (
-              <div className="absolute bottom-1.5 left-1/2 z-20 flex -translate-x-1/2 items-center rounded-full bg-black/55 px-1 py-0.5 backdrop-blur-sm md:bottom-2">
-                {slides.map((slide, slideIndex) => (
-                  <button
-                    type="button"
-                    key={slide}
-                    onClick={() => showSlide(slideIndex)}
-                    className="flex h-5 w-5 items-center justify-center focus:outline-none"
-                    aria-label={`${labels.showImage} ${slideIndex + 1} — ${name}`}
-                    aria-current={activeSlide === slideIndex ? "true" : undefined}
-                  >
-                    <span
-                      className={`block h-1.5 rounded-full transition-all ${
-                        activeSlide === slideIndex ? "w-4 bg-white" : "w-1.5 bg-white/55"
-                      }`}
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
+          <div className="relative h-full w-full overflow-hidden rounded-xl shine-sweep md:rounded-2xl">
+            <Image
+              src={image}
+              alt={`${name} — ${labels.imageLabel}`}
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 370px"
+              className="object-cover"
+            />
           </div>
 
-          <div className="absolute inset-0 flex justify-between m-2 md:m-3 card-img_hover">
-            {hasDemo && (
-              <a
-                href={deployed_link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer"
-                title={labels.liveDemo}
-                aria-label={`${labels.openLive} ${name}`}
-              >
-                <RocketLogo className="w-1/2 h-1/2 mr-[2px]" />
-              </a>
-            )}
-
-            {hasSourceCode && (
-              <a
-                href={source_code_link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center cursor-pointer"
-                title={labels.sourceCode}
-                aria-label={`${labels.openSource} ${name}`}
-              >
-                <GithubLogo className="w-2/3 h-2/3" />
-              </a>
-            )}
+          <div className="pointer-events-none absolute inset-x-0 top-0 m-2 md:m-3 card-img_hover">
+            <ProjectLinks project={{ name, deployed_link, app_store_link, source_code_link }} labels={labels} compact />
           </div>
         </div>
 
@@ -204,13 +89,30 @@ function ProjectCard({
             </p>
           ))}
         </div>
+        <div className="mt-auto pt-4 md:pt-5">
+          <button
+            type="button"
+            onClick={onDetails}
+            aria-haspopup="dialog"
+            aria-label={`${labels.openDetails} ${name}`}
+            className="group flex min-h-[44px] w-full items-center justify-between gap-2 rounded-lg border border-primary/40 bg-primary/15 px-3 py-2 text-[11px] font-bold text-ctnPrimaryLight transition-colors hover:border-primary hover:bg-primary/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:text-ctnPrimaryDark xs:text-xs md:px-4 md:text-sm"
+          >
+            <span>{labels.details}</span>
+            <DetailsIcon aria-hidden="true" className="h-3 w-3 shrink-0 rotate-90 text-primary transition-transform group-hover:translate-y-0.5 dark:text-five" />
+          </button>
+        </div>
       </Tilt>
     </motion.div>
   );
 }
 
-function Works() {
+function Works({ selectedIndex, onSelectProject }) {
   const { t } = useLanguage();
+  const localizeProject = (project, index) => ({
+    ...project,
+    ...t.projects.items[index],
+    originalName: project.name,
+  });
 
   return (
     <section className="xl:my-36 md:mx-36 p-4 md:p-8" id="projects">
@@ -246,9 +148,17 @@ function Works() {
             description={t.projects.items[index]?.description || project.description}
             tags={t.projects.items[index]?.tags || project.tags}
             labels={t.projects}
+            onDetails={() => onSelectProject(index)}
           />
         ))}
       </div>
+      {selectedIndex !== null && (
+        <ProjectDetails
+          key={selectedIndex}
+          project={localizeProject(projects[selectedIndex], selectedIndex)}
+          onClose={() => onSelectProject(null)}
+        />
+      )}
     </section>
   );
 }

@@ -1,0 +1,29 @@
+.benefit,
+.review {
+  border: 1px solid rgba(128, 77, 238, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.benefit:hover,
+.review:hover {
+  border-color: rgba(128, 77, 238, 0.6);
+  box-shadow: 0 16px 40px rgba(128, 77, 238, 0.12);
+}
+
+.review {
+  animation: review-float 8s ease-in-out infinite;
+  animation-delay: var(--review-delay, 0s);
+}
+
+@keyframes review-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit,
+  .review { transition: none; }
+  .review { animation: none; }
+}

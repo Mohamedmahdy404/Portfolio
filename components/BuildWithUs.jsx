@@ -1,9 +1,16 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import WhatsappIcon from "../public/assets/icons/whatsapp.svg";
+import WebsiteIcon from "../public/assets/icons/frontend.svg";
+import StoreIcon from "../public/assets/icons/full-stack.svg";
+import MobileIcon from "../public/assets/icons/freelance.svg";
+import DesktopIcon from "../public/assets/icons/backend.svg";
+import BusinessIcon from "../public/assets/icons/leadership.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { websitePath, mobilePath, desktopPath, businessPath } from "@/constants/buildPaths";
+import ConceptWorkspace from "./ConceptWorkspace";
 
 const WHATSAPP_NUMBER = "201069033838";
 
@@ -171,46 +178,77 @@ const conceptGroups = [
   },
 ];
 
+const projectPaths = [
+  websitePath,
+  { id: "stores", label: { ar: "متاجر إلكترونية", en: "Online stores" }, icon: "store", groups: conceptGroups },
+  mobilePath,
+  desktopPath,
+  businessPath,
+];
+const pathIcons = { web: WebsiteIcon, store: StoreIcon, mobile: MobileIcon, desktop: DesktopIcon, business: BusinessIcon };
+
 const copy = {
   ar: {
-    eyebrow: "ابنِ معنا",
-    title: "تخيّل شكل براندك على الإنترنت.",
+    eyebrow: "ابنِ معي",
+    title: "تخيّل مشروعك.",
     intro:
-      "اختر مجالك وشاهد اتجاهات بصرية يمكن تحويلها إلى متجر حقيقي يناسب هوية براندك وعملاءك.",
-    conceptLabel: "تصميم تصوّري",
-    desktopLabel: "عرض الديسكتوب",
-    mobileLabel: "عرض الموبايل",
-    directionLabel: "اختر الاتجاه",
+      "اختر نوع مشروعك، واستكشف أفكارًا تناسب عملك؛ من موقع ومتجر إلى تطبيق أو نظام لإدارة شركتك.",
+    conceptLabel: "تصوّر توضيحي",
+    referenceLabel: "معاينة مرجعية من أعمالي",
+    desktopLabel: "معاينة الكمبيوتر",
+    mobileLabel: "معاينة الهاتف",
+    typeLabel: "نوع المشروع",
+    categoryLabel: "مجال المتجر",
+    directionLabel: "اختر الفكرة",
+    sampleData: "بيانات تجريبية للعرض",
     paletteLabel: "لوحة الألوان",
     featuresLabel: "ما الذي يمكن أن يتضمنه؟",
-    cta: "ابنِ هذا الأسلوب لبراندك",
-    note: "هذه أمثلة تصوّرية لتوضيح الإمكانيات وليست مشاريع منشورة.",
-    imageAlt: "تصميم تصوّري لموقع",
-    whatsappMessage: (concept, category) =>
-      `مرحبًا محمد، شاهدت فكرة «${concept}» في قسم ابنِ معنا، وأريد تنفيذ موقع مشابه لبراند في مجال ${category}.`,
+    cta: "ناقش هذه الفكرة معي",
+    note: "هذه معاينات لتوضيح الأفكار وليست مشاريع جديدة منفذة. المعاينات المرجعية مأخوذة من أعمالي، وواجهات الأنظمة تصوّرات ببيانات تجريبية. نحدد تفاصيل التنفيذ وفق احتياجات مشروعك.",
+    imageAlt: "معاينة لفكرة",
+    whatsappMessage: (concept, type, category) =>
+      `مرحبًا محمد، اخترت «${type}»${category !== type ? ` في مجال ${category}` : ""}، وأعجبتني فكرة «${concept}» في قسم تخيّل مشروعك. أود مناقشة متطلبات مشروعي وخطوات تنفيذ هذه الفكرة بما يناسب عملي.`,
   },
   en: {
     eyebrow: "Build with me",
-    title: "Picture your brand online.",
+    title: "Picture your project.",
     intro:
-      "Choose your industry and explore visual directions that can become a real store tailored to your brand and customers.",
-    conceptLabel: "Concept design",
+      "Choose your project type and explore ideas for your business, from websites and stores to apps and internal systems.",
+    conceptLabel: "Illustrative concept",
+    referenceLabel: "Reference from my work",
     desktopLabel: "Desktop preview",
     mobileLabel: "Mobile preview",
-    directionLabel: "Choose a direction",
+    typeLabel: "Project type",
+    categoryLabel: "Store industry",
+    directionLabel: "Choose an idea",
+    sampleData: "Illustrative sample data",
     paletteLabel: "Color palette",
     featuresLabel: "What it could include",
-    cta: "Build this style for my brand",
-    note: "These are conceptual examples that demonstrate possibilities, not published client projects.",
-    imageAlt: "Website concept design for",
-    whatsappMessage: (concept, category) =>
-      `Hi Mohamed, I saw the “${concept}” concept in the Build With Me section and would like a similar website for my ${category} brand.`,
+    cta: "Discuss this idea with me",
+    note: "These previews illustrate ideas, not newly completed projects. Reference previews come from my work; system interfaces are concepts with sample data. We define implementation details around your needs.",
+    imageAlt: "Preview of",
+    whatsappMessage: (concept, type, category) =>
+      `Hi Mohamed, I selected ${type}${category !== type ? ` for ${category}` : ""} and liked the "${concept}" idea in Picture Your Project. I would like to discuss my requirements and how to adapt this idea to my business.`,
   },
 };
 
 function BrowserPreview({ concept, labels, language }) {
+  if (concept.previewKind === "mobile") {
+    return (
+      <div className="mx-auto grid w-full max-w-[520px] grid-cols-2 items-center gap-4 px-2 sm:gap-8">
+        {concept.detailImages.map((src, index) => (
+          <div key={src} className={`overflow-hidden rounded-lg border border-white/15 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.3)] ${index === 1 ? "mt-8" : ""}`}>
+            <div className="relative aspect-[9/19.5] w-full overflow-hidden bg-white">
+              <Image src={src} alt={`${labels.mobileLabel}: ${concept.title[language]} ${index + 1}`} fill sizes="(max-width: 640px) 42vw, 230px" className="object-contain object-top" />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+  const isWorkspace = concept.previewKind === "workspace";
   return (
-    <div className="relative mx-auto w-full max-w-[780px] pb-5 pl-3 sm:pb-8 sm:pl-8">
+    <div className={`relative mx-auto w-full max-w-[780px] ${isWorkspace ? "" : "pb-5 pl-3 sm:pb-8 sm:pl-8"}`}>
       <div className="overflow-hidden rounded-lg border border-white/15 bg-[#171720] shadow-[0_28px_80px_rgba(0,0,0,0.38)]">
         <div className="flex h-8 items-center justify-between border-b border-white/10 bg-[#20202b] px-3 sm:h-10">
           <div className="flex gap-1.5" aria-hidden="true">
@@ -219,11 +257,12 @@ function BrowserPreview({ concept, labels, language }) {
             <span className="h-2 w-2 rounded-full bg-[#5ed69a]" />
           </div>
           <span className="text-[10px] font-medium text-white/55 sm:text-xs">
-            {labels.desktopLabel}
+            {isWorkspace ? labels.sampleData : labels.desktopLabel}
           </span>
           <span className="w-8" aria-hidden="true" />
         </div>
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+        <div className={`relative w-full overflow-hidden bg-white ${isWorkspace ? "min-h-[280px] sm:aspect-[16/10] sm:min-h-[420px]" : "aspect-[16/10]"}`}>
+          {isWorkspace ? <ConceptWorkspace concept={concept} language={language} /> : (
           <Image
             src={concept.image}
             alt={`${labels.imageAlt} ${concept.title[language]}`}
@@ -231,10 +270,11 @@ function BrowserPreview({ concept, labels, language }) {
             sizes="(max-width: 768px) 92vw, 62vw"
             className="object-cover object-top"
           />
+          )}
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-[24%] min-w-[76px] max-w-[158px] overflow-hidden rounded-[18px] border-[4px] border-[#111117] bg-[#111117] shadow-[0_18px_40px_rgba(0,0,0,0.45)] sm:border-[6px]">
+      {!isWorkspace && <div className="absolute bottom-0 left-0 w-[24%] min-w-[76px] max-w-[158px] overflow-hidden rounded-[18px] border-[4px] border-[#111117] bg-[#111117] shadow-[0_18px_40px_rgba(0,0,0,0.45)] sm:border-[6px]">
         <div className="absolute left-1/2 top-1 z-10 h-1.5 w-7 -translate-x-1/2 rounded-full bg-black/80 sm:h-2 sm:w-10" />
         <div className="relative aspect-[9/16] overflow-hidden rounded-[12px] bg-white">
           <Image
@@ -245,7 +285,7 @@ function BrowserPreview({ concept, labels, language }) {
             className="object-cover object-top"
           />
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
@@ -264,14 +304,12 @@ function ConceptPicker({
         {labels.directionLabel}
       </p>
 
-      <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={activeGroup.id}
           initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
           transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeOut" }}
-          className="mt-3 grid grid-cols-3 gap-2 sm:gap-3"
+          className={`mt-3 grid gap-2 sm:gap-3 ${activeGroup.concepts.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}
         >
           {activeGroup.concepts.map((concept, index) => {
             const isActive = activeConceptIndex === index;
@@ -292,23 +330,23 @@ function ConceptPicker({
                     : "border-white/10 hover:border-white/35"
                 }`}
               >
-                <Image
+                {concept.previewKind === "workspace" ? <div className="absolute inset-0"><ConceptWorkspace concept={concept} language={language} compact /></div> : <Image
                   src={concept.image}
                   alt=""
                   fill
                   sizes="(max-width: 640px) 30vw, (max-width: 1024px) 190px, 150px"
-                  className={`object-cover object-top transition duration-500 ${
+                  className={`${concept.previewKind === "mobile" ? "object-contain bg-white" : "object-cover"} object-top transition duration-500 ${
                     isActive
                       ? "scale-105 saturate-100"
                       : "saturate-[0.72] group-hover:scale-105 group-hover:saturate-100"
                   }`}
-                />
+                />}
                 <span
                   className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-[#0c0c14]/35 to-transparent"
                   aria-hidden="true"
                 />
                 <span className="absolute right-2 top-2 text-[10px] font-black text-white/80 sm:text-xs">
-                  {String(index + 1).padStart(2, "0")}
+                  {index + 1}
                 </span>
                 <span className="absolute inset-x-2 bottom-2 text-[11px] font-black leading-4 text-white sm:inset-x-3 sm:bottom-3 sm:text-sm sm:leading-5">
                   {concept.title[language]}
@@ -325,7 +363,6 @@ function ConceptPicker({
             );
           })}
         </motion.div>
-      </AnimatePresence>
     </div>
   );
 }
@@ -335,15 +372,22 @@ function BuildWithUs() {
   const language = isArabic ? "ar" : "en";
   const labels = copy[language];
   const reduceMotion = useReducedMotion();
-  const [activeGroupId, setActiveGroupId] = useState(conceptGroups[0].id);
+  const [activePathId, setActivePathId] = useState(projectPaths[0].id);
+  const [activeGroupId, setActiveGroupId] = useState(projectPaths[0].groups[0].id);
   const [activeConceptIndex, setActiveConceptIndex] = useState(0);
 
+  const activePath = projectPaths.find((path) => path.id === activePathId) || projectPaths[0];
   const activeGroup = useMemo(
-    () => conceptGroups.find((group) => group.id === activeGroupId) || conceptGroups[0],
-    [activeGroupId]
+    () => activePath.groups.find((group) => group.id === activeGroupId) || activePath.groups[0],
+    [activePath, activeGroupId]
   );
   const activeConcept = activeGroup.concepts[activeConceptIndex];
 
+  const selectPath = (path) => {
+    setActivePathId(path.id);
+    setActiveGroupId(path.groups[0].id);
+    setActiveConceptIndex(0);
+  };
   const selectGroup = (groupId) => {
     setActiveGroupId(groupId);
     setActiveConceptIndex(0);
@@ -352,6 +396,7 @@ function BuildWithUs() {
   const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     labels.whatsappMessage(
       activeConcept.title[language],
+      activePath.label[language],
       activeGroup.label[language]
     )
   )}`;
@@ -359,37 +404,54 @@ function BuildWithUs() {
   return (
     <section
       id="build-with-us"
+      aria-labelledby="build-with-us-title"
       dir={isArabic ? "rtl" : "ltr"}
-      className="relative mb-0 mt-20 overflow-hidden px-4 py-16 text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:px-8 md:my-28 md:px-16 md:py-24"
+      className="relative mb-0 overflow-hidden px-4 pb-16 pt-10 text-ctnPrimaryLight dark:text-ctnPrimaryDark sm:px-8 md:mb-28 md:px-16 md:pb-24 md:pt-16"
     >
       <div className="mx-auto max-w-[1220px]">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-14">
-          <div className="max-w-3xl">
+        <div className="max-w-3xl">
             <p className="text-sm font-semibold text-[#a98bff] sm:text-base">
               {labels.eyebrow}
             </p>
-            <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl md:text-6xl">
+            <h2 id="build-with-us-title" className="sectionHeadText mt-3">
               {labels.title}
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-white/65 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-ctnSecondaryLight dark:text-ctnSecondaryDark sm:text-base">
               {labels.intro}
             </p>
-          </div>
+        </div>
 
-          <div className="w-full lg:w-[500px] lg:shrink-0">
+        <div className="mt-8" role="group" aria-label={labels.typeLabel}>
+          <p className="mb-3 text-xs font-semibold text-ctnSecondaryLight dark:text-ctnSecondaryDark">{labels.typeLabel}</p>
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 md:gap-3">
+            {projectPaths.map((path, index) => {
+              const Icon = pathIcons[path.icon];
+              const selected = path.id === activePath.id;
+              return (
+                <motion.button key={path.id} type="button" aria-pressed={selected} onClick={() => selectPath(path)} whileHover={reduceMotion ? undefined : { y: -2 }} whileTap={reduceMotion ? undefined : { scale: 0.98 }} className={`flex min-h-[84px] min-w-0 items-center justify-center gap-3 rounded-lg border px-3 py-3 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${index === 4 ? "col-span-2 sm:col-span-1" : ""} ${selected ? "border-primary bg-primary/15 text-ctnPrimaryLight dark:text-ctnPrimaryDark" : "border-primary/15 bg-bgSecondaryLight text-ctnSecondaryLight hover:border-primary/50 dark:bg-bgSecondaryDark dark:text-ctnSecondaryDark"}`}>
+                  <Icon aria-hidden="true" className="h-8 w-8 shrink-0" />
+                  <span className="min-w-0 leading-6">{path.label[language]}</span>
+                </motion.button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+          {activePath.groups.length > 1 && <div className="w-full lg:max-w-[500px]">
+            <p className="mb-3 text-xs font-semibold text-ctnSecondaryLight dark:text-ctnSecondaryDark">{labels.categoryLabel}</p>
             <div
               className="grid w-full grid-cols-3 overflow-hidden rounded-lg border border-white/15 bg-white/[0.04] p-1 backdrop-blur-sm"
-              role="tablist"
-              aria-label={labels.directionLabel}
+              role="group"
+              aria-label={labels.categoryLabel}
             >
-              {conceptGroups.map((group) => {
+              {activePath.groups.map((group) => {
                 const isActive = activeGroup.id === group.id;
                 return (
                   <button
                     key={group.id}
                     type="button"
-                    role="tab"
-                    aria-selected={isActive}
+                    aria-pressed={isActive}
                     onClick={() => selectGroup(group.id)}
                     className={`min-h-[48px] px-2 py-2 text-xs font-bold transition-all duration-300 sm:px-4 sm:text-sm ${
                       isActive
@@ -402,7 +464,8 @@ function BuildWithUs() {
                 );
               })}
             </div>
-
+          </div>}
+          <div className={`w-full lg:max-w-[500px] ${activePath.groups.length > 1 ? "lg:ms-auto" : "lg:mx-auto"}`}>
             <ConceptPicker
               activeGroup={activeGroup}
               activeConceptIndex={activeConceptIndex}
@@ -414,13 +477,11 @@ function BuildWithUs() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.75fr)] lg:items-center lg:gap-14">
-          <AnimatePresence mode="wait" initial={false}>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.55fr)_minmax(320px,0.75fr)] lg:items-center lg:gap-12">
             <motion.div
               key={`${activeGroup.id}-${activeConceptIndex}`}
               initial={reduceMotion ? false : { opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -12 }}
               transition={{ duration: reduceMotion ? 0 : 0.35, ease: "easeOut" }}
             >
               <BrowserPreview
@@ -429,7 +490,6 @@ function BuildWithUs() {
                 language={language}
               />
             </motion.div>
-          </AnimatePresence>
 
           <div className="lg:py-4">
             <div className="flex items-center gap-3 text-xs font-bold text-white/50">
@@ -438,27 +498,25 @@ function BuildWithUs() {
                 style={{ backgroundColor: activeGroup.accent }}
                 aria-hidden="true"
               />
-              <span>{labels.conceptLabel}</span>
+              <span>{activeConcept.reference ? labels.referenceLabel : labels.conceptLabel}</span>
               <span aria-hidden="true">/</span>
-              <span>{activeGroup.label[language]}</span>
+              <span>{activePath.label[language]}</span>
             </div>
 
-            <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={`content-${activeGroup.id}-${activeConceptIndex}`}
+                aria-live="polite"
                 initial={reduceMotion ? false : { opacity: 0, x: isArabic ? 14 : -14 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={reduceMotion ? { opacity: 1 } : { opacity: 0, x: isArabic ? -10 : 10 }}
                 transition={{ duration: reduceMotion ? 0 : 0.25 }}
               >
-                <h3 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
+                <h3 className="mt-4 text-2xl font-bold leading-snug sm:text-3xl">
                   {activeConcept.title[language]}
                 </h3>
                 <p className="mt-4 text-base leading-8 text-white/65">
                   {activeConcept.description[language]}
                 </p>
               </motion.div>
-            </AnimatePresence>
 
             <div className="mt-7">
               <p className="text-xs font-bold text-white/45">{labels.paletteLabel}</p>

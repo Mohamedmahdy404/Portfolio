@@ -1,0 +1,54 @@
+.viewport {
+  max-width: 1200px;
+  margin-inline: auto;
+  overflow: hidden;
+  direction: ltr;
+  mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: company-scroll 36s linear infinite;
+}
+
+.group {
+  display: flex;
+  flex: none;
+  gap: 12px;
+  padding: 4px 12px 0 0;
+  margin: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: row-reverse;
+  direction: ltr;
+  align-items: center;
+  gap: 12px;
+  width: 260px;
+  height: 104px;
+  padding: 12px;
+  border: 1px solid rgba(128, 77, 238, 0.2);
+  border-radius: 8px;
+}
+
+.track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+@keyframes company-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 639px) {
+  .card { width: 244px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+  .group[aria-hidden="true"] { display: none; }
+  .viewport { overflow-x: auto; }
+  .pauseButton { display: none; }
+}

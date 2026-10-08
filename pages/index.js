@@ -6,6 +6,7 @@ import {
   BuildWithUs,
   Contact,
   Experience,
+  Feedbacks,
   Hero,
   Navbar,
   Tech,
@@ -15,6 +16,9 @@ import HeroBackground from "@/components/HeroBackground";
 import EarthContainer from "@/components/EarthContainer";
 import PlayerContainer from "@/components/PlayerContainer";
 import Services from "@/components/Services";
+import TrustBar from "@/components/TrustBar";
+import WhyMe from "@/components/WhyMe";
+import { projects } from "@/constants";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -24,6 +28,11 @@ const StarsCanvas = dynamic(() => import("@/components/canvas/Stars"), { ssr: fa
 
 function App({ loading }) {
   const { t } = useLanguage();
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
+  const openProject = (name) => {
+    const index = projects.findIndex((project) => project.name === name);
+    if (index >= 0) setSelectedProjectIndex(index);
+  };
   const contactCanvas = useDeferredCanvas();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -62,6 +71,7 @@ function App({ loading }) {
         <HeroBackground />
         <Hero loading={loading} isMobile={isMobile} />
       </div>
+      <TrustBar />
       <section className="relative z-0 flex md:flex-row flex-col-reverse w-full h-full overflow-hidden">
         <About />
         {isMobile === false && <PlayerContainer isMobile={isMobile} />}
@@ -69,9 +79,10 @@ function App({ loading }) {
       <Services />
       <Experience />
       <Tech />
-      <Works />
+      <Works selectedIndex={selectedProjectIndex} onSelectProject={setSelectedProjectIndex} />
+      <WhyMe onOpenProject={openProject} />
       <BuildWithUs />
-      {/* <Feedbacks /> */}
+      <Feedbacks onOpenProject={openProject} />
       <section ref={contactCanvas.ref} className="relative z-0 flex md:flex-row justify-between flex-col-reverse w-full h-full overflow-x-hidden sm:p-8 p-2 pb-8">
         <Contact />
         <EarthContainer isMobile={isMobile} />
