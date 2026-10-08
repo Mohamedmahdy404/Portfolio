@@ -1,8 +1,10 @@
 import styles from "./ConceptWorkspace.module.css";
 import BusinessConcepts from "./BusinessConcepts";
+import EducationConcepts from "./EducationConcepts";
 
 export default function ConceptWorkspace({ concept, language, compact = false }) {
   const data = concept.workspace;
+  if (concept.previewFamily === "education") return <EducationConcepts concept={concept} language={language} compact={compact} />;
   if (data.layout) return <BusinessConcepts concept={concept} language={language} compact={compact} />;
   return (
     <div className={`${styles.workspace} ${compact ? styles.compact : ""}`} aria-hidden={compact ? true : undefined} dir={language === "ar" ? "rtl" : "ltr"} style={{ "--concept-accent": concept.palette[0], "--concept-surface": concept.palette[1] }}>

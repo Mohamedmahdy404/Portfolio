@@ -10,6 +10,27 @@ const workspaceConcept = (id, title, description, features, palette, workspace) 
   workspace,
 });
 
+export const educationPath = {
+  id: "education",
+  label: localized("منصات تعليمية", "Education Platforms"),
+  icon: "education",
+  groups: [{
+    id: "education",
+    label: localized("منصات تعليمية", "Education Platforms"),
+    accent: "#6ca6ef",
+    concepts: [
+      {
+        ...workspaceConcept("learning-paths", localized("دورات ومسارات تعلم", "Courses and learning paths"), localized("منصة للدورات المسجلة تنظّم المحتوى في مسارات واضحة، وتتيح للمتعلم استكمال الدروس ومتابعة تقدمه من مكان واحد.", "A recorded-course platform with structured learning paths, lesson playback, and a personal progress dashboard."), localized(["دروس مسجلة ومسارات تعلم", "اختبارات ومتابعة التقدم", "إدارة الدورات واشتراكات الطلاب"], ["Recorded lessons and learning paths", "Quizzes and progress tracking", "Course and student subscription management"]), ["#315bd5", "#edf2ff", "#ffffff", "#ef8a72"], { layout: "courses" }),
+        previewFamily: "education",
+      },
+      {
+        ...workspaceConcept("live-academy", localized("أكاديمية وحصص مباشرة", "An academy for live classes"), localized("مساحة للأكاديميات والمدرسين تجمع مواعيد الحصص والمجموعات والحضور، وتسهّل متابعة الواجبات والتواصل مع الطلاب.", "A workspace for academies and teachers that connects live-class schedules, groups, attendance, and student assignments."), localized(["جدول حصص ومجموعات", "حضور وواجبات وتقييمات", "حسابات للمدرسين والطلاب"], ["Class schedules and groups", "Attendance, assignments, and assessments", "Teacher and student accounts"]), ["#176c61", "#eaf5f0", "#ffffff", "#edb94d"], { layout: "academy" }),
+        previewFamily: "education",
+      },
+    ],
+  }],
+};
+
 export const websitePath = {
   id: "websites",
   label: localized("مواقع ويب", "Websites"),

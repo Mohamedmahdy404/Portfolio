@@ -9,7 +9,7 @@ import MobileIcon from "../public/assets/icons/freelance.svg";
 import DesktopIcon from "../public/assets/icons/backend.svg";
 import BusinessIcon from "../public/assets/icons/leadership.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { websitePath, mobilePath, desktopPath, businessPath } from "@/constants/buildPaths";
+import { websitePath, mobilePath, desktopPath, businessPath, educationPath } from "@/constants/buildPaths";
 import ConceptWorkspace from "./ConceptWorkspace";
 
 const WHATSAPP_NUMBER = "201069033838";
@@ -184,8 +184,10 @@ const projectPaths = [
   mobilePath,
   desktopPath,
   businessPath,
+  educationPath,
 ];
-const pathIcons = { web: WebsiteIcon, store: StoreIcon, mobile: MobileIcon, desktop: DesktopIcon, business: BusinessIcon };
+const EducationIcon = ({ className }) => <span aria-hidden="true" className={`${className} flex items-center justify-center rounded-md bg-[#e7efff] text-2xl`}>🎓</span>;
+const pathIcons = { web: WebsiteIcon, store: StoreIcon, mobile: MobileIcon, desktop: DesktopIcon, business: BusinessIcon, education: EducationIcon };
 
 const copy = {
   ar: {
@@ -423,12 +425,12 @@ function BuildWithUs() {
 
         <div className="mt-8" role="group" aria-label={labels.typeLabel}>
           <p className="mb-3 text-xs font-semibold text-ctnSecondaryLight dark:text-ctnSecondaryDark">{labels.typeLabel}</p>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5 md:gap-3">
-            {projectPaths.map((path, index) => {
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:gap-3 xl:grid-cols-6">
+            {projectPaths.map((path) => {
               const Icon = pathIcons[path.icon];
               const selected = path.id === activePath.id;
               return (
-                <motion.button key={path.id} type="button" aria-pressed={selected} onClick={() => selectPath(path)} whileHover={reduceMotion ? undefined : { y: -2 }} whileTap={reduceMotion ? undefined : { scale: 0.98 }} className={`flex min-h-[84px] min-w-0 items-center justify-center gap-3 rounded-lg border px-3 py-3 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${index === 4 ? "col-span-2 sm:col-span-1" : ""} ${selected ? "border-primary bg-primary/15 text-ctnPrimaryLight dark:text-ctnPrimaryDark" : "border-primary/15 bg-bgSecondaryLight text-ctnSecondaryLight hover:border-primary/50 dark:bg-bgSecondaryDark dark:text-ctnSecondaryDark"}`}>
+                <motion.button key={path.id} type="button" aria-pressed={selected} onClick={() => selectPath(path)} whileHover={reduceMotion ? undefined : { y: -2 }} whileTap={reduceMotion ? undefined : { scale: 0.98 }} className={`flex min-h-[84px] min-w-0 items-center justify-center gap-3 rounded-lg border px-3 py-3 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${selected ? "border-primary bg-primary/15 text-ctnPrimaryLight dark:text-ctnPrimaryDark" : "border-primary/15 bg-bgSecondaryLight text-ctnSecondaryLight hover:border-primary/50 dark:bg-bgSecondaryDark dark:text-ctnSecondaryDark"}`}>
                   <Icon aria-hidden="true" className="h-8 w-8 shrink-0" />
                   <span className="min-w-0 leading-6">{path.label[language]}</span>
                 </motion.button>

@@ -1,0 +1,183 @@
+.scene { width: 100%; min-height: 100%; color: #27334a; background: #f6f8fd; font-size: 11px; line-height: 1.5; }
+.scene * { min-width: 0; }
+.scene h4 { margin: 16px 0 10px; font-size: 12px; font-weight: 700; }
+.learning { display: grid; grid-template-columns: 120px minmax(0, 1fr); min-height: 100%; }
+.sidebar { display: flex; flex-direction: column; gap: 12px; padding: 22px 10px; background: #244bac; color: #c1cfee; }
+.sidebar > strong { font-size: 22px; color: #fff; margin-bottom: 16px; padding-inline: 8px; }
+.sidebar > span { padding: 8px; font-size: 10px; }
+.sidebar .navActive { color: #fff; background: #ffffff18; border-inline-start: 2px solid #f6a894; }
+.pathNote { display: grid; gap: 4px; margin-top: auto; padding: 22px 8px 0; font-size: 9px; }
+.pathNote b { color: #fff; font-size: 18px; }
+.courseBody { padding: 20px; }
+.learningHeading { display: grid; gap: 4px; margin-bottom: 18px; }
+.learningHeading > span { font-size: 10px; color: #8591a8; }
+.learningHeading > strong { font-size: 18px; }
+.continue { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: #fff; border: 1px solid #e4e9f3; border-radius: 6px; overflow: hidden; }
+.video { min-height: 142px; background: #172541; color: #b9c8e6; position: relative; padding: 14px; display: grid; align-content: space-between; gap: 12px; }
+.video > span:first-child { font-size: 8px; }
+.video small { font-size: 8px; }
+.designCanvas { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 65%; margin: auto; padding: 10px; border-radius: 4px; background: #eff3fb; }
+.designCanvas > div { height: 20px; background: #7197ee; border-radius: 3px; }
+.designCanvas > div:first-child { grid-column: 1 / -1; height: 12px; background: #e9ad9c; }
+.designCanvas > div:last-child { background: #c2d5f7; }
+.play { display: grid; place-items: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 34px; height: 34px; border-radius: 50%; background: #fff; color: #315bd5; font-size: 24px; box-shadow: 0 2px 12px #0003; }
+.lessonInfo { padding: 18px; display: grid; align-content: center; gap: 7px; }
+.lessonInfo > span { font-size: 9px; color: #e08e78; }
+.lessonInfo > strong { font-size: 14px; }
+.lessonInfo p { font-size: 9px; color: #8a95aa; margin: 0; }
+.lessonInfo small { font-size: 8px; color: #6e7d97; }
+.progress { height: 5px; background: #eaf0fa; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+.progress > span { display: block; width: 60%; height: 100%; background: #315bd5; }
+.courseGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.course { display: flex; gap: 10px; align-items: center; border: 1px solid #e5eaf4; border-radius: 5px; padding: 8px; background: #fff; }
+.cover { width: 52px; height: 52px; background: #e3edfa; display: grid; place-items: center; flex: none; border-radius: 4px; }
+.designCover { background: #fcebe6; }
+.cover img { width: 30px; height: 30px; object-fit: contain; }
+.course > div:last-child { display: grid; gap: 5px; }
+.course strong { font-size: 11px; }
+.course span { font-size: 8px; color: #8692a8; }
+.path { padding-top: 4px; }
+.path > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.path article { display: grid; gap: 4px; border-top: 2px solid #cbd8ef; padding-top: 8px; }
+.path article:first-child { border-color: #5bab96; }
+.path i { font-style: normal; color: #315bd5; font-size: 11px; }
+.path strong { font-size: 10px; }
+.path span { font-size: 8px; color: #96a1b4; }
+.academy { min-height: 100%; background: #fbfdfc; }
+.academyHeader { display: flex; align-items: center; gap: 28px; padding: 14px 20px; border-bottom: 1px solid #dceae4; color: #7d968a; }
+.academyHeader > strong { font-size: 22px; color: #176c61; }
+.academyHeader > div { display: flex; gap: 22px; flex: 1; }
+.academyHeader .activeTab { color: #176c61; font-weight: 700; }
+.teacher { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 50%; color: #176c61; background: #e4f1ea; }
+.academyBody { padding: 20px; }
+.scheduleHeading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; color: #769389; }
+.scheduleHeading > div { display: grid; gap: 4px; }
+.scheduleHeading strong { color: #284e44; font-size: 18px; }
+.scheduleHeading span { font-size: 9px; }
+.academySplit { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 20px; }
+.calendar { border-top: 1px solid #e2ebe5; }
+.days, .weekGrid { display: grid; grid-template-columns: 34px repeat(5, minmax(0, 1fr)); }
+.days > div { display: grid; text-align: center; gap: 4px; padding: 10px 2px; font-size: 8px; color: #89a093; }
+.days strong { color: #466d5a; font-size: 12px; }
+.times { display: grid; grid-template-rows: repeat(3, 76px); color: #8b9d92; font-size: 8px; }
+.times span { padding-top: 8px; }
+.dayColumn { border-inline-start: 1px solid #e4eee7; }
+.calendarSlot { height: 76px; padding: 4px 3px; border-top: 1px solid #e4eee7; }
+.classEvent { background: #e6f3ed; border-inline-start: 2px solid #78b79a; border-radius: 3px; padding: 7px 4px; display: grid; gap: 5px; }
+.classEvent strong { font-size: 8px; color: #386c53; }
+.classEvent span, .classEvent small { font-size: 6px; color: #7d9d8b; }
+.goldEvent { background: #fff5d9; border-color: #e4ba5f; }
+.goldEvent strong { color: #9a7426; }
+.session { border-inline-start: 1px solid #e0eae3; padding-inline-start: 16px; }
+.sessionLabel { display: block; font-size: 9px; color: #82a091; margin-bottom: 7px; }
+.session > strong { font-size: 13px; color: #345b4c; }
+.session p { font-size: 8px; color: #749083; margin: 7px 0; }
+.studentCount { font-size: 8px; color: #97a79e; }
+.classroom { display: flex; align-items: center; justify-content: center; gap: 8px; background: #176c61; color: #fff; padding: 9px; border-radius: 4px; margin-top: 12px; font-size: 9px; }
+.classroom > span { font-size: 16px; }
+.attendance { display: flex; justify-content: space-between; gap: 6px; padding: 7px 0; font-size: 8px; color: #7f9689; border-bottom: 1px solid #eaf0ec; }
+.attendance .present { color: #409475; }
+.assignment { display: flex; align-items: center; gap: 14px; border-top: 1px solid #e0ebe3; padding-top: 16px; margin-top: 20px; font-size: 9px; color: #8b9c90; }
+.assignment > strong { color: #507462; }
+.assignmentProgress { height: 4px; background: #e4eee7; flex: 1; }
+.assignmentProgress > span { display: block; width: 75%; height: 100%; background: #d7b65b; }
+.compact { font-size: 6px; }
+.compact .learning { grid-template-columns: 44px minmax(0, 1fr); }
+.compact .sidebar { padding: 8px 4px; gap: 4px; }
+.compact .sidebar > strong { font-size: 9px; padding-inline: 2px; margin-bottom: 5px; }
+.compact .sidebar > span { font-size: 4px; padding: 4px 2px; }
+.compact .pathNote { padding: 6px 2px 0; font-size: 4px; }
+.compact .pathNote b { font-size: 7px; }
+.compact .courseBody, .compact .academyBody { padding: 8px; }
+.compact .learningHeading { gap: 2px; margin-bottom: 7px; }
+.compact .learningHeading > span, .compact .scheduleHeading span { font-size: 4px; }
+.compact .learningHeading > strong, .compact .scheduleHeading strong { font-size: 7px; }
+.compact .video { min-height: 62px; padding: 5px; gap: 4px; }
+.compact .video > span:first-child, .compact .video small { font-size: 3px; }
+.compact .designCanvas { padding: 4px; gap: 2px; }
+.compact .designCanvas > div { height: 8px; border-radius: 1px; }
+.compact .designCanvas > div:first-child { height: 4px; }
+.compact .play { width: 16px; height: 16px; font-size: 11px; }
+.compact .lessonInfo { padding: 6px; gap: 3px; }
+.compact .lessonInfo > span, .compact .lessonInfo p, .compact .lessonInfo small { font-size: 3px; }
+.compact .lessonInfo > strong { font-size: 5px; }
+.compact .progress { height: 2px; margin-top: 3px; }
+.compact h4 { margin: 7px 0 4px; font-size: 5px; }
+.compact .courseGrid { gap: 4px; }
+.compact .course { gap: 4px; padding: 3px; }
+.compact .cover { width: 20px; height: 20px; }
+.compact .cover img { width: 13px; height: 13px; }
+.compact .course strong, .compact .path strong { font-size: 4px; }
+.compact .course span, .compact .path span { font-size: 3px; }
+.compact .course > div:last-child { gap: 2px; }
+.compact .path article { padding-top: 4px; gap: 2px; border-top-width: 1px; }
+.compact .path i { font-size: 4px; }
+.compact .academyHeader { padding: 6px 8px; gap: 10px; }
+.compact .academyHeader > strong { font-size: 9px; }
+.compact .academyHeader > div { gap: 7px; font-size: 4px; }
+.compact .teacher { width: 12px; height: 12px; font-size: 5px; }
+.compact .scheduleHeading { margin-bottom: 7px; }
+.compact .academySplit { gap: 7px; }
+.compact .days, .compact .weekGrid { grid-template-columns: 14px repeat(5, minmax(0, 1fr)); }
+.compact .days > div { padding: 4px 0; gap: 2px; font-size: 3px; }
+.compact .days strong { font-size: 5px; }
+.compact .times { grid-template-rows: repeat(3, 35px); font-size: 3px; }
+.compact .calendarSlot { height: 35px; padding: 2px 1px; }
+.compact .classEvent { padding: 3px 1px; gap: 2px; border-inline-start-width: 1px; }
+.compact .classEvent strong { font-size: 3px; }
+.compact .classEvent span, .compact .classEvent small { font-size: 2px; }
+.compact .session { padding-inline-start: 6px; }
+.compact .sessionLabel { font-size: 4px; margin-bottom: 3px; }
+.compact .session > strong { font-size: 5px; }
+.compact .session p, .compact .studentCount { font-size: 3px; }
+.compact .session p { margin: 3px 0; }
+.compact .classroom { padding: 4px 2px; margin-top: 4px; gap: 3px; font-size: 3px; }
+.compact .classroom > span { font-size: 6px; }
+.compact .attendance { padding: 3px 0; gap: 2px; font-size: 3px; }
+.compact .assignment { margin-top: 7px; padding-top: 6px; gap: 5px; font-size: 3px; }
+@media (max-width: 639px) {
+  .scene:not(.compact) .learning { grid-template-columns: 58px minmax(0, 1fr); }
+  .scene:not(.compact) .sidebar { padding: 14px 5px; gap: 8px; }
+  .scene:not(.compact) .sidebar > strong { font-size: 13px; padding-inline: 2px; margin-bottom: 8px; }
+  .scene:not(.compact) .sidebar > span { font-size: 6px; padding: 6px 3px; }
+  .scene:not(.compact) .pathNote { font-size: 6px; padding: 12px 2px 0; }
+  .scene:not(.compact) .pathNote b { font-size: 11px; }
+  .scene:not(.compact) .courseBody, .scene:not(.compact) .academyBody { padding: 12px 8px; }
+  .scene:not(.compact) .learningHeading > span { font-size: 7px; }
+  .scene:not(.compact) .learningHeading > strong { font-size: 12px; }
+  .scene:not(.compact) .video { min-height: 110px; padding: 8px; }
+  .scene:not(.compact) .video > span:first-child, .scene:not(.compact) .video small { font-size: 5px; }
+  .scene:not(.compact) .lessonInfo { padding: 8px; gap: 5px; }
+  .scene:not(.compact) .lessonInfo > span, .scene:not(.compact) .lessonInfo p, .scene:not(.compact) .lessonInfo small { font-size: 6px; }
+  .scene:not(.compact) .lessonInfo > strong { font-size: 9px; }
+  .scene:not(.compact) h4 { font-size: 9px; margin: 12px 0 7px; }
+  .scene:not(.compact) .courseGrid { gap: 6px; }
+  .scene:not(.compact) .course { padding: 5px; gap: 5px; }
+  .scene:not(.compact) .cover { width: 26px; height: 30px; }
+  .scene:not(.compact) .cover img { width: 18px; height: 18px; }
+  .scene:not(.compact) .course strong, .scene:not(.compact) .path strong { font-size: 7px; }
+  .scene:not(.compact) .course span, .scene:not(.compact) .path span { font-size: 5px; }
+  .scene:not(.compact) .path i { font-size: 8px; }
+  .scene:not(.compact) .academyHeader { padding: 10px; gap: 14px; font-size: 7px; }
+  .scene:not(.compact) .academyHeader > strong { font-size: 15px; }
+  .scene:not(.compact) .academyHeader > div { gap: 10px; }
+  .scene:not(.compact) .scheduleHeading strong { font-size: 13px; }
+  .scene:not(.compact) .scheduleHeading span { font-size: 6px; }
+  .scene:not(.compact) .academySplit { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 8px; }
+  .scene:not(.compact) .days, .scene:not(.compact) .weekGrid { grid-template-columns: 18px repeat(5, minmax(0, 1fr)); }
+  .scene:not(.compact) .days > div { font-size: 4px; }
+  .scene:not(.compact) .days strong { font-size: 8px; }
+  .scene:not(.compact) .times { grid-template-rows: repeat(3, 63px); font-size: 5px; }
+  .scene:not(.compact) .calendarSlot { height: 63px; padding: 3px 1px; }
+  .scene:not(.compact) .classEvent { padding: 5px 2px; gap: 3px; }
+  .scene:not(.compact) .classEvent strong { font-size: 5px; overflow-wrap: anywhere; }
+  .scene:not(.compact) .classEvent span, .scene:not(.compact) .classEvent small { font-size: 4px; }
+  .scene:not(.compact) .session { padding-inline-start: 8px; }
+  .scene:not(.compact) .sessionLabel { font-size: 6px; }
+  .scene:not(.compact) .session > strong { font-size: 9px; }
+  .scene:not(.compact) .session p, .scene:not(.compact) .studentCount { font-size: 5px; }
+  .scene:not(.compact) .classroom { font-size: 6px; padding: 6px 3px; gap: 4px; }
+  .scene:not(.compact) .classroom > span { font-size: 12px; }
+  .scene:not(.compact) .attendance { font-size: 5px; padding: 6px 0; }
+  .scene:not(.compact) .assignment { font-size: 6px; gap: 7px; padding-top: 12px; margin-top: 14px; }
+}
