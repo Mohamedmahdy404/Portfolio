@@ -67,7 +67,7 @@ export const translations = {
           company: "Arab International Bank (AIB)",
           date: "Mar 2026 – Present",
           points: [
-            "Build banking integrations and data pipelines with SQL and SSIS.",
+            "Develop integrations for internal banking systems and enterprise data workflows, building SSIS ETL pipelines and secure, performance-optimized SQL queries to connect applications and process institutional data.",
           ],
         },
         {
@@ -75,7 +75,7 @@ export const translations = {
           company: "Newulm Medical",
           date: "Dec 2025 – Apr 2026",
           points: [
-            "Built booking and live-tracking backends for Ulm Care and Paxi Go.",
+            "Built microservice backends for Ulm Care and Paxi Go, covering bookings, dispatch, live tracking, third-party integrations, and automated Azure deployments.",
           ],
         },
         {
@@ -83,7 +83,7 @@ export const translations = {
           company: "Information Technology Institute (ITI) – MCIT",
           date: "Jul 2025 – Present",
           points: [
-            "Teach .NET and Angular through practical projects and mentoring.",
+            "Teach full-stack development with .NET, Angular, and databases, guiding students from core concepts to practical projects with clean, maintainable code.",
           ],
         },
         {
@@ -91,7 +91,7 @@ export const translations = {
           company: "New Vision Systems Canada",
           date: "Mar 2025 – Mar 2026",
           points: [
-            "Built RFID inventory and access-control systems with .NET and Angular.",
+            "Built RFID inventory and access-control applications with ASP.NET Core and Angular, integrating SignalR for real-time updates and Kafka for event-driven workflows.",
           ],
         },
       ],
@@ -357,7 +357,7 @@ export const translations = {
           company: "المصرف العربي الدولي (AIB)",
           date: "مارس 2026 – حتى الآن",
           points: [
-            "تطوير تكاملات مصرفية ومسارات بيانات باستخدام SQL وSSIS.",
+            "تطوير تكاملات الأنظمة المصرفية الداخلية ومسارات البيانات المؤسسية، مع بناء عمليات ETL باستخدام SSIS وكتابة استعلامات SQL آمنة ومحسّنة الأداء لربط التطبيقات ومعالجة البيانات.",
           ],
         },
         {
@@ -365,7 +365,7 @@ export const translations = {
           company: "نيولم الطبية",
           date: "ديسمبر 2025 – أبريل 2026",
           points: [
-            "تطوير خدمات الحجز والتتبع المباشر لمنصتي Ulm Care وPaxi Go.",
+            "تطوير خدمات خلفية مصغّرة لمنصتي Ulm Care وPaxi Go تشمل الحجز وتوزيع الطلبات والتتبع المباشر، مع تكاملات خارجية وأتمتة النشر على Azure.",
           ],
         },
         {
@@ -373,7 +373,7 @@ export const translations = {
           company: "معهد تكنولوجيا المعلومات (ITI) – وزارة الاتصالات",
           date: "يوليو 2025 – حتى الآن",
           points: [
-            "تدريس .NET وAngular من خلال مشاريع عملية وإرشاد الطلاب.",
+            "تدريس تطوير التطبيقات المتكاملة باستخدام .NET وAngular وقواعد البيانات، وإرشاد الطلاب من المفاهيم الأساسية إلى بناء مشاريع عملية بكود منظم وسهل الصيانة.",
           ],
         },
         {
@@ -381,7 +381,7 @@ export const translations = {
           company: "New Vision Systems Canada",
           date: "مارس 2025 – مارس 2026",
           points: [
-            "تطوير أنظمة المخزون والتحكم في الدخول بتقنية RFID باستخدام .NET وAngular.",
+            "تطوير تطبيقات المخزون والتحكم في الدخول بتقنية RFID باستخدام ASP.NET Core وAngular، مع تحديثات لحظية عبر SignalR ومعالجة الأحداث باستخدام Kafka.",
           ],
         },
       ],
