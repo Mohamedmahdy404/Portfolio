@@ -118,19 +118,22 @@ export const desktopPath = {
     label: localized("برامج ديسكتوب", "Desktop software"),
     accent: "#57b9a0",
     concepts: [
-      workspaceConcept("stock", localized("المخزون والمبيعات", "Stock and sales"), localized("برنامج يجمع منتجات المتجر وحركة المخزون والمبيعات، مع استيراد وتصدير البيانات لتقليل العمل المتكرر.", "A desktop workspace for products, stock movements, and sales, with data import and export."), localized(["مخزون ومنتجات", "مبيعات وفواتير", "استيراد وتصدير Excel"], ["Products and stock", "Sales and invoices", "Excel import and export"]), ["#157f70", "#e7f4f0", "#ffffff", "#e6a75a"], {
+      workspaceConcept("stock", localized("المخزون والمبيعات", "Stock and sales"), localized("برنامج يجمع منتجات المتجر وحركة المخزون والمبيعات، مع استيراد وتصدير البيانات لتقليل العمل المتكرر.", "A desktop workspace for products, stock movements, and sales, with data import and export."), localized(["مخزون ومنتجات", "مبيعات وفواتير", "استيراد وتصدير Excel"], ["Products and stock", "Sales and invoices", "Excel import and export"]), ["#227855", "#f1f5f3", "#ffffff", "#202d32"], {
+        family: "desktop", layout: "stock",
         brand: localized("مخزني", "Stockdesk"), title: localized("المخزون", "Inventory"), nav: localized(["نظرة عامة", "المنتجات", "المبيعات", "التقارير"], ["Overview", "Products", "Sales", "Reports"]),
         stats: localized(["المنتجات", "طلبات اليوم", "تحتاج إلى توريد"], ["Products", "Today's orders", "Low stock"]), values: ["128", "24", "6"],
         columns: localized(["المنتج", "الكمية", "الحالة"], ["Product", "Quantity", "Status"]),
         rows: localized([["قميص قطني", "42", "متوفر"], ["حقيبة يومية", "18", "متوفر"], ["حذاء رياضي", "4", "مخزون منخفض"], ["سترة خفيفة", "26", "متوفر"]], [["Cotton shirt", "42", "In stock"], ["Everyday bag", "18", "In stock"], ["Trainers", "4", "Low stock"], ["Light jacket", "26", "In stock"]]),
       }),
-      workspaceConcept("invoices", localized("فواتير منظمة", "Organized invoicing"), localized("واجهة للفواتير والعملاء والتحصيل، تساعد فريقك على متابعة المستحقات والوصول إلى السجلات بسرعة.", "An invoicing and customer workspace for tracking balances and finding records quickly."), localized(["فواتير وعملاء", "متابعة التحصيل", "بحث وتقارير"], ["Invoices and customers", "Collection tracking", "Search and reports"]), ["#466ed1", "#edf1fb", "#ffffff", "#54b597"], {
+      workspaceConcept("invoices", localized("فواتير منظمة", "Organized invoicing"), localized("واجهة للفواتير والعملاء والتحصيل، تساعد فريقك على متابعة المستحقات والوصول إلى السجلات بسرعة.", "An invoicing and customer workspace for tracking balances and finding records quickly."), localized(["فواتير وعملاء", "متابعة التحصيل", "بحث وتقارير"], ["Invoices and customers", "Collection tracking", "Search and reports"]), ["#4d69a7", "#e9edf3", "#ffffff", "#8ca8cd"], {
+        family: "desktop", layout: "invoices",
         brand: localized("حساب", "Accountdesk"), title: localized("الفواتير", "Invoices"), nav: localized(["نظرة عامة", "الفواتير", "العملاء", "التقارير"], ["Overview", "Invoices", "Customers", "Reports"]),
         stats: localized(["فواتير الشهر", "تم تحصيلها", "قيد المتابعة"], ["Monthly invoices", "Paid", "Pending"]), values: ["64", "52", "12"],
         columns: localized(["الفاتورة", "القيمة", "الحالة"], ["Invoice", "Amount", "Status"]),
         rows: localized([["فاتورة 1042", "2,400", "مدفوعة"], ["فاتورة 1043", "1,250", "قيد المتابعة"], ["فاتورة 1044", "3,800", "مدفوعة"], ["فاتورة 1045", "950", "مدفوعة"]], [["Invoice 1042", "2,400", "Paid"], ["Invoice 1043", "1,250", "Pending"], ["Invoice 1044", "3,800", "Paid"], ["Invoice 1045", "950", "Paid"]]),
       }),
-      workspaceConcept("appointments", localized("مواعيد دون ازدحام", "Organized appointments"), localized("برنامج للحجوزات اليومية وتوزيع المواعيد على أعضاء الفريق، مع سجل للعملاء والخدمات.", "A desktop scheduler for daily bookings, team appointments, customers, and services."), localized(["جدول المواعيد", "سجل العملاء", "توزيع الحجوزات"], ["Appointment schedule", "Customer records", "Booking allocation"]), ["#a66a39", "#f9f0e8", "#ffffff", "#62aaba"], {
+      workspaceConcept("appointments", localized("مواعيد دون ازدحام", "Organized appointments"), localized("برنامج للحجوزات اليومية وتوزيع المواعيد على أعضاء الفريق، مع سجل للعملاء والخدمات.", "A desktop scheduler for daily bookings, team appointments, customers, and services."), localized(["جدول المواعيد", "سجل العملاء", "توزيع الحجوزات"], ["Appointment schedule", "Customer records", "Booking allocation"]), ["#76394f", "#faf6f8", "#ffffff", "#a6cdbd"], {
+        family: "desktop", layout: "appointments",
         brand: localized("موعد", "Schedule"), title: localized("حجوزات اليوم", "Today's appointments"), nav: localized(["نظرة عامة", "المواعيد", "العملاء", "الخدمات"], ["Overview", "Appointments", "Customers", "Services"]),
         stats: localized(["المواعيد", "مؤكدة", "متاحة"], ["Appointments", "Confirmed", "Available"]), values: ["16", "12", "4"],
         columns: localized(["العميل", "الوقت", "الحالة"], ["Customer", "Time", "Status"]),

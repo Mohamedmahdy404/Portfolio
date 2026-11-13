@@ -1,9 +1,11 @@
 import styles from "./ConceptWorkspace.module.css";
 import BusinessConcepts from "./BusinessConcepts";
 import EducationConcepts from "./EducationConcepts";
+import DesktopConcepts from "./DesktopConcepts";
 
 export default function ConceptWorkspace({ concept, language, compact = false }) {
   const data = concept.workspace;
+  if (data.family === "desktop") return <DesktopConcepts concept={concept} language={language} compact={compact} />;
   if (concept.previewFamily === "education") return <EducationConcepts concept={concept} language={language} compact={compact} />;
   if (data.layout) return <BusinessConcepts concept={concept} language={language} compact={compact} />;
   return (

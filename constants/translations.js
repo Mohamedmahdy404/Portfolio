@@ -124,7 +124,7 @@ export const translations = {
       links: "Explore the project",
       googlePlay: "Google Play",
       appStore: "App Store",
-      latestRelease: "Latest release",
+      latestRelease: "Latest project",
       items: [
         {
           name: "Medcare",
@@ -423,7 +423,7 @@ export const translations = {
       links: "اكتشف المشروع",
       googlePlay: "Google Play",
       appStore: "App Store",
-      latestRelease: "أحدث إصدار",
+      latestRelease: "أحدث مشروع",
       items: [
         {
           name: "Medcare",
