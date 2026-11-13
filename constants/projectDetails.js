@@ -1,5 +1,19 @@
 // Business context based on the existing project descriptions, not measured outcomes.
 export const projectDetails = {
+  Medcare: {
+    ar: {
+      problem: "يحتاج المريض إلى حجز الخدمات الطبية ومتابعة طلباته ونتائجه دون التنقل بين قنوات متعددة، ويحتاج الفريق الطبي إلى تنظيم الطلبات الواردة.",
+      goal: "ربط المريض بمقدم الخدمة وتوحيد رحلة الحجز والمتابعة مع واجهات مناسبة لكل دور.",
+      solution: "تطبيق للآيفون والأندرويد يجمع الخدمات الطبية والتحاليل والحجوزات والنتائج، مع مسارات عمل مخصصة للمرضى والفريق الطبي.",
+      features: ["طلب الخدمات الطبية المنزلية", "اختيار التحاليل والمعمل المناسب", "حجز المواعيد ومتابعة الطلبات", "عرض نتائج التحاليل", "واجهات مخصصة للفريق الطبي"],
+    },
+    en: {
+      problem: "Patients need to book medical services and follow requests and results without switching channels, while medical teams need organized incoming requests.",
+      goal: "Connect patients with providers through a shared booking and follow-up journey, with an experience tailored to each role.",
+      solution: "An iPhone and Android app bringing medical services, laboratory requests, bookings, and results together with dedicated patient and medical-team workflows.",
+      features: ["Home healthcare service requests", "Laboratory test and provider selection", "Appointment booking and request tracking", "Laboratory results", "Dedicated medical-team interfaces"],
+    },
+  },
   "Moussa Shipping": {
     ar: {
       problem: "تحتاج السفن والشركات البحرية إلى معرفة خدمات التوريد المتاحة والوصول إلى جهة التواصل المناسبة بسرعة.",

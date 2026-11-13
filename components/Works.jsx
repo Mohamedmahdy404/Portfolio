@@ -20,6 +20,8 @@ function ProjectCard({
   source_code_link,
   deployed_link,
   app_store_link,
+  card_images,
+  latest_release,
   labels,
   onDetails,
 }) {
@@ -52,17 +54,25 @@ function ProjectCard({
         tiltEnable={!isCoarsePointer}
         tiltMaxAngleX={10}
         tiltMaxAngleY={10}
-        className="dark:bg-bgSecondaryDark bg-bgSecondaryLight flex h-full w-full flex-col rounded-xl p-3 shadow-sm shadow-primary md:rounded-2xl md:p-5"
+        className={`dark:bg-bgSecondaryDark bg-bgSecondaryLight flex h-full w-full flex-col rounded-xl p-3 md:rounded-2xl md:p-5 ${latest_release ? "ring-1 ring-[#57d6bd]/80 shadow-[0_0_28px_rgba(87,214,189,0.15)]" : "shadow-sm shadow-primary"}`}
       >
         <div className="relative w-full h-[105px] xs:h-[120px] md:h-[230px]">
           <div className="relative h-full w-full overflow-hidden rounded-xl shine-sweep md:rounded-2xl">
-            <Image
+            {card_images?.length ? (
+              <div className="absolute inset-0 flex items-start justify-center gap-2 overflow-hidden bg-[#dff2ef] px-3 pt-2 md:gap-3 md:px-5 md:pt-4">
+                {card_images.map((src, imageIndex) => (
+                  <div key={src} className={`relative h-full w-[28%] shrink-0 overflow-hidden rounded-md border border-white/80 bg-white shadow-lg ${imageIndex === 1 ? "" : "mt-3"}`}>
+                    <Image src={src} alt={`${name} — ${labels.imageLabel} ${imageIndex + 1}`} fill sizes="(max-width: 768px) 12vw, 100px" className="object-cover object-top" />
+                  </div>
+                ))}
+              </div>
+            ) : <Image
               src={image}
               alt={`${name} — ${labels.imageLabel}`}
               fill
               sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 370px"
               className="object-cover"
-            />
+            />}
           </div>
 
           <div className="pointer-events-none absolute inset-x-0 top-0 m-2 md:m-3 card-img_hover">
@@ -71,6 +81,7 @@ function ProjectCard({
         </div>
 
         <div className="mt-3 md:mt-5">
+          {latest_release && <span className="mb-2 inline-flex max-w-full items-center gap-1.5 rounded border border-[#57d6bd]/35 bg-[#57d6bd]/10 px-2 py-1 text-[9px] font-bold leading-4 text-[#176b59] dark:text-[#83ead3] md:text-xs"><span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-current" />{labels.latestRelease}</span>}
           <h3 className="min-h-[36px] break-words text-[14px] font-bold leading-tight text-ctnPrimaryLight dark:text-ctnPrimaryDark xs:text-[15px] md:min-h-[58px] md:text-[24px]">
             {name}
           </h3>

@@ -124,7 +124,17 @@ export const translations = {
       links: "Explore the project",
       googlePlay: "Google Play",
       appStore: "App Store",
+      latestRelease: "Latest release",
       items: [
+        {
+          name: "Medcare",
+          description: "A healthcare app connecting patients with medical providers for home services, laboratory requests, bookings, results, and request tracking, with dedicated workflows for medical teams.",
+          tags: [
+            { name: "iPhone & Android", color: "blue-text-gradient" },
+            { name: "Healthcare Services", color: "green-text-gradient" },
+            { name: "Patient & Staff Workflows", color: "pink-text-gradient" },
+          ],
+        },
         {
           name: "Moussa Shipping",
           description: "A business website that helps ships and maritime companies quickly explore 24/7 supply services and contact the right department in Port Said.",
@@ -413,7 +423,17 @@ export const translations = {
       links: "اكتشف المشروع",
       googlePlay: "Google Play",
       appStore: "App Store",
+      latestRelease: "أحدث إصدار",
       items: [
+        {
+          name: "Medcare",
+          description: "تطبيق يربط المرضى بمقدمي الخدمات الطبية المنزلية والمعامل، ويجمع الحجوزات ونتائج التحاليل ومتابعة الطلبات، مع واجهات مخصصة لتنظيم عمل الفريق الطبي.",
+          tags: [
+            { name: "آيفون وأندرويد", color: "blue-text-gradient" },
+            { name: "خدمات طبية", color: "green-text-gradient" },
+            { name: "واجهات للمرضى والفريق الطبي", color: "pink-text-gradient" },
+          ],
+        },
         {
           name: "موسى للخدمات البحرية",
           description: "موقع أعمال يساعد السفن والشركات البحرية على استعراض خدمات التوريد المتاحة طوال اليوم والتواصل سريعاً مع القسم المناسب في بورسعيد.",

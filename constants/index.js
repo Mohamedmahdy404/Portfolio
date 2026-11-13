@@ -185,6 +185,30 @@ const testimonials = [
 
 const projects = [
   {
+    name: "Medcare",
+    description:
+      "A healthcare app connecting patients with medical providers for home services, laboratory requests, bookings, results, and request tracking, with dedicated workflows for medical teams.",
+    tags: [
+      { name: "iPhone & Android", color: "blue-text-gradient" },
+      { name: "Healthcare Services", color: "green-text-gradient" },
+      { name: "Patient & Staff Workflows", color: "pink-text-gradient" },
+    ],
+    latest_release: true,
+    image: "/assets/projects/screenshots/medcare-home.png",
+    card_images: [
+      "/assets/projects/screenshots/medcare-lab.png",
+      "/assets/projects/screenshots/medcare-home.png",
+      "/assets/projects/screenshots/medcare-staff.png",
+    ],
+    detail_images: [
+      "/assets/projects/screenshots/medcare-home.png",
+      "/assets/projects/screenshots/medcare-lab.png",
+      "/assets/projects/screenshots/medcare-staff.png",
+    ],
+    deployed_link: "https://play.google.com/store/apps/details?id=com.ahmed.medcare&hl=en_US",
+    app_store_link: "https://apps.apple.com/us/app/medcare-egypt/id6832610931",
+  },
+  {
     name: "Moussa Shipping",
     description:
       "A business website that helps ships and maritime companies quickly explore 24/7 supply services and contact the right department in Port Said.",
