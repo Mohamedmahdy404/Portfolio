@@ -18,8 +18,8 @@ export const translations = {
       avatarAlt: "Mohamed Yasser Mahdy",
     },
     hero: {
-      greeting: "Software built around",
-      name: "your business.",
+      greeting: "From your idea",
+      name: "to your first user.",
       description: "Websites, mobile apps, desktop software, and company systems tailored to your needs, from planning and development to launch.",
       roles: ["Software Engineer", 900, "Full-Stack .NET Developer", 900],
       scrollLabel: "Scroll to the introduction",
@@ -318,8 +318,8 @@ export const translations = {
       avatarAlt: "محمد ياسر مهدي",
     },
     hero: {
-      greeting: "حلول برمجية متكاملة",
-      name: "تناسب شغلك.",
+      greeting: "من فكرتك",
+      name: "إلى أول مستخدم.",
       description: "مواقع، تطبيقات موبايل، برامج ديسكتوب وأنظمة شركات مصممة لاحتياجاتك، من التخطيط والتطوير حتى الإطلاق.",
       roles: ["مهندس برمجيات", 900, "مطوّر Full-Stack .NET", 900],
       scrollLabel: "الانتقال إلى نبذة عني",
