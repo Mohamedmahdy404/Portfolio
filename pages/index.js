@@ -71,13 +71,13 @@ function App({ loading }) {
         <HeroBackground />
         <Hero loading={loading} isMobile={isMobile} />
       </div>
-      <ProjectDemos />
-      <TrustBar />
-      <section className="relative z-0 flex md:flex-row flex-col-reverse w-full h-full overflow-hidden">
+      <section className="relative z-0 flex md:flex-row flex-col-reverse w-full h-full overflow-hidden bg-bgPrimaryLight dark:bg-bgPrimaryDark">
         <About />
         {isMobile === false && <PlayerContainer isMobile={isMobile} />}
       </section>
+      <TrustBar />
       <Services />
+      <ProjectDemos />
       <Experience />
       <Works selectedIndex={selectedProjectIndex} onSelectProject={setSelectedProjectIndex} />
       <WhyMe onOpenProject={openProject} />

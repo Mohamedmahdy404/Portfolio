@@ -16,10 +16,6 @@ function ServiceCard({ index, title, description, icon }) {
       >
         <div className="service-orbit-ring absolute inset-3 rounded-full border border-primary/20" />
 
-        <span className="absolute top-[20%] font-mono text-[9px] text-primary/80 sm:top-[23%] sm:text-sm">
-          {index + 1}
-        </span>
-
         <div
           className="float-y relative z-10 flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-bgPrimaryLight p-3 text-primary shadow-[0_0_35px_rgba(128,77,238,0.16)] dark:bg-bgPrimaryDark sm:h-24 sm:w-24 sm:p-6"
           style={{ animationDelay: `${index * 0.2}s` }}
