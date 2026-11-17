@@ -8,7 +8,7 @@ export const translations = {
     nav: {
       name: "Mohamed Yasser Mahdy",
       role: "Engineer",
-      links: ["Try it live", "About", "Work", "Projects", "Contact"],
+      links: ["About", "Try it live", "Work", "Projects", "Contact"],
       languageLabel: "Switch to Arabic",
       languageShort: "AR",
       openMenu: "Open navigation menu",
@@ -23,7 +23,7 @@ export const translations = {
       description: "Websites, mobile apps, desktop software, and company systems tailored to your needs, from planning and development to launch.",
       roles: ["Software Engineer", 900, "Full-Stack .NET Developer", 900],
       scrollLabel: "Scroll to the introduction",
-      ctaPrimary: "Tell me about your project",
+      ctaPrimary: "Describe your project",
       ctaSecondary: "View My Work",
     },
     about: {
@@ -308,7 +308,7 @@ export const translations = {
     nav: {
       name: "محمد ياسر مهدي",
       role: "مهندس برمجيات",
-      links: ["جرّب بنفسك", "نبذة عني", "الخبرات", "المشاريع", "تواصل معي"],
+      links: ["نبذة عني", "جرّب بنفسك", "الخبرات", "المشاريع", "تواصل معي"],
       languageLabel: "التبديل إلى الإنجليزية",
       languageShort: "EN",
       openMenu: "فتح قائمة التنقل",
@@ -323,7 +323,7 @@ export const translations = {
       description: "مواقع، تطبيقات موبايل، برامج ديسكتوب وأنظمة شركات مصممة لاحتياجاتك، من التخطيط والتطوير حتى الإطلاق.",
       roles: ["مهندس برمجيات", 900, "مطوّر Full-Stack .NET", 900],
       scrollLabel: "الانتقال إلى نبذة عني",
-      ctaPrimary: "احكي لي عن مشروعك",
+      ctaPrimary: "صف لي مشروعك",
       ctaSecondary: "شاهد أعمالي",
     },
     about: {

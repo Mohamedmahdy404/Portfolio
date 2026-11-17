@@ -13,12 +13,12 @@ import FullStackIcon from "./../public/assets/icons/full-stack.svg";
 
 const navLinks = [
   {
-    id: "project-demos",
-    title: "Try it live",
-  },
-  {
     id: "about",
     title: "About",
+  },
+  {
+    id: "project-demos",
+    title: "Try it live",
   },
   {
     id: "work",
