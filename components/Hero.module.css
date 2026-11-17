@@ -1,9 +1,9 @@
 .actions {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
   width: 100%;
-  max-width: 360px;
+  max-width: 580px;
   margin: 28px auto 0;
 }
 
@@ -12,66 +12,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 6px;
   min-width: 0;
-  min-height: 60px;
-  padding: 12px 18px;
+  min-height: 52px;
+  padding: 9px 10px;
+  border: 1.5px solid transparent;
   border-radius: 8px;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.5;
   text-decoration: none;
-  isolation: isolate;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.button::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .14), transparent 65%);
-  pointer-events: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
 .primary {
-  border: 1px solid rgba(226, 209, 255, .5);
-  background: linear-gradient(125deg, #9a64f7, #804dee 48%, #6333cf);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 4px 0 #4b269d, 0 12px 28px rgba(105, 54, 213, .3);
+  border-color: #cba5ff;
+  background: linear-gradient(135deg, #a154fa, #802ee6 48%, #6017bb);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 6px 22px rgba(119, 43, 224, .3);
 }
 
 .secondary {
-  border: 1px solid rgba(199, 175, 249, .65);
-  background: linear-gradient(125deg, #39314f, #252238 70%, #302944);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 4px 0 #151220, 0 12px 25px rgba(15, 10, 30, .25);
+  border-color: #c594f5;
+  background: rgba(25, 24, 38, .45);
 }
 
-.icon {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
+.whatsapp {
+  width: 30px;
+  height: 30px;
   flex: none;
-  border: 1px solid rgba(255, 255, 255, .2);
-  border-radius: 7px;
-  background: rgba(255, 255, 255, .1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
 }
 
-.label { min-width: 0; flex: 1; text-align: center; }
-.arrow { width: 13px; height: 13px; flex: none; opacity: .85; }
-.button:hover { transform: translateY(-3px); border-color: #ecddff; }
-.primary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 6px 0 #4b269d, 0 18px 32px rgba(105, 54, 213, .4); }
-.secondary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2), 0 6px 0 #151220, 0 16px 30px rgba(15, 10, 30, .35); }
-.button:active { transform: translateY(2px); box-shadow: inset 0 1px 2px rgba(15, 10, 30, .2), 0 1px 0 #4b269d; }
+.whatsapp circle { display: none; }
+.label { min-width: 0; text-align: center; }
+.arrow { width: 13px; height: 13px; flex: none; }
+.button:hover { transform: translateY(-2px); border-color: #ecddff; }
+.primary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4), 0 9px 28px rgba(119, 43, 224, .45); }
+.secondary:hover { background-color: rgba(155, 90, 232, .18); }
+.button:active { transform: translateY(0); }
 .button:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
 
 @media (min-width: 640px) {
-  .actions { max-width: 580px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-  .button { min-height: 62px; font-size: 15px; }
+  .actions { gap: 16px; }
+  .button { min-height: 56px; padding: 12px 18px; gap: 10px; font-size: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import { useLanguage } from "@/contexts/LanguageContext";
 import useDeferredCanvas from "@/utils/useDeferredCanvas";
 import WhatsappIcon from "@/public/assets/icons/whatsapp.svg";
-import RocketIcon from "@/public/assets/icons/rocket.svg";
 import ArrowIcon from "@/public/assets/icons/up-arrow.svg";
 import styles from "./Hero.module.css";
 
@@ -25,13 +24,11 @@ function Hero({ loading, isMobile }) {
         <div className={styles.actions}>
           <a href="https://wa.me/201069033838" target="_blank" rel="noopener noreferrer"
             className={`${styles.button} ${styles.primary}`}>
-            <span className={styles.icon}><WhatsappIcon aria-hidden="true" className="h-5 w-5" /></span>
+            <WhatsappIcon aria-hidden="true" className={styles.whatsapp} />
             <span className={styles.label}>{t.hero.ctaPrimary}</span>
-            <ArrowIcon aria-hidden="true" className={`${styles.arrow} ${isArabic ? "-rotate-90" : "rotate-90"}`} />
           </a>
           <a href="#projects"
             className={`${styles.button} ${styles.secondary}`}>
-            <span className={styles.icon}><RocketIcon aria-hidden="true" className="h-5 w-5" /></span>
             <span className={styles.label}>{t.hero.ctaSecondary}</span>
             <ArrowIcon aria-hidden="true" className={`${styles.arrow} ${isArabic ? "-rotate-90" : "rotate-90"}`} />
           </a>
