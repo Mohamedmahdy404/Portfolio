@@ -29,7 +29,7 @@ export const translations = {
     about: {
       eyebrow: "Introduction",
       title: "Overview.",
-      body: "I’m Mohamed Yasser Mahdy, a software engineer focused on building scalable web applications with ASP.NET and Angular. My background combines full-stack product development, strong engineering fundamentals, and practical training at the Information Technology Institute (ITI).",
+      body: "I’m Mohamed Yasser Mahdy. I work with you from the initial idea to launch, helping you define your needs, set priorities, and build a platform that reflects your identity and serves your customers, drawing on practical experience in banking systems and integrated applications.",
       resume: "Resume",
       resumeLabel: "Download my resume",
     },
@@ -329,7 +329,7 @@ export const translations = {
     about: {
       eyebrow: "نبذة تعريفية",
       title: "من أنا.",
-      body: "أنا محمد ياسر مهدي، مهندس برمجيات أركز على بناء تطبيقات ويب قابلة للتوسع باستخدام ASP.NET وAngular. تجمع خبرتي بين تطوير المنتجات المتكاملة، والأسس الهندسية القوية، والتدريب العملي في معهد تكنولوجيا المعلومات (ITI).",
+      body: "أنا محمد ياسر مهدي، أرافقك من الفكرة الأولية إلى إطلاق مشروعك. أساعدك على تحديد ما تحتاجه، وترتيب أولوياتك، ثم بناء منصة تحمل هويتك وتخدم عملاءك، مستندًا إلى خبرة عملية في الأنظمة المصرفية والتطبيقات المتكاملة.",
       resume: "السيرة الذاتية",
       resumeLabel: "تحميل السيرة الذاتية",
     },
