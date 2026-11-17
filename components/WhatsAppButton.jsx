@@ -13,7 +13,7 @@ function WhatsAppButton() {
   const { t, isArabic } = useLanguage();
   const [ready, setReady] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
-  const [hideForBuildSection, setHideForBuildSection] = useState(false);
+  const [hideForInteractiveSection, setHideForInteractiveSection] = useState(false);
 
   useEffect(() => {
     const revealTimer = setTimeout(() => setReady(true), 900);
@@ -49,22 +49,30 @@ function WhatsAppButton() {
   }, [showBubble]);
 
   useEffect(() => {
-    const buildSection = document.getElementById("build-with-us");
-    if (!buildSection) return undefined;
+    const sections = ["build-with-us", "project-demos"]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    if (!sections.length) return undefined;
+    const visibleSections = new Set();
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setHideForBuildSection(entry.isIntersecting);
-        if (entry.isIntersecting) setShowBubble(false);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visibleSections.add(entry.target.id);
+          else visibleSections.delete(entry.target.id);
+        });
+        const hasVisibleSection = visibleSections.size > 0;
+        setHideForInteractiveSection(hasVisibleSection);
+        if (hasVisibleSection) setShowBubble(false);
       },
       { threshold: 0.12 }
     );
 
-    observer.observe(buildSection);
+    sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
-  if (!ready || hideForBuildSection) return null;
+  if (!ready || hideForInteractiveSection) return null;
 
   return (
     <div

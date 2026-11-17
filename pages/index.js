@@ -9,7 +9,6 @@ import {
   Feedbacks,
   Hero,
   Navbar,
-  Tech,
   Works,
 } from "@/components";
 import HeroBackground from "@/components/HeroBackground";
@@ -17,6 +16,7 @@ import EarthContainer from "@/components/EarthContainer";
 import PlayerContainer from "@/components/PlayerContainer";
 import Services from "@/components/Services";
 import TrustBar from "@/components/TrustBar";
+import ProjectDemos from "@/components/ProjectDemos";
 import WhyMe from "@/components/WhyMe";
 import { projects } from "@/constants";
 import Footer from "@/components/Footer";
@@ -71,6 +71,7 @@ function App({ loading }) {
         <HeroBackground />
         <Hero loading={loading} isMobile={isMobile} />
       </div>
+      <ProjectDemos />
       <TrustBar />
       <section className="relative z-0 flex md:flex-row flex-col-reverse w-full h-full overflow-hidden">
         <About />
@@ -78,7 +79,6 @@ function App({ loading }) {
       </section>
       <Services />
       <Experience />
-      <Tech />
       <Works selectedIndex={selectedProjectIndex} onSelectProject={setSelectedProjectIndex} />
       <WhyMe onOpenProject={openProject} />
       <BuildWithUs />

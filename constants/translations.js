@@ -8,7 +8,7 @@ export const translations = {
     nav: {
       name: "Mohamed Yasser Mahdy",
       role: "Engineer",
-      links: ["About", "Work", "Skills", "Projects", "Contact"],
+      links: ["Try it live", "About", "Work", "Projects", "Contact"],
       languageLabel: "Switch to Arabic",
       languageShort: "AR",
       openMenu: "Open navigation menu",
@@ -308,7 +308,7 @@ export const translations = {
     nav: {
       name: "محمد ياسر مهدي",
       role: "مهندس برمجيات",
-      links: ["نبذة عني", "الخبرات", "المهارات", "المشاريع", "تواصل معي"],
+      links: ["جرّب بنفسك", "نبذة عني", "الخبرات", "المشاريع", "تواصل معي"],
       languageLabel: "التبديل إلى الإنجليزية",
       languageShort: "EN",
       openMenu: "فتح قائمة التنقل",
