@@ -9,7 +9,7 @@ const demos = [{
   id: "droosy",
   href: "https://droosy.runasp.net/",
   teacherImage: "/assets/demos/droosy-teacher-desktop.jpg",
-  studentImage: "/assets/demos/droosy-student.jpg",
+  studentImage: "/assets/demos/droosy-student-hq.jpg",
 }];
 
 const copy = {
@@ -63,20 +63,18 @@ function DemoPreview({ demo, labels }) {
   return (
     <div className={styles.previews}>
       <figure className={styles.teacherPreview}>
-        <figcaption><span className="sm:hidden">{labels.student}</span><span className="hidden sm:inline">{labels.teacher}</span></figcaption>
         <a href={demo.href} target="_blank" rel="noopener noreferrer" className={styles.previewLink} aria-label={`${labels.launch} · ${labels.preview} · ${labels.newTab}`}>
           <div className={styles.windowBar} aria-hidden="true"><span><i /><i /><i /></span><b>droosy.runasp.net</b></div>
           <picture>
-            <source media="(max-width: 639px)" srcSet={demo.studentImage} width={390} height={382} />
-            <Image src={demo.teacherImage} alt={labels.preview} width={480} height={552} sizes="(max-width: 639px) 90vw, (max-width: 1023px) 50vw, 330px" className={styles.screenshot} />
+            <source media="(max-width: 639px)" srcSet={demo.studentImage} width={440} height={342} />
+            <Image src={demo.teacherImage} alt={labels.preview} width={480} height={552} quality={95} sizes="(max-width: 639px) 90vw, (max-width: 1023px) 50vw, 330px" className={styles.screenshot} />
           </picture>
         </a>
       </figure>
       <figure className={styles.studentPreview}>
-        <figcaption>{labels.student}</figcaption>
         <a href={demo.href} target="_blank" rel="noopener noreferrer" className={styles.previewLink} aria-label={`${labels.launch} · ${labels.student} · ${labels.newTab}`}>
           <div className={styles.windowBar} aria-hidden="true"><span><i /><i /><i /></span><b>DROOSY</b></div>
-          <Image src={demo.studentImage} alt={`${labels.preview} · ${labels.student}`} width={390} height={382} sizes="(max-width: 1023px) 42vw, 280px" className={styles.screenshot} />
+          <Image src={demo.studentImage} alt={`${labels.preview} · ${labels.student}`} width={440} height={342} quality={95} sizes="(max-width: 1023px) 42vw, 280px" className={styles.screenshot} />
         </a>
       </figure>
     </div>
@@ -105,7 +103,7 @@ export default function ProjectDemos() {
                   <span className={styles.available}><i aria-hidden="true" />{labels.available}</span>
                   <h3 id={`demo-${demo.id}-title`} className={styles.name}>{project.name}</h3>
                   <p className={styles.category}>{project.category}</p>
-                  <p className="mt-4 text-sm leading-7 text-ctnSecondaryLight dark:text-ctnSecondaryDark sm:text-base sm:leading-8">{project.description}</p>
+                  <p className={`${styles.description} text-sm text-ctnSecondaryLight dark:text-ctnSecondaryDark sm:text-base`}>{project.description}</p>
                   <ul className={styles.features}>{project.features.map(feature => <li key={feature}><span aria-hidden="true">✓</span>{feature}</li>)}</ul>
                 </div>
                 <DemoPreview demo={demo} labels={labels} />
